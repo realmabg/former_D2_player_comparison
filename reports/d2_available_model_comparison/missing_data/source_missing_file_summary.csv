@@ -1,0 +1,9 @@
+source,path,rows
+barttorvik_outcome_missing,data/target_conference_barttorvik_outcomes_missing.csv,16
+evanmiya_target_missing,data/target_conference_evanmiya_missing_matches.csv,281
+massey_conference_unmatched,data/target_conference_massey_power_unmatched_after_fallback.csv,0
+wcc_d2_source_missing,data/wcc_d2_transfer_modeling_missing.csv,0
+mwc_d1_outcome_missing,data/mwc_d1_transfer_outcomes_missing.csv,2
+a10_d1_outcome_missing,data/a10_d1_transfer_outcomes_missing.csv,1
+aac_d1_outcome_missing,data/aac_d1_transfer_outcomes_missing.csv,1
+mvc_d1_outcome_missing,data/mvc_d1_transfer_outcomes_missing.csv,4

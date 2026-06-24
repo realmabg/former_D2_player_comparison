@@ -1,0 +1,282 @@
+side,player_name,season,team,source_level,target_conference,destination_school
+source,E.J. Anosike,2020-21,Tennessee,D1,Big West,Cal State Fullerton
+source,Hamad Mousa,2024-25,Dayton,D1,Big West,Cal Poly
+source,"Larry Hughes, Jr.",2024-25,Saint Louis,D1,Big West,Cal State Northridge
+source,"Marcus Adams, Jr.",2023-24,Brigham Young,D1,Big West,Cal State Northridge
+source,Devin Askew,2023-24,California,D1,Big West,Long Beach State
+source,Justin McKoy,2022-23,North Carolina,D1,Big West,Hawaii
+source,Lassina Traoré,2021-22,Saint Louis,D1,Big West,Long Beach State
+source,Chris Howell,2023-24,Saint Mary's,D1,Big West,UC San Diego
+source,Isaac Johnson,2024-25,Utah State,D1,Big West,Hawaii
+source,Derin Saran,2024-25,Stanford,D1,Big West,UC Irvine
+source,Marcus Wilson,2024-25,Washington State,D1,Big West,UC Davis
+source,Kamaka Hepa,2020-21,Texas,D1,Big West,Hawaii
+source,DeSean Allen-Eikens,2021-22,New Orleans,D1,Big West,Cal State Northridge
+source,Yohan Traore,2022-23,Auburn,D1,Big West,UC Santa Barbara
+source,Trevon Taylor,2020-21,James Madison,D1,Big West,Cal Poly
+source,Ty Johnson,2021-22,Loyola Chicago,D1,Big West,UC Davis
+target,J.P. Moorman II,2021-22,UC Riverside,D1,Big West,UC Riverside
+source,Kyle Owens,2021-22,Montana,D1,Big West,UC Riverside
+source,Dre Bullock,2024-25,South Dakota,D1,Big West,Hawaii
+source,Harrison Carrington,2024-25,Colorado,D1,Big West,UC Irvine
+source,Dionte Bostick,2021-22,Murray State,D1,Big West,Cal State Northridge
+source,Onyi Eyisi,2020-21,Fordham,D1,Big West,Cal State Northridge
+source,Jarred Hyder,2021-22,California,D1,Big West,Cal Poly
+source,Jordan Brinson,2022-23,Fresno State,D1,Big West,Cal State Northridge
+source,Colin Smith,2023-24,Vanderbilt,D1,Big West,UC Santa Barbara
+source,Kyle Evans,2023-24,Colorado State,D1,Big West,UC Irvine
+source,Justin Rochelin,2023-24,Oregon State,D1,Big West,UC San Diego
+source,B.J. Kolly,2024-25,Montana State,D1,Big West,UC Riverside
+source,Derrick Michael Xzavierro,2023-24,GCU,D1,Big West,Long Beach State
+target,Jacob Davison,2021-22,Cal Poly,D1,Big West,Cal Poly
+source,Luke Turner,2021-22,Wofford,D1,Big West,UC Riverside
+source,Emmanuel Tshimanga,2021-22,UC Irvine,D1,Big West,UC San Diego
+source,Max Murrell,2023-24,Stanford,D1,Big West,UC Santa Barbara
+source,A.J. George,2024-25,SMU,D1,Big West,Cal State Bakersfield
+source,Modestas Kancleris,2021-22,Creighton,D1,Big West,Cal State Bakersfield
+target,Modestas Kancleris,2022-23,Cal State Bakersfield,D1,Big West,Cal State Bakersfield
+source,Kobe Young,2023-24,Boise State,D1,Big West,Cal State Fullerton
+source,"Pierre Geneste, Jr.",2024-25,Fresno State,D1,Big West,Cal State Bakersfield
+source,Julien Franklin,2020-21,Oregon State,D1,Big West,Cal Poly
+target,Yacine Toumi,2025-26,Hawaii,D1,Big West,Hawaii
+source,Rikus Schulte,2023-24,Davidson,D1,Big West,UC Riverside
+source,Christian Gray,2020-21,Fresno State,D1,Big West,Cal State Northridge
+source,Ryan Rapp,2021-22,Washington State,D1,Big West,Hawaii
+target,Ryan Rapp,2022-23,Hawaii,D1,Big West,Hawaii
+source,Luka Tarlać,2023-24,Utah,D1,Big West,Cal Poly
+source,"Shay Johnson, Jr.",2024-25,San Diego State,D1,Big West,Long Beach State
+source,Jasman Sangha,2022-23,Texas A&M–Corpus Christi,D1,Big West,Cal State Northridge
+source,Kaleb Brown,2023-24,Missouri,D1,Big West,Cal State Fullerton
+source,Dearon Tucker,2021-22,Indiana State,D1,Big West,Cal State Northridge
+source,Aleks Szymczyk,2024-25,Charlotte,D1,Big West,Cal State Northridge
+target,Aleks Szymczyk,2025-26,Cal State Northridge,D1,Big West,Cal State Northridge
+target,Judson Martindale,2024-25,Cal State Northridge,D1,Big West,Cal State Northridge
+source,Paul Bizimana,2022-23,Eastern Illinois,D1,Big West,Cal Poly
+target,Lathaniel Bastian,2022-23,Cal State Fullerton,D2,Big West,Cal State Fullerton
+target,Miloš Vićentić,2024-25,UC San Diego,D2,Big West,UC San Diego
+target,Caleb McCarty,2025-26,Cal State Bakersfield,D1,Big West,Cal State Bakersfield
+target,Kieran Elliott,2024-25,Cal Poly,D2,Big West,Cal Poly
+target,Jalen Cooper,2023-24,Cal State Fullerton,D2,Big West,Cal State Fullerton
+target,Ethan Menzies,2024-25,Cal Poly,D2,Big West,Cal Poly
+source,Ben Shtolzberg,2022-23,Creighton,D1,Big West,UC Santa Barbara
+target,Denzel Hines,2025-26,UC Riverside,D1,Big West,UC Riverside
+source,Jared Barnett,2022-23,San Diego State,D1,Big West,Cal State Northridge
+source,Isaac Spears,2021-22,Montana State,D1,Big West,Cal Poly
+target,Isaac Spears,2022-23,Cal Poly,D1,Big West,Cal Poly
+target,Dylan Godfrey,2025-26,UC Riverside,D1,Big West,UC Riverside
+target,Jerome Palm,2024-25,Hawaii,D1,Big West,Hawaii
+target,Jalen Myers,2025-26,Hawaii,D1,Big West,Hawaii
+target,Sydney Shipp,2023-24,Cal State Fullerton,D2,Big West,Cal State Fullerton
+source,Festus Ndumanya,2023-24,Southern,D1,Big West,Cal State Northridge
+target,Festus Ndumanya,2024-25,Cal State Northridge,D1,Big West,Cal State Northridge
+source,Derek Sangster,2023-24,Princeton,D1,Big West,UC Davis
+target,Derek Sangster,2024-25,UC Davis,D1,Big West,UC Davis
+target,Chris Mitchell,2024-25,UC Santa Barbara,D2,Big West,UC Santa Barbara
+source,Daniel Tobiloba,2024-25,South Florida,D1,Big West,UC Riverside
+target,Daniel Tobiloba,2025-26,UC Riverside,D1,Big West,UC Riverside
+source,Matija Svetozarević,2021-22,Portland,D1,Big West,Hawaii
+target,Matija Svetozarević,2022-23,Hawaii,D1,Big West,Hawaii
+source,Jaxson Robinson,2021-22,Arkansas,D1,WCC,BYU
+target,Efton Reid,2022-23,Gonzaga,D1,WCC,Gonzaga
+source,Rick Issanza,2021-22,Oklahoma,D1,WCC,Loyola Marymount
+source,Dominick Harris,2022-23,Gonzaga,D1,WCC,Loyola Marymount
+source,Jan Vide,2023-24,UCLA,D1,WCC,Loyola Marymount
+source,Matar Diop,2023-24,Nebraska,D1,WCC,Loyola Marymount
+target,Matar Diop,2024-25,Loyola Marymount,D1,WCC,Loyola Marymount
+source,MJ Amey,2023-24,San Jose State,D1,WCC,Loyola Marymount
+target,MJ Amey,2024-25,Loyola Marymount,D1,WCC,Loyola Marymount
+source,Jalen Shelley,2024-25,Southern California,D1,WCC,Loyola Marymount
+target,Nakyel Shelton,2025-26,Loyola Marymount,D1,WCC,Loyola Marymount
+source,Rodney Brown,2024-25,Virginia Tech,D1,WCC,Loyola Marymount
+source,Rokas Jocius,2024-25,UCF,D1,WCC,Loyola Marymount
+source,Jorge Diaz Graham,2024-25,Pittsburgh,D1,WCC,Oregon State
+target,Malcolm Christie,2025-26,Oregon State,D1,WCC,Oregon State
+target,Stephen Olowoniyi,2025-26,Oregon State,D1,WCC,Oregon State
+source,Yaak Yaak,2023-24,New Mexico State,D1,WCC,Oregon State
+source,Burke Smith,2022-23,Boise State,D1,WCC,Pacific
+source,Jazz Gardner,2023-24,Nevada,D1,WCC,Pacific
+source,Kris Keinys,2023-24,Minnesota,D1,WCC,Pacific
+target,Kris Keinys,2024-25,Pacific,D1,WCC,Pacific
+source,Lamar Washington,2023-24,Texas Tech,D1,WCC,Pacific
+target,Alexis Marmolejos,2025-26,Pacific,D1,WCC,Pacific
+source,Isaac Jack,2024-25,Dayton,D1,WCC,Pacific
+source,Kajus Kublickas,2024-25,Florida,D1,WCC,Pacific
+source,KC Ibekwe,2024-25,Washington,D1,WCC,Pacific
+target,KC Ibekwe,2025-26,Pacific,D1,WCC,Pacific
+source,Boubacar Coulibaly,2021-22,Southern California,D1,WCC,Pepperdine
+target,Boubacar Coulibaly,2022-23,Pepperdine,D1,WCC,Pepperdine
+target,Alonso Faure,2024-25,Pepperdine,D1,WCC,Pepperdine
+target,Mike Saunders,2024-25,Pepperdine,D1,WCC,Pepperdine
+source,Stefan Todorovic,2023-24,San Francisco,D1,WCC,Pepperdine
+source,Zion Bethea,2023-24,Delaware,D1,WCC,Pepperdine
+source,Aaron Clark,2023-24,Wake Forest,D1,WCC,Pepperdine
+source,Pavle Stosic,2023-24,Gonzaga,D1,WCC,Pepperdine
+target,Preston Phillips,2025-26,Pepperdine,D1,WCC,Pepperdine
+source,Stefan Cicic,2024-25,Tulane,D1,WCC,Pepperdine
+source,Styles Phipps,2024-25,Grand Canyon,D1,WCC,Pepperdine
+source,Alden Applewhite,2021-22,Mississippi State,D1,WCC,Portland
+target,Joey St. Pierre,2022-23,Portland,D1,WCC,Portland
+source,Wyatt Lowell,2020-21,Brigham Young,D1,WCC,Portland
+target,Wyatt Lowell,2022-23,Portland,D1,WCC,Portland
+target,Alimamy Koroma,2023-24,Portland,D1,WCC,Portland
+source,Yuto Yamanouchi,2022-23,Lamar,D1,WCC,Portland
+target,Yuto Yamanouchi,2023-24,Portland,D1,WCC,Portland
+source,Jermaine Ballisager-Webb,2023-24,American,D1,WCC,Portland
+target,Jermaine Ballisager-Webb,2024-25,Portland,D1,WCC,Portland
+source,Mezziah Oakman,2023-24,UC Santa Barbara,D1,WCC,Portland
+target,Mezziah Oakman,2024-25,Portland,D1,WCC,Portland
+target,Riley Parker,2025-26,Portland,D1,WCC,Portland
+source,Ashton Hardaway,2023-24,Memphis,D1,WCC,Saint Mary's
+target,Ashton Hardaway,2024-25,Saint Mary's,D1,WCC,Saint Mary's
+source,Paulius Murauskas,2023-24,Arizona,D1,WCC,Saint Mary's
+target,Tony Duckett,2025-26,Saint Mary's,D1,WCC,Saint Mary's
+source,Deven Dahlke,2021-22,Drake,D1,WCC,San Diego
+target,Deven Dahlke,2022-23,San Diego,D1,WCC,San Diego
+target,Jaiden Delaire,2022-23,San Diego,D1,WCC,San Diego
+source,Seikou Sisoho Jawara,2021-22,Weber State,D1,WCC,San Diego
+target,Seikou Sisoho Jawara,2022-23,San Diego,D1,WCC,San Diego
+source,Colby Brooks,2023-24,Gonzaga,D1,WCC,San Diego
+target,Colby Brooks,2024-25,San Diego,D1,WCC,San Diego
+source,Juan Sebastian Gorosito,2024-25,Ball State,D1,WCC,San Diego
+target,Juan Sebastian Gorosito,2025-26,San Diego,D1,WCC,San Diego
+source,Saba Gigiberia,2021-22,Georgia Tech,D1,WCC,San Francisco
+target,Toni Rocak,2022-23,San Francisco,D1,WCC,San Francisco
+source,Malik Thomas,2022-23,Southern California,D1,WCC,San Francisco
+target,Robby Beasley,2023-24,San Francisco,D1,WCC,San Francisco
+target,Stefan Todorovic,2023-24,San Francisco,D1,WCC,San Francisco
+target,Jason Rivera-Torres,2024-25,San Francisco,D1,WCC,San Francisco
+source,Aidan Braccia,2024-25,Belmont,D1,WCC,San Francisco
+target,Aidan Braccia,2025-26,San Francisco,D1,WCC,San Francisco
+source,Mookie Cook,2024-25,Oregon,D1,WCC,San Francisco
+source,Brandin Podziemski,2021-22,Illinois,D1,WCC,Santa Clara
+target,Carlos Marshall,2022-23,Santa Clara,D1,WCC,Santa Clara
+source,Adama Bal,2022-23,Arizona,D1,WCC,Santa Clara
+source,Francisco Caffaro,2022-23,Virginia,D1,WCC,Santa Clara
+source,Carlos Stewart,2023-24,Louisiana State,D1,WCC,Santa Clara
+source,Aleksandar Gavalyugov,2024-25,Villanova,D1,WCC,Santa Clara
+target,Aleksandar Gavalyugov,2025-26,Santa Clara,D1,WCC,Santa Clara
+target,Juan Reyna,2025-26,Santa Clara,D1,WCC,Santa Clara
+source,Eemeli Yalaho,2024-25,Texas Tech,D1,WCC,Washington State
+target,Tredyn Christensen,2022-23,BYU,D2,WCC,BYU
+target,Alex Leiba,2024-25,Pepperdine,D2,WCC,Pepperdine
+target,Noah Jordan,2023-24,Portland,D2,WCC,Portland
+target,Elliyas Delaire,2022-23,San Diego,D2,WCC,San Diego
+source,Chibuzo Agbo,2021-22,Texas Tech,D1,Mountain West,Boise State
+source,Mohamed Sylla,2021-22,Detroit Mercy,D1,Mountain West,Boise State
+target,Mohamed Sylla,2022-23,Boise State,D1,Mountain West,Boise State
+source,Cam Martin,2022-23,Kansas,D1,Mountain West,Boise State
+target,Josiah Strong,2022-23,Colorado State,D1,Mountain West,Colorado State
+target,Javonte Johnson,2023-24,Colorado State,D1,Mountain West,Colorado State
+source,Keshawn Williams,2023-24,Northern Illinois,D1,Mountain West,Colorado State
+target,Nikola Djapa,2024-25,Colorado State,D1,Mountain West,Colorado State
+source,Carey Booth,2024-25,Illinois,D1,Mountain West,Colorado State
+source,Jase Butler,2024-25,Washington,D1,Mountain West,Colorado State
+target,Chuks Isitua,2022-23,Fresno State,D1,Mountain West,Fresno State
+source,Enoch Boakye,2022-23,Arizona State,D1,Mountain West,Fresno State
+source,Pierre Geneste,2022-23,Louisiana Tech,D1,Mountain West,Fresno State
+target,Pierre Geneste,2023-24,Fresno State,D1,Mountain West,Fresno State
+target,David Douglas,2024-25,Fresno State,D1,Mountain West,Fresno State
+source,Mor Seck,2023-24,Hawaii,D1,Mountain West,Fresno State
+source,Jac Mani,2024-25,UC Davis,D1,Mountain West,Fresno State
+target,Hunter McIntosh,2022-23,Nevada,D1,Mountain West,Nevada
+source,Tyler Powell,2021-22,Seton Hall,D1,Mountain West,Nevada
+target,Tyler Powell,2022-23,Nevada,D1,Mountain West,Nevada
+target,Tylan Pope,2023-24,Nevada,D1,Mountain West,Nevada
+source,Justin McBride,2023-24,Oklahoma State,D1,Mountain West,Nevada
+target,Isaiah Cottrell,2022-23,UNLV,D1,Mountain West,UNLV
+source,Shane Nowell,2021-22,Arizona,D1,Mountain West,UNLV
+target,Shane Nowell,2022-23,UNLV,D1,Mountain West,UNLV
+target,Jalen Hill,2023-24,UNLV,D1,Mountain West,UNLV
+target,Jace Whiting,2024-25,UNLV,D1,Mountain West,UNLV
+source,Julian Rishwain,2023-24,Florida,D1,Mountain West,UNLV
+source,Emmanuel Stephen,2024-25,Arizona,D1,Mountain West,UNLV
+target,Ladji Dembele,2025-26,UNLV,D1,Mountain West,UNLV
+target,Isaac Mushila,2023-24,New Mexico,D1,Mountain West,New Mexico
+source,Nelly Junior Joseph,2022-23,Iona,D1,Mountain West,New Mexico
+target,Nelly Junior Joseph,2023-24,New Mexico,D1,Mountain West,New Mexico
+source,Atiki Ally Atiki,2023-24,Brigham Young,D1,Mountain West,New Mexico
+target,Atiki Ally Atiki,2024-25,New Mexico,D1,Mountain West,New Mexico
+source,Filip Borovicanin,2023-24,Arizona,D1,Mountain West,New Mexico
+source,Ibrahima Sacko,2023-24,Georgia Tech,D1,Mountain West,New Mexico
+target,Ibrahima Sacko,2024-25,New Mexico,D1,Mountain West,New Mexico
+source,Antonio Chol,2023-24,Rutgers,D1,Mountain West,New Mexico
+target,Chris Howell,2025-26,New Mexico,D1,Mountain West,New Mexico
+source,JT Rock,2024-25,Iowa State,D1,Mountain West,New Mexico
+source,Kevin Patton,2024-25,Southern California,D1,Mountain West,New Mexico
+target,Kevin Patton,2025-26,New Mexico,D1,Mountain West,New Mexico
+source,Milos Vicentic,2024-25,UC San Diego,D1,Mountain West,New Mexico
+target,Milos Vicentic,2025-26,New Mexico,D1,Mountain West,New Mexico
+source,Reese Dixon-Waters,2022-23,Southern California,D1,Mountain West,San Diego State
+target,Reese Dixon-Waters,2023-24,San Diego State,D1,Mountain West,San Diego State
+target,Kimo Ferrari,2024-25,San Diego State,D1,Mountain West,San Diego State
+source,Robert Vaihola,2021-22,Fresno State,D1,Mountain West,San Jose State
+source,Adrame Diongue,2022-23,Washington State,D1,Mountain West,San Jose State
+target,Chol Marial,2024-25,San Jose State,D1,Mountain West,San Jose State
+source,Sadraque Nganga,2023-24,Seton Hall,D1,Mountain West,San Jose State
+source,Steven Vasquez,2023-24,Fresno State,D1,Mountain West,San Jose State
+target,Steven Vasquez,2024-25,San Jose State,D1,Mountain West,San Jose State
+source,Adrian Myers,2023-24,Mississippi State,D1,Mountain West,San Jose State
+target,JaVaughn Hannah,2025-26,San Jose State,D1,Mountain West,San Jose State
+target,Marcus Overstreet,2025-26,San Jose State,D1,Mountain West,San Jose State
+source,Daniel Akin,2021-22,California Baptist,D1,Mountain West,Utah State
+target,Daniel Akin,2022-23,Utah State,D1,Mountain West,Utah State
+source,Jackson Grant,2022-23,Washington,D1,Mountain West,Utah State
+target,Jackson Grant,2023-24,Utah State,D1,Mountain West,Utah State
+source,Max Agbonkpolo,2022-23,Wyoming,D1,Mountain West,Utah State
+target,Max Agbonkpolo,2023-24,Utah State,D1,Mountain West,Utah State
+target,Nigel Burris,2023-24,Utah State,D1,Mountain West,Utah State
+target,Braden Housley,2024-25,Utah State,D1,Mountain West,Utah State
+target,Luke Kearney,2025-26,Utah State,D1,Mountain West,Utah State
+source,Zach Keller,2024-25,Utah,D1,Mountain West,Utah State
+source,Jake Kyman,2021-22,UCLA,D1,Mountain West,Wyoming
+target,Jake Kyman,2022-23,Wyoming,D1,Mountain West,Wyoming
+target,Max Agbonkpolo,2022-23,Wyoming,D1,Mountain West,Wyoming
+source,Oleg Kojenets,2022-23,Nebraska,D1,Mountain West,Wyoming
+target,Oleg Kojenets,2023-24,Wyoming,D1,Mountain West,Wyoming
+target,Scottie Ebube,2024-25,Wyoming,D1,Mountain West,Wyoming
+source,Jared Harris,2024-25,Memphis,D1,Mountain West,Wyoming
+target,Jared Harris,2025-26,Wyoming,D1,Mountain West,Wyoming
+source,Angelo Brizzi,2022-23,Villanova,D1,Atlantic 10,Davidson
+source,Jarvis Moss,2022-23,Stanford,D1,Atlantic 10,Davidson
+target,Jarvis Moss,2023-24,Davidson,D1,Atlantic 10,Davidson
+source,Joe Hurlburt,2023-24,Colorado,D1,Atlantic 10,Davidson
+target,Joe Hurlburt,2024-25,Davidson,D1,Atlantic 10,Davidson
+source,"JaQualon ""JQ"" Roberts",2024-25,Vanderbilt,D1,Atlantic 10,Davidson
+target,"JaQualon ""JQ"" Roberts",2025-26,Davidson,D1,Atlantic 10,Davidson
+source,Richard Amaefule,2020-21,East Tennessee State,D1,Atlantic 10,Dayton
+target,Richard Amaefule,2022-23,Dayton,D1,Atlantic 10,Dayton
+target,Isaac Jack,2023-24,Dayton,D1,Atlantic 10,Dayton
+source,Nate Santos,2022-23,Pittsburgh,D1,Atlantic 10,Dayton
+target,Jacob Conner,2024-25,Dayton,D1,Atlantic 10,Dayton
+source,Bryce Heard,2024-25,NC State,D1,Atlantic 10,Dayton
+source,De'Shayne Montgomery,2024-25,Georgia,D1,Atlantic 10,Dayton
+source,Joseph Reece,2021-22,Bowling Green,D1,Atlantic 10,Duquesne
+target,Joseph Reece,2022-23,Duquesne,D1,Atlantic 10,Duquesne
+source,Dusan Mahorcic,2022-23,NC State,D1,Atlantic 10,Duquesne
+target,Dusan Mahorcic,2023-24,Duquesne,D1,Atlantic 10,Duquesne
+target,Hassan Drame,2023-24,Duquesne,D1,Atlantic 10,Duquesne
+source,Stef van Bussel,2023-24,Saint Louis,D1,Atlantic 10,Duquesne
+target,Stef van Bussel,2025-26,Duquesne,D1,Atlantic 10,Duquesne
+target,Jack Whitbourn,2025-26,Fordham,D1,Atlantic 10,Fordham
+source,Keyshawn Hall,2022-23,UNLV,D1,Atlantic 10,George Mason
+source,Desmond Watson,2022-23,Davidson,D1,Atlantic 10,Loyola Chicago
+target,Desmond Watson,2023-24,Loyola Chicago,D1,Atlantic 10,Loyola Chicago
+source,Dominick Harris,2024-25,UCLA,D1,Atlantic 10,Loyola Chicago
+target,Dominick Harris,2025-26,Loyola Chicago,D1,Atlantic 10,Loyola Chicago
+source,Kayde Dotson,2024-25,New Mexico,D1,Atlantic 10,Loyola Chicago
+source,Michael Meadows,2022-23,Portland,D1,Atlantic 10,Saint Louis
+target,Michael Meadows,2023-24,Saint Louis,D1,Atlantic 10,Saint Louis
+source,Kilian Brockhoff,2023-24,UC Santa Barbara,D1,Atlantic 10,Saint Louis
+target,Kilian Brockhoff,2024-25,Saint Louis,D1,Atlantic 10,Saint Louis
+source,Connor Odom,2022-23,Utah State,D1,Atlantic 10,VCU
+target,Connor Odom,2023-24,VCU,D1,Atlantic 10,VCU
+source,Ashton Hardaway,2024-25,St. Mary's (CA),D1,American,Memphis
+target,Will McClendon,2025-26,North Texas,D1,American,North Texas
+target,Jimmy Oladokun,2024-25,Rice,D1,American,Rice
+source,Jefferson Koulibaly,2021-22,Washington State,D1,American,SMU
+target,Jefferson Koulibaly,2022-23,SMU,D1,American,SMU
+source,Kolby King,2022-23,St. John's (NY),D1,American,Tulane
+target,Brian Amuneke,2025-26,Wichita State,D1,American,Wichita State
+source,Kael Combs,2023-24,Wyoming,D1,Missouri Valley,Drake
+source,Dylan Anderson,2024-25,Boise State,D1,Missouri Valley,Murray State
+target,Dylan Anderson,2025-26,Murray State,D1,Missouri Valley,Murray State

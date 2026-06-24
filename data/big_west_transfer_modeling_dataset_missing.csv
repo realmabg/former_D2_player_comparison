@@ -1,0 +1,135 @@
+player_name,player_slug,source_school,source_level,destination_school,first_big_west_season,missing_source_stats,missing_outcome_stats,reason
+Kaleb Higgins,kaleb-higgins,Holmes Community College,JUCO,Cal State Bakersfield,2021-22,TRUE,FALSE,missing_source_stats
+Juan Munoz,juan-munoz,Longwood,D1,Hawaii,2021-22,FALSE,TRUE,missing_big_west_outcome
+Jérôme Desrosiers,jrme-desrosiers,Princeton,D1,Hawaii,2021-22,TRUE,FALSE,missing_source_stats
+Devin Tillis,devin-tillis,UNLV,D1,UC Irvine,2021-22,FALSE,TRUE,missing_big_west_outcome
+Jhaylon Martinez,jhaylon-martinez,UNLV,D1,UC Riverside,2021-22,TRUE,FALSE,missing_source_stats
+Logan McLaughlin,logan-mclaughlin,Abilene Christian,D1,Cal Poly,2022-23,FALSE,TRUE,missing_big_west_outcome
+Marvin McGhee III,marvin-mcghee,South Georgia Technical College,JUCO,Cal State Bakersfield,2022-23,TRUE,FALSE,missing_source_stats
+Tom Mark,tom-mark,Tallahassee Community College,JUCO,Cal State Bakersfield,2022-23,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Keith Richard,keith-richard,South Plains College,JUCO,Cal State Fullerton,2022-23,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Zachary Visentin,zachary-visentin,Snow College,JUCO,Cal State Fullerton,2022-23,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Amari Stroud,amari-stroud,Allan Hancock College,JUCO,Long Beach State,2022-23,TRUE,FALSE,missing_source_stats
+Chayce Polynice,chayce-polynice,College of Southern Idaho,JUCO,Long Beach State,2022-23,TRUE,FALSE,missing_source_stats
+Pablo Tamba,pablo-tamba,Idaho State,D1,UC Davis,2022-23,FALSE,TRUE,missing_big_west_outcome
+Sam Manu,sam-manu,College of San Mateo,JUCO,UC Davis,2022-23,TRUE,FALSE,missing_source_stats
+Isaiah Moses,isaiah-moses,Alaska Anchorage,D2,UC Riverside,2022-23,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Vlad Salaridze,vladimer-salaridze,Eastern Florida State College,JUCO,UC Riverside,2022-23,TRUE,FALSE,missing_source_stats
+Evans Kipruto,evans-kipruto2,Barton Community College,JUCO,UC Santa Barbara,2022-23,TRUE,FALSE,missing_source_stats
+Mezziah Oakman,mezziah-oakman,City College of San Francisco,JUCO,UC Santa Barbara,2022-23,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Cam Malray,cameron-malray,Dodge City Community College,JUCO,Cal Poly,2023-24,TRUE,FALSE,missing_source_stats
+Joel Armotrading,joel-armotrading,College of Southern Idaho,JUCO,Cal Poly,2023-24,TRUE,FALSE,missing_source_stats
+C.J. Hardy,cj-hardy,West Los Angeles College,JUCO,Cal State Bakersfield,2023-24,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Cameron Clark,cam-clark,College of the Sequoias,JUCO,Cal State Bakersfield,2023-24,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Corey Stephenson,corey-stephenson,Northeast Mississippi Community College,JUCO,Cal State Bakersfield,2023-24,TRUE,FALSE,missing_source_stats
+Jaden Alexander,jaden-alexander,New Mexico State,D1,Cal State Bakersfield,2023-24,TRUE,FALSE,missing_source_stats
+LoLo Rudolph,lolo-rudolph,Hutchinson Community College,JUCO,Cal State Fullerton,2023-24,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+B.J. Comer,bj-comer,Ranger College,JUCO,Cal State Northridge,2023-24,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Jalen Barbee,jalen-barbee,Cochise College,JUCO,Cal State Northridge,2023-24,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Keonte Jones,keonte-jones,Midland College,JUCO,Cal State Northridge,2023-24,TRUE,FALSE,missing_source_stats
+Noah Williams,noah-williams2,Barton Community College,JUCO,Cal State Northridge,2023-24,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+P.J. Fuller II,pj-fuller,Washington,D1,Cal State Northridge,2023-24,FALSE,TRUE,missing_big_west_outcome
+Quincy McGriff,quincy-mcgriff,Duquesne,D1,Cal State Northridge,2023-24,FALSE,TRUE,missing_big_west_outcome
+Matthue Cotton,matthue-cotton,Yale,D1,Hawaii,2023-24,TRUE,FALSE,missing_source_stats
+Austin Johnson,austin-johnson2,North Carolina A&T,D1,Long Beach State,2023-24,FALSE,TRUE,missing_big_west_outcome
+Drew Carter,drew-carter,Colorado,D1,UC Davis,2023-24,TRUE,FALSE,missing_source_stats
+Marsalis Roberson,marsalis-roberson,California,D1,UC Davis,2023-24,FALSE,TRUE,missing_big_west_outcome
+Chip Brunt,chris-brunt,Gulf Coast State College,JUCO,UC Riverside,2023-24,TRUE,FALSE,missing_source_stats
+Clancy Bird,clancy-bird,Seattle,D1,UC Riverside,2023-24,TRUE,FALSE,missing_source_stats
+Gavin Davis,gavin-davis,West Los Angeles College,JUCO,UC Riverside,2023-24,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Guzmán Vasilić,guzmn-vasili,Southeastern Oklahoma State,D2,Cal Poly,2024-25,TRUE,FALSE,missing_source_stats
+Dylan Purnell,dylan-purnell,South Plains College,JUCO,Cal State Bakersfield,2024-25,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Gloire Goma,gloire-goma,Clarendon College,JUCO,Cal State Bakersfield,2024-25,TRUE,FALSE,missing_source_stats
+Jemel Jones,jemel-jones,South Suburban College,JUCO,Cal State Bakersfield,2024-25,TRUE,FALSE,missing_source_stats
+Marvin McGhee IV,marvin-mcghee-iv,Bishop State Community College,JUCO,Cal State Bakersfield,2024-25,TRUE,FALSE,missing_source_stats
+Shakiru Odunewu,shakiru-odunewu,West Valley College,JUCO,Cal State Bakersfield,2024-25,TRUE,FALSE,missing_source_stats
+Freddie Cooper,freddie-cooper,Moberly Area Community College,JUCO,Cal State Fullerton,2024-25,TRUE,FALSE,missing_source_stats
+Yesan Warren,yesan-warren,Frank Phillips College,JUCO,Cal State Fullerton,2024-25,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Christian Richardson,christian-richardson,Butler Community College,JUCO,Long Beach State,2024-25,TRUE,FALSE,missing_source_stats
+"Cory Curtis, Jr.",cory-curtis-jr,Independence Community College,JUCO,Long Beach State,2024-25,TRUE,FALSE,missing_source_stats
+"Ramel Lloyd, Jr.",ramel-lloyd-jr,Nebraska,D1,Long Beach State,2024-25,TRUE,FALSE,missing_source_stats
+Jamaal Unuakhalu,jamal-unuakhalu,Moorpark College,JUCO,UC Davis,2024-25,TRUE,FALSE,missing_source_stats
+Parker Strauss,parker-strauss,Northwestern,D1,UC Riverside,2024-25,TRUE,FALSE,missing_source_stats
+Jake Davis,jake-davis2,West Valley College,JUCO,Cal Poly,2025-26,TRUE,FALSE,missing_source_stats
+Davis White,davis-white,College of the Sequoias,JUCO,Cal State Fullerton,2025-26,TRUE,FALSE,missing_source_stats
+Davius Loury,davius-loury,John A. Logan College,JUCO,Cal State Northridge,2025-26,TRUE,FALSE,missing_source_stats
+Jai Chisolm,jai-chisolm,University of South Carolina Salkehatchie,JUCO,Cal State Northridge,2025-26,TRUE,FALSE,missing_source_stats
+"James Evans, Jr.",james-evans,UNLV,D1,Cal State Northridge,2025-26,TRUE,FALSE,missing_source_stats
+Naceiar Kirksey,naceiar-kirksey,Monroe College,JUCO,Cal State Northridge,2025-26,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Quinton Webb,quinton-webb,New Mexico,D1,Cal State Northridge,2025-26,FALSE,TRUE,missing_big_west_outcome
+Isaac Finlinson,isaac-finlinson,Snow College,JUCO,Hawaii,2025-26,TRUE,FALSE,missing_source_stats
+Tanner Cuff,tanner-cuff,Evansville,D1,Hawaii,2025-26,FALSE,TRUE,missing_big_west_outcome
+Christian Jones,christian-jones,Angelina College,JUCO,Long Beach State,2025-26,TRUE,FALSE,missing_source_stats
+Grant Gondrezick II,grant-gondrezick,Detroit Mercy,D1,Long Beach State,2025-26,FALSE,TRUE,missing_big_west_outcome
+Immanuel Lewis,immanuel-lewis,Atlantic Cape Community College,JUCO,Long Beach State,2025-26,TRUE,FALSE,missing_source_stats
+J.J. Chaikovsky,jj-chaikovsky,Cal State Northridge,D1,Long Beach State,2025-26,TRUE,FALSE,missing_source_stats
+"Cyril Franklin, Jr.",cyril-franklin,College of Southern Nevada,JUCO,UC Davis,2025-26,TRUE,FALSE,missing_source_stats
+Jonathan Noudjihidi,jonathan-noudjihidi,Coahoma Community College,JUCO,UC Davis,2025-26,TRUE,FALSE,missing_source_stats
+Ylan Esso-Essis,ylan-esso-essis,Modesto Junior College,JUCO,UC Davis,2025-26,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+E.J. Spillman,ej-spillman,College of the Sequoias,JUCO,UC Riverside,2025-26,TRUE,FALSE,missing_source_stats
+Dimitrije Vukićević,dimitrije-vukievi,Washington State,D1,UC San Diego,2025-26,TRUE,FALSE,missing_source_stats
+Trap Johnson,trap-johnson,Montana State,D1,UC San Diego,2025-26,TRUE,FALSE,missing_source_stats
+Tyson Dunn,tyson-dunn,Buffalo,D1,UC San Diego,2025-26,FALSE,TRUE,missing_big_west_outcome
+Hosana Kitenge,hosana-kitenge,Louisiana,D1,UC Santa Barbara,2025-26,TRUE,FALSE,missing_source_stats
+Anthony Moore,anthony-moore3,Weber State,D1,Cal Poly,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Bryce Cofield,bryce-cofield,Cal State Fullerton,D1,Cal State Bakersfield,2026-27,FALSE,TRUE,missing_big_west_outcome
+Cameron Barnes,cameron-barnes,Illinois State,D1,Cal State Bakersfield,2026-27,FALSE,TRUE,missing_big_west_outcome
+Chudi Dioramma,chudi-dioramma,Arkansas State,D1,Cal State Bakersfield,2026-27,FALSE,TRUE,missing_big_west_outcome
+E.J. Bryson,ej-bryson,Azusa Pacific,D2,Cal State Bakersfield,2026-27,FALSE,TRUE,missing_big_west_outcome
+"Kjay Bradley, Jr.",kevin-bradley-jr,San Diego,D1,Cal State Bakersfield,2026-27,FALSE,TRUE,missing_big_west_outcome
+Sean Pouedet,sean-pouedet,Dayton,D1,Cal State Bakersfield,2026-27,FALSE,TRUE,missing_big_west_outcome
+Zach Lee,zach-lee2,Loyola University New Orleans,NAIA,Cal State Bakersfield,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Andrew McConnell,andrew-mcconnell,Cumberland University,NAIA,Cal State Fullerton,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Malcolm Bell,malcolm-bell,Cal Poly Pomona,D2,Cal State Fullerton,2026-27,FALSE,TRUE,missing_big_west_outcome
+Marley Zeller,marley-zeller,Loyola Marymount,D1,Cal State Fullerton,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Matthew Willenborg,matthew-willenborg,Central Oklahoma,D2,Cal State Fullerton,2026-27,FALSE,TRUE,missing_big_west_outcome
+Rockwell Reynolds,rockwell-reynolds,Citrus College,JUCO,Cal State Fullerton,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Tiernan Stynes,tiernan-stynes,Quincy,D2,Cal State Fullerton,2026-27,FALSE,TRUE,missing_big_west_outcome
+B.J. Omot,bj-omot,California,D1,Cal State Northridge,2026-27,FALSE,TRUE,missing_big_west_outcome
+Brooklyn Hicks,brooklyn-hicks,Montana,D1,Cal State Northridge,2026-27,FALSE,TRUE,missing_big_west_outcome
+Caleb Smith,caleb-smith,Rider,D1,Cal State Northridge,2026-27,FALSE,TRUE,missing_big_west_outcome
+Daniel Culberson,daniel-culberson,Howard College,JUCO,Cal State Northridge,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Jael Martin,jael-martin,Loyola Marymount,D1,Cal State Northridge,2026-27,FALSE,TRUE,missing_big_west_outcome
+Kéziah Ekissi,kziah-ekissi,Oregon State,D1,Cal State Northridge,2026-27,FALSE,TRUE,missing_big_west_outcome
+Mikah Ballew,mikah-ballew,Portland,D1,Cal State Northridge,2026-27,FALSE,TRUE,missing_big_west_outcome
+Bol Dengdit,bol-dengdit,UC San Diego,D1,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+Chance Trujillo,chance-trujillo,Utah Tech,D1,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+Houran Dan,houran-dan,Seattle,D1,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+Jaden Matingou,jaden-matingou,Point Loma Nazarene,D2,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+Kellen Hampton,kellen-hampton,Pacific,D1,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+Manie Joses,mansie-joses,Davidson,D1,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+"Marcus Adams, Jr.",marcus-adams-jr,Arizona State,D1,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+Tiger Cuff,tiger-cuff,No College Stats,HS,Hawaii,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Zack Davidson,zack-davidson,Northern Arizona,D1,Hawaii,2026-27,FALSE,TRUE,missing_big_west_outcome
+Blake Bahr,blake-bahr,Snow College,JUCO,Long Beach State,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Brett Wright,brett-wright,Trevecca Nazarene,D2,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+Colin Ruffin,colin-ruffin,Missouri Southern,D2,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+Grgur Brčić,grgur-bri,Bucknell,D1,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+Henry Lau,henry-cody-lau,Pittsburgh,D1,Long Beach State,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Jack Payne,jack-payne,Idaho,D1,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+Jaden Tengan,jaden-tengan,Cal State Monterey Bay,D2,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+Kaleb Smith,kaleb-smith,GCU,D1,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+McCaden Adams,mccaden-adams,Snow College,JUCO,Long Beach State,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Noah Amenhauser,noah-amenhauser,Oregon State,D1,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+Yohann Sissoko,yohann-sissoko,Florida Atlantic,D1,Long Beach State,2026-27,FALSE,TRUE,missing_big_west_outcome
+Clarence Massamba,clarence-massamba,Tennessee,D1,UC Davis,2026-27,FALSE,TRUE,missing_big_west_outcome
+Veniamin Abosi,veniamin-abosi,San Francisco,D1,UC Davis,2026-27,FALSE,TRUE,missing_big_west_outcome
+Nils Cooper,nils-cooper,UC Davis,D1,UC Irvine,2026-27,FALSE,TRUE,missing_big_west_outcome
+Olivier Rioux,olivier-rioux,Florida,D1,UC Irvine,2026-27,FALSE,TRUE,missing_big_west_outcome
+Abraham Oyeadier,abraham-oyeadier,West Virginia,D1,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+Aidan Rice,aidan-rice,Western Washington,D2,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+Dallas Washington,dallas-washington,Long Beach State,D1,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+Devon Malcolm,devon-malcolm,California Baptist,D1,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+Easton Reagan,easton-reagan,Northwest Nazarene,D2,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+"James Evans, Jr.",james-evans,Cal State Northridge,D1,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+Tony Duckett,tony-duckett,Saint Mary's,D1,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+Tyus Parrish-Tillman,tyus-parrish-tillman,Biola,D2,UC Riverside,2026-27,FALSE,TRUE,missing_big_west_outcome
+Jordan Johnson,jordan-johnson8,Calhoun Community College,JUCO,UC San Diego,2026-27,TRUE,TRUE,missing_source_stats;missing_big_west_outcome
+Kayde Dotson,kayde-dotson,Loyola Chicago,D1,UC San Diego,2026-27,FALSE,TRUE,missing_big_west_outcome
+Olavi Suutela,olavi-suutela,Oregon State,D1,UC San Diego,2026-27,FALSE,TRUE,missing_big_west_outcome
+Rahmir Barno,rahmir-barno,Florida Gulf Coast,D1,UC San Diego,2026-27,FALSE,TRUE,missing_big_west_outcome
+Antonio Chol,antonio-chol,New Mexico,D1,UC Santa Barbara,2026-27,FALSE,TRUE,missing_big_west_outcome
+"Declan Duru, Jr.",declan-duru,Texas,D1,UC Santa Barbara,2026-27,FALSE,TRUE,missing_big_west_outcome
+Eric Dibami,eric-dibami,Florida International,D1,UC Santa Barbara,2026-27,FALSE,TRUE,missing_big_west_outcome
+R.J. Smith,rj-smith2,DePaul,D1,UC Santa Barbara,2026-27,FALSE,TRUE,missing_big_west_outcome
+Viljami Vartiainen,viljami-vartiainen,Weber State,D1,UC Santa Barbara,2026-27,FALSE,TRUE,missing_big_west_outcome

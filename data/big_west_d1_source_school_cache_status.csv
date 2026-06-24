@@ -1,0 +1,16 @@
+source_school,source_school_slug,expected_source_season,sports_reference_url,cache_path,player_count,matched_count,matched_players,missing_players,status
+Alabama A&M,alabama-a-m,2024-25,https://www.sports-reference.com/cbb/schools/alabama-am/men/2025.html,data/cache/sports_reference_source_schools/alabama-a-m_2025.html,1,0,,Dailin Smith,cached
+Cal State Northridge,cal-state-northridge,2024-25,https://www.sports-reference.com/cbb/schools/cal-state-northridge/men/2025.html,data/cache/sports_reference_source_schools/cal-state-northridge_2025.html,1,0,,J.J. Chaikovsky,cached
+California,california,2022-23,https://www.sports-reference.com/cbb/schools/california/men/2023.html,data/cache/sports_reference_source_schools/california_2023.html,1,0,,Jarred Hyder,cached
+Colorado,colorado,2022-23,https://www.sports-reference.com/cbb/schools/colorado/men/2023.html,data/cache/sports_reference_source_schools/colorado_2023.html,1,0,,Drew Carter,cached
+Louisiana,louisiana,2024-25,https://www.sports-reference.com/cbb/schools/louisiana-lafayette/men/2025.html,data/cache/sports_reference_source_schools/louisiana_2025.html,1,0,,Hosana Kitenge,cached
+Montana State,montana-state,2024-25,https://www.sports-reference.com/cbb/schools/montana-state/men/2025.html,data/cache/sports_reference_source_schools/montana-state_2025.html,1,0,,Trap Johnson,cached
+Nebraska,nebraska,2023-24,https://www.sports-reference.com/cbb/schools/nebraska/men/2024.html,data/cache/sports_reference_source_schools/nebraska_2024.html,1,0,,"Ramel Lloyd, Jr.",cached
+New Mexico State,new-mexico-state,2022-23,https://www.sports-reference.com/cbb/schools/new-mexico-state/men/2023.html,data/cache/sports_reference_source_schools/new-mexico-state_2023.html,1,0,,Jaden Alexander,cached
+Northwestern,northwestern,2023-24,https://www.sports-reference.com/cbb/schools/northwestern/men/2024.html,data/cache/sports_reference_source_schools/northwestern_2024.html,1,0,,Parker Strauss,cached
+Princeton,princeton,2020-21,https://www.sports-reference.com/cbb/schools/princeton/men/2021.html,data/cache/sports_reference_source_schools/princeton_2021.html,1,0,,Jérôme Desrosiers,http_404
+Seattle,seattle,2022-23,https://www.sports-reference.com/cbb/schools/seattle/men/2023.html,data/cache/sports_reference_source_schools/seattle_2023.html,1,0,,Clancy Bird,cached
+UNLV,unlv,2020-21,https://www.sports-reference.com/cbb/schools/nevada-las-vegas/men/2021.html,data/cache/sports_reference_source_schools/unlv_2021.html,1,0,,Jhaylon Martinez,cached
+UNLV,unlv,2024-25,https://www.sports-reference.com/cbb/schools/nevada-las-vegas/men/2025.html,data/cache/sports_reference_source_schools/unlv_2025.html,1,0,,"James Evans, Jr.",cached
+Washington State,washington-state,2024-25,https://www.sports-reference.com/cbb/schools/washington-state/men/2025.html,data/cache/sports_reference_source_schools/washington-state_2025.html,1,0,,Dimitrije Vukićević,cached
+Yale,yale,2022-23,https://www.sports-reference.com/cbb/schools/yale/men/2023.html,data/cache/sports_reference_source_schools/yale_2023.html,1,0,,Matthue Cotton,cached

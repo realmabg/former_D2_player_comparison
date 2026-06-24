@@ -1,0 +1,11 @@
+initial_tags,rows,mean_abs_error
+low_source_minutes,76,1.6673586721351712
+over_predicted_translation,36,3.4735155961391952
+under_predicted_breakout,33,3.3353670214800015
+real_prior_role_underweighted,19,3.3357812749626925
+negative_outcome_overpredicted,18,3.8211511088033308
+power_drop_breakout,8,3.3258639623787993
+star_outcome_missed,6,4.727422081558124
+large_jump_up_overvalued,5,3.7464161869059183
+scorer_overvalued,3,3.494972340170882
+d2_to_d1_translation_miss,2,3.94981611319952

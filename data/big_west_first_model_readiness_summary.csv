@@ -1,0 +1,9 @@
+metric,value
+model_ready_rows,125
+model_ready_d1_rows,97
+model_ready_d2_rows,28
+confirmed_exclusion_rows,44
+manual_check_rows,0
+next_action:exclude_or_mark_no_big_west_stats,10
+next_action:exclude_or_mark_no_source_stats,31
+next_action:exclude_out_of_first_model_scope,3

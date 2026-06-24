@@ -1,0 +1,3 @@
+run,rows_available,rows_used,source_level_counts,best_model,cv_mae,cv_rmse,cv_r2,cv_corr,baseline_mae,mae_gain,metrics_path
+previous_big_west_wcc,278,215,"{""D1"": 189, ""D2"": 26}",ridge_alpha_10,1.3611596281566363,1.7693003033585402,0.36605577892301877,0.6123795553691087,1.743595444812319,0.3824358166556827,data/target_conference_model_bpr_metrics_bpr_season_holdout_per40_core.json
+expanded_mwc_a10_aac_mvc,502,379,"{""D1"": 353, ""D2"": 26}",ridge_alpha_100,1.3419391152312359,1.688304718466247,0.4167146189304892,0.6461055320927392,1.7562408715185474,0.4143017562873115,data/target_conference_model_bpr_expanded_metrics_bpr_season_holdout_per40_core.json

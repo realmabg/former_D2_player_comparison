@@ -1,0 +1,216 @@
+player_name,player_slug,source_school,source_conference,source_level,destination_school,first_big_west_season,impact_score,big_west_bpr,outcome_tier,predicted_big_west_bpr,cv_predicted_big_west_bpr,prediction_error
+Braeden Smith,braeden smith,Colgate,Patriot,D1,Gonzaga,2025-26,58.98014440433214,5.3,Target-conference rotation,6.137051749253709,6.188039384365188,0.8880393843651886
+Malachi Smith,malachi smith,Chattanooga,Southern,D1,Gonzaga,2022-23,71.24548736462094,6.16,Target-conference starter/plus rotation,6.114775134437538,6.090563183476039,-0.06943681652396094
+Ryan Nembhard,ryan nembhard,Creighton,Big East,D1,Gonzaga,2023-24,96.04693140794224,6.41,Target-conference impact starter,5.844477385592388,5.83623691235323,-0.5737630876467703
+Miro Little,miro-little,Utah,Big XII,D1,UC Santa Barbara,2025-26,83.0956678700361,4.43,Target-conference impact starter,4.927355787444272,5.406298834116511,0.9762988341165109
+Jalen Warley,jalen warley,Florida State,ACC,D1,Gonzaga,2025-26,73.66425992779784,6.86,Target-conference starter/plus rotation,5.282227436694981,5.318719211289379,-1.5412807887106217
+Stephan Swenson,stephan-swenson,Stetson,ASUN,D1,UC Santa Barbara,2024-25,89.95487364620938,5.0,Target-conference impact starter,5.099003901889082,4.967707402079367,-0.03229259792063299
+Guillermo Diaz Graham,guillermo diaz graham,Pittsburgh,ACC,D1,San Francisco,2025-26,49.73826714801444,4.27,Target-conference rotation,4.382787752379407,4.886666106129,0.6166661061290002
+Tyon Grant-Foster,tyon grant foster,Grand Canyon,WAC,D1,Gonzaga,2025-26,74.6841155234657,4.44,Target-conference starter/plus rotation,4.3097229243266195,4.250842643703769,-0.18915735629623143
+Khalif Battle,khalif battle,Arkansas,SEC,D1,Gonzaga,2024-25,84.70216606498195,4.64,Target-conference impact starter,4.060030928130187,4.226499829434123,-0.41350017056587696
+Ty-Laur Johnson,ty laur johnson,Wake Forest,ACC,D1,San Diego,2025-26,72.82490974729242,1.49,Target-conference starter/plus rotation,3.682603716496031,3.9762625151580484,2.4862625151580486
+Tyrell Roberts,tyrell roberts,Washington State,Pac-12,D1,San Francisco,2022-23,95.9927797833935,3.78,Target-conference impact starter,3.525383572316048,3.6043453719713363,-0.1756546280286635
+Michael Ajayi,michael ajayi,Pepperdine,WCC,D1,Gonzaga,2024-25,62.59025270758123,4.18,Target-conference rotation,3.4365221588243005,3.5491892406225807,-0.630810759377419
+Emmanuel Innocenti,emmanuel innocenti,Tarleton State,WAC,D1,Gonzaga,2024-25,41.04693140794224,4.54,Limited target-conference role,3.8639505089139488,3.435044998752569,-1.104955001247431
+Eric Williams,eric williams,Oregon,Pac-12,D1,San Diego,2022-23,83.05054151624549,1.05,Target-conference impact starter,3.14336419352299,3.223369422708293,2.1733694227082934
+Rudi Williams,rudi williams,Coastal Carolina,Sun Belt,D1,BYU,2022-23,77.70758122743682,2.7,Target-conference starter/plus rotation,3.1543362813808016,3.1474856713812063,0.4474856713812061
+Jonathan Mogbo,jonathan mogbo,Missouri State,MVC,D1,San Francisco,2023-24,92.56317689530684,8.46,Target-conference impact starter,4.1424632417581115,3.061828005113225,-5.398171994886775
+Jaden Clayton,jaden clayton,Maine,AmEast,D1,Pacific,2025-26,74.33212996389892,3.44,Target-conference starter/plus rotation,2.760505103933405,3.0068890050085013,-0.43311099499149863
+Dez White,dez white,Missouri State,MVC,D1,Oregon State,2025-26,64.2870036101083,0.04,Target-conference rotation,2.5980576790936416,2.973032976140571,2.933032976140571
+Hunter Erickson,hunter-erickson,Utah,Big XII,D1,Hawaii,2025-26,76.05595667870035,1.54,Target-conference starter/plus rotation,2.5853925689967117,2.8978487910036685,1.3578487910036685
+Adam Miller,adam miller,Arizona State,Big 12,D1,Gonzaga,2025-26,60.478339350180505,2.89,Target-conference rotation,2.441951228155994,2.6933028726134265,-0.19669712738657363
+Landon Seaman,landon-seaman,Menlo,PacWest,D2,Cal State Fullerton,2025-26,67.05776173285199,0.67,Target-conference starter/plus rotation,1.0356569314124173,2.5214577896376187,1.8514577896376188
+Jorge Diaz Graham,jorge diaz graham,Pittsburgh,ACC,D1,Oregon State,2025-26,56.04693140794224,2.92,Target-conference rotation,2.0765096638558886,2.469619254511773,-0.4503807454882267
+Steele Venters,steele venters,Eastern Washington,Big Sky,D1,Gonzaga,2025-26,46.47111913357401,3.53,Target-conference rotation,2.3390883769850923,2.4327178051047986,-1.0972821948952012
+Michael Graham,michael graham,Elon,CAA,D1,Loyola Marymount,2022-23,48.42057761732852,2.73,Target-conference rotation,2.5180293569917587,2.3805451782340787,-0.34945482176592124
+Josh O'Garro,josh-ogarro,Texas State,Sun Belt,D1,Cal State Northridge,2025-26,68.0595667870036,1.64,Target-conference starter/plus rotation,1.9305036193865506,2.2314328456570522,0.5914328456570523
+David Fuchs,david fuchs,Rhode Island,A-10,D1,San Francisco,2025-26,76.7870036101083,1.89,Target-conference starter/plus rotation,1.9775231990508617,2.16449795919144,0.27449795919144004
+Mike Sharavjamts,mike sharavjamts,Dayton,A-10,D1,San Francisco,2023-24,70.11732851985559,2.72,Target-conference starter/plus rotation,2.150326206064605,2.159858021244961,-0.560141978755039
+Moe Odum,moe odum,Pacific,WCC,D1,Pepperdine,2024-25,89.1606498194946,4.4,Target-conference impact starter,2.601833656703903,2.0579815221869873,-2.342018477813013
+Marcus Williams,marcus williams,Texas A&M,SEC,D1,San Francisco,2022-23,61.79602888086643,2.3,Target-conference rotation,2.3977716386110925,2.0268957319404475,-0.27310426805955235
+Justin Rochelin,justin rochelin,UC San Diego,Big West,D1,Pacific,2025-26,73.6101083032491,1.4,Target-conference starter/plus rotation,2.1837537944050807,1.9998027844628474,0.5998027844628475
+Kenny Pohto,kenny-pohto,Wichita State,American,D1,UC Santa Barbara,2024-25,75.66787003610108,2.18,Target-conference starter/plus rotation,2.1512026323462763,1.9888326092604904,-0.19116739073950972
+Vukasin Masic,vukasin masic,Portland,WCC,D1,San Francisco,2025-26,36.04693140794224,-0.52,Limited target-conference role,1.7164690823773978,1.9631140244211447,2.4831140244211447
+Kieves Turner,kieves-turner,San Diego,West Coast,D1,UC Santa Barbara,2024-25,41.46209386281589,-0.87,Limited target-conference role,1.6954962904673019,1.925943172526783,2.795943172526783
+Jalen Shelley,jalen shelley,Southern California,Big Ten,D1,Loyola Marymount,2025-26,82.66245487364621,1.91,Target-conference impact starter,1.6263586543183934,1.8855415715477246,-0.024458428452275305
+Johnny O'Neil,johnny o neil,American,Patriot,D1,Santa Clara,2023-24,78.1317689530686,2.64,Target-conference starter/plus rotation,2.054839246042838,1.866053969590347,-0.773946030409653
+Kajus Kublickas,kajus kublickas,Florida,SEC,D1,Pacific,2025-26,34.05234657039711,-1.32,Limited target-conference role,0.9618955207501418,1.8250407920134921,3.145040792013492
+Leo Beath,leo-beath,Lynn,SSC,D2,UC San Diego,2025-26,76.76895306859207,0.97,Target-conference starter/plus rotation,1.7145818724417619,1.715049671872975,0.7450496718729751
+Mookie Cook,mookie cook,Oregon,Big Ten,D1,San Francisco,2025-26,57.43682310469315,1.59,Target-conference rotation,1.6515169575186603,1.631825494345705,0.04182549434570482
+Styles Phipps,styles phipps,Grand Canyon,WAC,D1,Pepperdine,2025-26,84.4494584837545,1.76,Target-conference impact starter,1.6621456487861668,1.625142254392655,-0.13485774560734498
+Mac Riniker,mac-riniker,Colorado Mesa,RMAC,D2,Cal Poly,2024-25,59.10649819494586,0.81,Target-conference rotation,1.1423070560508335,1.620186809919978,0.810186809919978
+Max Mackinnon,max mackinnon,Elon,CAA,D1,Portland,2024-25,75.71299638989169,1.88,Target-conference starter/plus rotation,1.4469603570326741,1.6183479150337199,-0.26165208496628
+Tanner Christensen,tanner-christensen,Utah Tech,WAC,D1,Hawaii,2024-25,74.8014440433213,3.2,Target-conference starter/plus rotation,1.9365531432123584,1.6138268237787634,-1.5861731762212368
+Andre Kelly,andre-kelly,California,PAC 12,D1,UC Santa Barbara,2022-23,68.88086642599278,1.71,Target-conference starter/plus rotation,1.5139680420627448,1.595465122188335,-0.11453487781166505
+Dominick Harris,dominick harris,Gonzaga,WCC,D1,Loyola Marymount,2023-24,73.30324909747293,0.76,Target-conference starter/plus rotation,1.4106944074704182,1.5905556851745337,0.8305556851745337
+"John Square, Jr.",john-square-jr,Fairleigh Dickinson,Northeast,D1,Cal State Fullerton,2022-23,25.37003610108303,1.64,Limited target-conference role,1.2358462855519652,1.5764161049689904,-0.06358389503100947
+Justin Ahrens,justin ahrens,Ohio State,Big Ten,D1,Loyola Marymount,2022-23,49.53068592057761,1.09,Target-conference rotation,2.06640277981384,1.573996334317693,0.48399633431769296
+Ben Shtolzberg,ben-shtolzberg,Creighton,Big East,D1,UC Santa Barbara,2023-24,15.992779783393502,-1.07,Limited target-conference role,1.2287024185586661,1.4905385628339671,2.560538562833967
+Javon Cooley,javon cooley,Marist,MAAC,D1,Pepperdine,2025-26,65.84837545126354,-0.51,Target-conference starter/plus rotation,0.5145302846373401,1.4903437651081166,2.0003437651081164
+Will Johnston,will johnston,Texas–Rio Grande Valley,WAC,D1,Loyola Marymount,2023-24,68.26714801444042,2.13,Target-conference starter/plus rotation,1.2663831422627903,1.4840090779915174,-0.6459909220084825
+Justice Hill,justice hill,Louisiana State,SEC,D1,Loyola Marymount,2023-24,61.48916967509025,0.99,Target-conference rotation,1.1883430486573678,1.4568009088102185,0.4668009088102185
+Justin Wright,justin wright,North Carolina Central,MEAC,D1,Loyola Marymount,2023-24,67.71660649819493,0.26,Target-conference starter/plus rotation,1.1319772711370186,1.428633241046816,1.168633241046816
+Jevon Porter,jevon porter,Pepperdine,WCC,D1,Loyola Marymount,2024-25,80.37906137184115,1.49,Target-conference impact starter,1.94722631391988,1.4139043896468406,-0.07609561035315937
+Assane Diop,assane diop,Colorado,Big 12,D1,San Diego,2025-26,36.01985559566787,-0.93,Limited target-conference role,0.5691200907362761,1.4066018123394626,2.3366018123394627
+Harrison Carrington,harrison-carrington,Colorado,Big XII,D1,UC Irvine,2025-26,59.92779783393502,0.59,Target-conference rotation,0.9528751549196763,1.3739244287279457,0.7839244287279458
+Joshua Ward,joshua-ward,Palm Beach Atlantic,SSC,D2,Cal State Fullerton,2025-26,86.94043321299638,1.52,Target-conference impact starter,1.1651732499680154,1.3231039720012574,-0.19689602799874262
+Aidan Mahaney,aidan-mahaney,Connecticut,Big East,D1,UC Santa Barbara,2025-26,83.62815884476534,0.93,Target-conference impact starter,1.1743570222936297,1.3109834349929739,0.3809834349929738
+Nils Cooper,nils-cooper,Pepperdine,West Coast,D1,UC Davis,2024-25,35.29783393501805,-0.08,Limited target-conference role,1.2691715560745207,1.3106932534439535,1.3906932534439536
+Ronald Jessamy,ronald-jessamy,Tennessee State,Ohio Valley,D1,Cal State Bakersfield,2025-26,56.380866425992785,0.24,Target-conference rotation,0.7304163360704037,1.2982089130114967,1.0582089130114967
+Rodney Brown,rodney brown,Virginia Tech,ACC,D1,Loyola Marymount,2025-26,80.56859205776172,1.05,Target-conference impact starter,1.1686230544285303,1.290320438308052,0.24032043830805194
+Gytis Nemeikša,gytis-nemeika,Xavier,Big East,D1,Hawaii,2024-25,77.23826714801444,2.47,Target-conference starter/plus rotation,1.246000644031675,1.2448196242987148,-1.2251803757012854
+Hayden Gray,hayden-gray,Azusa Pacific,PacWest,D2,UC San Diego,2023-24,87.27436823104694,2.18,Target-conference impact starter,1.2698796716437835,1.238316966669287,-0.9416830333307131
+Marvin McGhee IV,marvin-mcghee-iv,Cal State Bakersfield,Big West,D1,UC Santa Barbara,2025-26,61.48916967509025,2.17,Target-conference rotation,1.277842390528648,1.2303455679761572,-0.9396544320238427
+Kody Clouet,kody clouet,Southeastern Oklahoma State,GAC,D2,San Diego,2024-25,49.86462093862816,-2.03,Target-conference rotation,0.8027608808775095,1.2080761616068367,3.2380761616068368
+Owen Koonce,owen-koonce,Colorado Mesa,RMAC,D2,Cal Poly,2024-25,87.28339350180507,2.02,Target-conference impact starter,1.0967681135293674,1.203970557127757,-0.816029442872243
+Carlton Linguard,carlton linguard,UTSA,AAC,D1,San Francisco,2024-25,64.93682310469313,2.03,Target-conference rotation,1.6868301265710661,1.190585667459489,-0.8394143325405108
+Dionte Bostick,dionte-bostick,Murray State,Missouri Valley,D1,Cal State Northridge,2022-23,57.00361010830325,-2.64,Target-conference rotation,0.37546894626008975,1.1810496195711622,3.8210496195711623
+Keylan Boone,keylan boone,Oklahoma State,Big 12,D1,Pacific,2022-23,75.48736462093864,2.71,Target-conference starter/plus rotation,1.4955312636599158,1.1621514342451325,-1.5478485657548675
+Dre Bullock,quandre-bullock,South Dakota,Summit League,D1,Hawaii,2025-26,60.0,2.5,Target-conference rotation,1.4349682384319018,1.1572932485774956,-1.3427067514225044
+Elijah Fisher,elijah fisher,DePaul,Big East,D1,Pacific,2024-25,76.34476534296029,-0.87,Target-conference starter/plus rotation,0.5122860288870654,1.1561713675957948,2.026171367595795
+Paulius Murauskas,paulius murauskas,Arizona,Pac-12,D1,Saint Mary's,2024-25,85.62274368231049,4.58,Target-conference impact starter,1.3052585889273405,1.1398000905201977,-3.4401999094798024
+Luke Turner,luke-turner,Wofford,Southern,D1,UC Riverside,2022-23,44.13357400722021,0.81,Limited target-conference role,0.7775260009027226,1.1333779109182327,0.32337791091823265
+"Marqui Worthy, Jr.",marqui-worthy,Massachusetts,Atlantic 10,D1,UC Riverside,2025-26,79.26895306859205,-0.18,Target-conference starter/plus rotation,0.5056264874438301,1.1194413799518472,1.2994413799518472
+Dominique Ford,dominique ford,Southern Utah,WAC,D1,San Diego,2025-26,30.12635379061372,-1.24,Limited target-conference role,0.5964527392755803,1.1163849556966006,2.3563849556966003
+Petar Majstorović,petar-majstorovi,Syracuse,ACC,D1,Long Beach State,2025-26,87.19314079422384,2.52,Target-conference impact starter,1.2032832573835015,1.1039605901523402,-1.4160394098476599
+Adama Bal,adama bal,Arizona,Pac-12,D1,Santa Clara,2023-24,83.84476534296029,3.05,Target-conference impact starter,1.2582623963618302,1.096587313399533,-1.9534126866004669
+Nordin Kapić,nordin-kapi,Lynn,SSC,D2,UC San Diego,2024-25,72.44584837545128,2.21,Target-conference starter/plus rotation,1.1259727650860296,1.0697304994561794,-1.1402695005438206
+Jerone Morton,jerone morton,Morehead State,OVC,D1,Washington State,2025-26,62.47292418772563,0.97,Target-conference rotation,0.8132577407571023,1.0525784366044708,0.08257843660447084
+Jalen Benjamin,jalen benjamin,Mount St. Mary's,MAAC,D1,Santa Clara,2023-24,20.98375451263538,-0.86,Limited target-conference role,0.5325022294655571,1.049771714757933,1.909771714757933
+Alex Chaikin,alex-chaikin,Lafayette,Patriot League,D1,UC San Diego,2025-26,59.666064981949454,0.74,Target-conference rotation,0.7861438700140073,1.0485509203740326,0.30855092037403264
+Joel Murray,joel-murray,West Texas A&M,LSC,D2,Long Beach State,2021-22,87.66245487364621,1.5,Target-conference impact starter,1.138291552866817,1.018473757728086,-0.481526242271914
+Jordan Brinson,jordan-brinson,Fresno State,Mountain West,D1,Cal State Northridge,2023-24,52.98736462093863,0.92,Target-conference rotation,0.40258987202633323,1.0019963858404486,0.08199638584044855
+Isaac Jessup,isaac-jessup,Colorado Mesa,RMAC,D2,Cal Poly,2024-25,84.47653429602889,3.46,Target-conference impact starter,1.224038411575167,1.0007397336673542,-2.4592602663326457
+Fidelis Okereke,fidelis-okereke,Cal State Northridge,Big West,D1,Cal State Bakersfield,2023-24,32.54512635379061,-0.57,Limited target-conference role,1.102177118014425,0.9932774263850247,1.5632774263850246
+PJ Hayes,pj hayes,Black Hills State,RMAC,D2,San Diego,2023-24,68.53790613718411,0.98,Target-conference starter/plus rotation,0.9717526270586772,0.9829394327434662,0.002939432743466197
+Max Jones,max-jones,Tampa,SSC,D2,Cal State Fullerton,2022-23,88.20397111913357,1.8,Target-conference impact starter,0.9541469608451884,0.927205671044769,-0.872794328955231
+Matus Hronsky,matus hronsky,Duquesne,A-10,D1,Portland,2025-26,32.81588447653429,-1.18,Limited target-conference role,0.5805552405201312,0.8933339384260391,2.073333938426039
+Pierre Crockrell II,pierre-crockrell-ii,Pacific,West Coast,D1,UC Irvine,2022-23,48.33935018050541,1.96,Target-conference rotation,0.9140784959171385,0.8907255575822173,-1.0692744424177827
+Zion Richardson,zion-richardson,Quincy,GLVC,D2,Cal State Fullerton,2024-25,47.09386281588448,-0.02,Target-conference rotation,0.6093014211012135,0.8765955489227292,0.8965955489227292
+Gianni Hunt,gianni-hunt,Sacramento State,Big Sky,D1,Cal State Northridge,2023-24,61.60649819494586,-0.46,Target-conference rotation,0.593865270576711,0.8754468743384832,1.3354468743384833
+Tim Moore,tim moore,NJIT,AmEast,D1,San Diego,2025-26,31.155234657039713,-0.97,Limited target-conference role,0.29905274981262964,0.7730992273346142,1.7430992273346142
+Aniwaniwa Tait-Jones,aniwaniwa-tait-jones,Hawaii–Hilo,PacWest,D2,UC San Diego,2023-24,88.72743682310468,2.55,Target-conference impact starter,0.8679469688348704,0.7708179943813797,-1.7791820056186203
+Brayden Fagbemi,brayden-fagbemi,Central Arkansas,ASUN,D1,UC Davis,2025-26,67.20216606498195,1.79,Target-conference starter/plus rotation,0.9155246152907452,0.7526634400359119,-1.0373365599640882
+Kyle Evans,kyle-evans,Colorado State,Mountain West,D1,UC Irvine,2024-25,51.20036101083032,1.78,Target-conference rotation,0.283739531037145,0.7458990739069291,-1.034100926093071
+Lamar Washington,lamar washington,Texas Tech,Big 12,D1,Pacific,2024-25,73.79061371841155,0.69,Target-conference starter/plus rotation,0.7352684045676607,0.7448816737680442,0.054881673768044203
+Saba Gigiberia,saba gigiberia,Georgia Tech,ACC,D1,San Francisco,2022-23,29.530685920577618,1.41,Limited target-conference role,1.1799718805262231,0.7445776410220486,-0.6654223589779513
+Yonatan Levy,yonatan levy,Green Bay,Horizon,D1,Pepperdine,2025-26,37.49097472924188,-0.52,Limited target-conference role,0.3884658361006794,0.7382384111964736,1.2582384111964737
+Donovan Williams,donovan williams,Oklahoma State,Big 12,D1,Pacific,2022-23,45.379061371841146,-1.46,Target-conference rotation,0.7070174408162834,0.7282923932982427,2.1882923932982425
+Kaleb Brown,kaleb-brown,Missouri,SEC,D1,Cal State Fullerton,2024-25,26.597472924187723,-3.21,Limited target-conference role,-0.5530893948995053,0.7275102632653021,3.937510263265302
+TJ Wainwright,tj wainwright,Long Beach State,Big West,D1,Pacific,2025-26,80.92960288808665,0.84,Target-conference impact starter,0.7247795144005998,0.7247506312006304,-0.11524936879936953
+Isaac Johnson,isaac-johnson,Utah State,Mountain West,D1,Hawaii,2025-26,78.66425992779784,4.98,Target-conference starter/plus rotation,1.4745231676531476,0.7077495395699575,-4.272250460430043
+Carlos Stewart,carlos stewart,Louisiana State,SEC,D1,Santa Clara,2024-25,84.02527075812274,3.34,Target-conference impact starter,0.8405648522666929,0.7008819024188138,-2.639118097581186
+Chris Howell,chris-howell,Saint Mary's,West Coast,D1,UC San Diego,2024-25,80.71299638989169,3.49,Target-conference impact starter,0.7059706243237355,0.6886362465905287,-2.8013637534094715
+Kobe Young,kobe-young,Boise State,Mountain West,D1,Cal State Fullerton,2024-25,35.20758122743682,-3.56,Limited target-conference role,0.41259346607190994,0.6611502543321978,4.221150254332198
+Derrick Michael Xzavierro,derrick-michael-xzavierro,GCU,WAC,D1,Long Beach State,2024-25,47.418772563176894,-0.41,Target-conference rotation,0.9109095702212484,0.6518632202702513,1.0618632202702514
+A.J. George,aj-george,SMU,ACC,D1,Cal State Bakersfield,2025-26,37.5,-3.03,Limited target-conference role,0.45853153703090155,0.6168193721936377,3.6468193721936375
+Grady Lewis,grady-lewis,Cal State East Bay,CCAA,D2,Cal State Northridge,2024-25,31.71480144404332,-1.42,Limited target-conference role,0.12628095673886142,0.6108792672060396,2.0308792672060396
+Malik Thomas,malik thomas,Southern California,Pac-12,D1,San Francisco,2023-24,73.78158844765343,2.57,Target-conference starter/plus rotation,0.7983940144364041,0.5865504294615677,-1.9834495705384323
+Maximo Milovich,maximo-milovich,Biola,PacWest,D2,UC San Diego,2024-25,32.481949458483754,0.06,Limited target-conference role,0.4227379792352956,0.5769476908022799,0.5169476908022799
+Stefan Todorovic,stefan todorovic,San Francisco,WCC,D1,Pepperdine,2024-25,90.514440433213,1.62,Target-conference impact starter,1.0032733972352537,0.5727732168138785,-1.0472267831861215
+Jaxson Robinson,jaxson robinson,Arkansas,SEC,D1,BYU,2022-23,71.04693140794224,1.42,Target-conference starter/plus rotation,1.0203984128392403,0.5718150356755594,-0.8481849643244406
+Ethan Anderson,ethan anderson,Wyoming,MWC,D1,Pepperdine,2023-24,40.297833935018055,-0.55,Limited target-conference role,0.16490942500212102,0.5554229531206598,1.1054229531206599
+Tyeree Bryan,tyeree bryan,Charleston Southern,Big South,D1,Santa Clara,2023-24,62.95126353790614,1.4,Target-conference rotation,0.5232313394210484,0.5420662493182397,-0.8579337506817603
+Myles Che,myles-che,Chattanooga,Southern,D1,UC Irvine,2024-25,72.19314079422384,1.17,Target-conference starter/plus rotation,0.381406294698187,0.5368988730294226,-0.6331011269705773
+Noah Waterman,noah waterman,Detroit Mercy,Horizon,D1,BYU,2022-23,33.61010830324909,0.05,Limited target-conference role,0.3824204970631079,0.5278593332104776,0.47785933321047763
+Marcus Greene,marcus-greene2,Houston Christian,Southland,D1,Hawaii,2024-25,37.138989169675085,0.64,Limited target-conference role,0.405830593120155,0.4940018376878753,-0.1459981623121247
+E.J. Anosike,ej-anosike,Tennessee,SEC,D1,Cal State Fullerton,2021-22,94.61191335740072,3.23,Target-conference impact starter,0.6790069894216202,0.4858701725692012,-2.7441298274307986
+Justin McKoy,justin-mckoy,North Carolina,ACC,D1,Hawaii,2023-24,86.4350180505415,1.42,Target-conference impact starter,0.5149420818008045,0.48417418352203023,-0.9358258164779697
+Derin Saran,derin-saran,Stanford,ACC,D1,UC Irvine,2025-26,77.14801444043322,0.79,Target-conference starter/plus rotation,1.0896336067595764,0.4771614898014659,-0.31283851019853415
+Emanuel Prospere II,emanuel-prospere-ii,Missouri–St. Louis,GLVC,D2,UC San Diego,2025-26,62.211191335740075,3.26,Target-conference rotation,0.9420302888424774,0.4443543736996448,-2.815645626300355
+Jaden Henderson,jaden-henderson,Concordia Irvine,PacWest,D2,Cal State Fullerton,2025-26,38.682310469314075,-0.54,Limited target-conference role,0.18389374015338167,0.4271593477481068,0.9671593477481069
+Colin Smith,colin-smith,Vanderbilt,SEC,D1,UC Santa Barbara,2024-25,52.63537906137185,0.66,Target-conference rotation,0.5749189818277911,0.41702608275989966,-0.24297391724010037
+Jan Vide,jan vide,UCLA,Pac-12,D1,Loyola Marymount,2024-25,43.321299638989174,-0.35,Limited target-conference role,0.5530802174630404,0.41405383484824687,0.7640538348482468
+B.J. Kolly,bj-kolly,Montana State,Big Sky,D1,UC Riverside,2025-26,49.8826714801444,-0.98,Target-conference rotation,0.020719719567416472,0.40654160857353444,1.3865416085735345
+Isaac Jack,isaac jack,Dayton,A-10,D1,Pacific,2025-26,68.87184115523466,2.7,Target-conference starter/plus rotation,0.4825518685771939,0.35016949323198976,-2.3498305067680105
+"De'Undrae Perteete, Jr.",deundrae-perteete,Westmont,PacWest,D2,UC Riverside,2025-26,57.057761732851986,-0.42,Target-conference rotation,0.006570629566987618,0.3384396474821897,0.7584396474821897
+Tyler McGhie,tyler-mcghie,Southern Nazarene,GAC,D2,UC San Diego,2023-24,82.3736462093863,2.69,Target-conference impact starter,0.4948725561203258,0.3189630381006694,-2.3710369618993306
+Eemeli Yalaho,eemeli yalaho,Texas Tech,Big 12,D1,Washington State,2025-26,74.29602888086643,0.88,Target-conference starter/plus rotation,0.40936815710826546,0.3174596944137167,-0.5625403055862833
+Yohan Traore,yohan-traore,Auburn,SEC,D1,UC Santa Barbara,2023-24,71.26353790613717,-1.69,Target-conference starter/plus rotation,-0.07895757044002993,0.2911765904684632,1.981176590468463
+Joel Armotrading,joel-armotrading,Cal Poly,Big West,D1,UC Riverside,2024-25,56.832129963898915,1.75,Target-conference rotation,0.352337463375466,0.2656235507165752,-1.4843764492834248
+Isaiah Lewis,isaiah-lewis2,Little Rock,Ohio Valley,D1,Long Beach State,2025-26,36.20036101083033,-0.21,Limited target-conference role,0.33132812868441175,0.2596762268351819,0.46967622683518184
+Messiah Thompson,messiah-thompson,Alabama A&M,SWAC,D1,Long Beach State,2023-24,24.819494584837543,-1.88,Limited target-conference role,0.018670290251177057,0.2409477308081548,2.1209477308081546
+Noah Amenhauser,noah amenhauser,Coastal Carolina,Sun Belt,D1,Oregon State,2025-26,29.55776173285199,-1.03,Limited target-conference role,0.10079379102193764,0.18297140817434432,1.2129714081743443
+Beril Kabamba,beril-kabamba2,Spring Hill,SIAC,D2,Cal State Fullerton,2023-24,22.084837545126355,-3.55,Limited target-conference role,-0.2164452380503692,0.17589294717176063,3.7258929471717606
+Brandin Podziemski,brandin podziemski,Illinois,Big Ten,D1,Santa Clara,2022-23,99.6841155234657,6.78,Target-conference impact starter,1.3073960960704922,0.1742794440935551,-6.605720555906445
+Rikus Schulte,rikus-schulte,Davidson,Atlantic 10,D1,UC Riverside,2024-25,31.5884476534296,0.32,Limited target-conference role,0.3269301578777881,0.15993559402708502,-0.160064405972915
+Rokas Jocius,rokas jocius,UCF,Big 12,D1,Loyola Marymount,2025-26,25.234657039711195,-1.35,Limited target-conference role,0.07022428154679305,0.12741902825901907,1.4774190282590192
+Jarred Hyder,jarred-hyder,California,PAC 12,D1,Cal Poly,2023-24,52.418772563176894,-2.26,Target-conference rotation,-0.41274458178989804,0.11970844253579094,2.3797084425357906
+Toneari Lane,toneari lane,Georgia State,Sun Belt,D1,San Diego,2025-26,66.16425992779783,-0.47,Target-conference starter/plus rotation,0.3220814950457658,0.1169764841183123,0.5869764841183123
+Kamaka Hepa,kamaka-hepa,Texas,Big XII,D1,Hawaii,2021-22,72.75270758122744,1.74,Target-conference starter/plus rotation,0.44184287350122886,0.11443681833232966,-1.6255631816676703
+Burke Smith,burke smith,Boise State,MWC,D1,Pacific,2023-24,22.075812274368232,-3.68,Limited target-conference role,-0.6314161622978856,0.09897411622482732,3.7789741162248274
+Emmanuel Tshimanga,emmanuel-tshimanga,UC Irvine,Big West,D1,UC San Diego,2022-23,41.7870036101083,1.18,Limited target-conference role,0.40458447620405236,0.07342342255450462,-1.1065765774454954
+Justin Rochelin,justin-rochelin,Oregon State,PAC 12,D1,UC San Diego,2024-25,50.48736462093862,1.92,Target-conference rotation,0.03185056227793426,0.07139154486969113,-1.8486084551303088
+Paul Bizimana,paul-bizimana,Eastern Illinois,Ohio Valley,D1,Cal Poly,2023-24,21.23646209386282,-1.13,Limited target-conference role,-0.4320519185577627,0.05327995384415596,1.1832799538441559
+Bol Dengdit,bol-dengdit,Portland,West Coast,D1,UC San Diego,2025-26,68.1768953068592,0.78,Target-conference starter/plus rotation,0.09562418213666168,0.04655327481429061,-0.7334467251857094
+Devin Askew,devin-askew,California,PAC 12,D1,Long Beach State,2024-25,87.08483754512635,0.58,Target-conference impact starter,0.18656084933792372,0.04140473619447815,-0.5385952638055218
+Julien Franklin,julien-franklin,Oregon State,PAC 12,D1,Cal Poly,2021-22,33.85379061371841,-3.05,Limited target-conference role,-0.1238234251976047,0.03657742239421791,3.0865774223942175
+Ben Griscti,benjamin-griscti,Incarnate Word,Southland,D1,UC Riverside,2023-24,35.64079422382672,0.22,Limited target-conference role,0.280453026993169,0.023574992376754866,-0.19642500762324513
+Kyle Owens,kyle-owens,Montana,Big Sky,D1,UC Riverside,2022-23,66.84115523465704,0.75,Target-conference starter/plus rotation,-0.02149854163718601,0.01723289104192416,-0.7327671089580758
+Lassina Traoré,lassina-traor,Saint Louis,Atlantic 10,D1,Long Beach State,2022-23,83.50180505415163,2.85,Target-conference impact starter,0.9031976800091803,-0.005169479223799511,-2.8551694792237994
+Rob Diaz III,robert-diaz,Cal Poly Humboldt,CCAA,D2,Long Beach State,2025-26,66.11913357400722,0.57,Target-conference starter/plus rotation,-0.007533735337802661,-0.02600640199240367,-0.5960064019924036
+Mahmoud Fofana,mahmoud-fofana,Cal State San Bernardino,CCAA,D2,Cal State Northridge,2023-24,46.922382671480136,-1.47,Target-conference rotation,-0.009481260355607146,-0.03190128776632817,1.4380987122336717
+Jazz Gardner,jazz gardner,Nevada,MWC,D1,Pacific,2024-25,32.481949458483754,-2.37,Limited target-conference role,-0.5668252890101193,-0.05117778632337433,2.3188222136766257
+Lars Thiemann,lars thiemann,California,Pac-12,D1,Loyola Marymount,2023-24,55.415162454873645,0.02,Target-conference rotation,0.47477274235344347,-0.061006055328098885,-0.08100605532809889
+Dearon Tucker,dearon-tucker2,Indiana State,Missouri Valley,D1,Cal State Northridge,2022-23,24.8014440433213,-3.94,Limited target-conference role,-0.6427601532726612,-0.07937339831352141,3.8606266016864783
+Nick Fleming,nick-fleming,Southern Utah,WAC,D1,Cal Poly,2022-23,27.842960288808666,-0.43,Limited target-conference role,-0.2606825088693028,-0.10072400362913281,0.3292759963708672
+Dominic Brewton,dominic-brewton,Alcorn State,SWAC,D1,Cal State Fullerton,2023-24,89.54873646209386,0.53,Target-conference impact starter,-0.34421548304334415,-0.11403281076349181,-0.6440328107634918
+James O'Donnell,james o donnell,San Francisco,WCC,D1,Portland,2025-26,54.88267148014441,-0.34,Target-conference rotation,-0.6387377700922938,-0.1387728470563847,0.20122715294361532
+Isaiah Kerr,isaiah-kerr,Chico State,CCAA,D2,Hawaii,2025-26,51.68772563176896,0.15,Target-conference rotation,-0.18718447883488176,-0.16103895419255732,-0.31103895419255734
+Onyi Eyisi,onyi-eyisi,Fordham,Atlantic 10,D1,Cal State Northridge,2021-22,58.077617328519864,-0.42,Target-conference rotation,-0.1945779159904386,-0.1729854470016865,0.24701455299831349
+Andrew Henderson,andrew-henderson,Cal State San Bernardino,CCAA,D2,UC Riverside,2025-26,83.81768953068593,0.16,Target-conference impact starter,-0.0957084133593673,-0.17567207430530773,-0.33567207430530777
+Cameron Wilbon,cameron-wilbon,Sacramento State,Big Sky,D1,Cal State Bakersfield,2023-24,33.2942238267148,-1.55,Limited target-conference role,-0.5030159145728397,-0.22583211872342168,1.3241678812765785
+Hamad Mousa,hamad-mousa,Dayton,Atlantic 10,D1,Cal Poly,2025-26,92.85198555956678,2.08,Target-conference impact starter,-0.0016163033240562674,-0.27412497337819974,-2.3541249733782
+Christian Gray,christian-gray,Fresno State,Mountain West,D1,Cal State Northridge,2021-22,31.20036101083032,-2.33,Limited target-conference role,-0.31554877996676867,-0.27470218377097444,2.0552978162290256
+"Marcus Adams, Jr.",marcus-adams-jr,Brigham Young,Big XII,D1,Cal State Northridge,2024-25,88.971119133574,4.1,Target-conference impact starter,0.9435614126547505,-0.27857484851186265,-4.378574848511862
+Cam Denson,cam-denson,Pacific,West Coast,D1,Long Beach State,2024-25,24.223826714801444,-3.08,Limited target-conference role,-0.4247184112153497,-0.30397909226786424,2.7760209077321356
+Jailen Daniel-Dalton,jailen-daniel-dalton2,San Francisco State,CCAA,D2,UC Riverside,2025-26,43.95306859205776,-1.24,Limited target-conference role,-0.041364594913272046,-0.32034976134230886,0.9196502386576911
+Emmanuel Ugbo,emmanuel ugbo,Boise State,MWC,D1,Washington State,2025-26,36.931407942238266,-1.91,Limited target-conference role,-1.1453631835999714,-0.364592467450375,1.5454075325496248
+Francisco Caffaro,francisco caffaro,Virginia,ACC,D1,Santa Clara,2023-24,50.21660649819495,2.26,Target-conference rotation,0.3201013297548312,-0.4101143114799911,-2.670114311479991
+Jefferson De La Cruz Monegro,jefferson-monegro,Valparaiso,Missouri Valley,D1,Cal State Fullerton,2025-26,73.81768953068593,1.56,Target-conference starter/plus rotation,0.016495898187117164,-0.42919742849590603,-1.9891974284959062
+DeSean Allen-Eikens,desean-allen-eikens,New Orleans,Southland,D1,Cal State Northridge,2022-23,71.10108303249098,-1.51,Target-conference starter/plus rotation,-0.6056621900580474,-0.4587974820677383,1.0512025179322617
+Simon Hildebrandt,simon hildebrandt,High Point,Big South,D1,Washington State,2025-26,29.521660649819495,0.67,Limited target-conference role,-0.6543457270573978,-0.4825305703345616,-1.1525305703345616
+Pavle Stosic,pavle stosic,Gonzaga,WCC,D1,Pepperdine,2025-26,26.949458483754515,-0.74,Limited target-conference role,-0.8872552884096176,-0.5128348686118228,0.22716513138817718
+Jared Barnett,jared-barnett2,San Diego State,Mountain West,D1,Cal State Northridge,2023-24,15.108303249097474,-2.59,Limited target-conference role,-1.3600112424460797,-0.5167783872642145,2.0732216127357854
+Tyler Beard,tyler beard,Georgetown,Big East,D1,Pacific,2022-23,60.02707581227437,1.25,Target-conference rotation,0.20625631851566784,-0.5398816732373206,-1.7898816732373206
+Max Murrell,max-murrell,Stanford,PAC 12,D1,UC Santa Barbara,2024-25,41.41696750902528,-0.4,Limited target-conference role,0.06588763197511094,-0.5737196632197541,-0.17371966321975407
+Garrison Wade,garrison-wade,Dartmouth,Ivy,D1,Cal State Fullerton,2022-23,37.671480144404335,-0.06,Limited target-conference role,-0.4101216367383189,-0.6032982348881273,-0.5432982348881272
+Yaak Yaak,yaak yaak,New Mexico State,CUSA,D1,Oregon State,2025-26,40.42418772563177,-0.51,Limited target-conference role,-1.1066258781860785,-0.6102322937065062,-0.10023229370650621
+Caleb Stone-Carrawell,caleb stone carrawell,Utah Valley,WAC,D1,Loyola Marymount,2024-25,67.92418772563177,0.2,Target-conference starter/plus rotation,-0.5341021907268155,-0.6475896512096184,-0.8475896512096184
+Ty Johnson,ty-johnson2,Loyola Chicago,Atlantic 10,D1,UC Davis,2022-23,68.2129963898917,0.23,Target-conference starter/plus rotation,-0.13981339363415413,-0.6578768634079963,-0.8878768634079963
+Josiah Davis,josiah-davis,Niagara,MAAC,D1,Cal State Northridge,2025-26,75.62274368231047,0.53,Target-conference starter/plus rotation,-0.7088570308839186,-0.6787866990344672,-1.2087866990344671
+Shaquil Bender,shaquil-bender,Manhattan,MAAC,D1,Long Beach State,2025-26,38.82671480144404,-2.18,Limited target-conference role,-0.6629892245632771,-0.6899483559038592,1.490051644096141
+Vukasin Masic,vukasin masic,Maine,AmEast,D1,Portland,2023-24,72.31949458483754,-0.61,Target-conference starter/plus rotation,-0.9268846999672897,-0.7034743664052513,-0.09347436640525131
+Isa Silva,isael-silva,Stanford,PAC 12,D1,Long Beach State,2023-24,23.754512635379065,-3.56,Limited target-conference role,-1.226428036718287,-0.7691138691717309,2.790886130828269
+Luka Tarlać,luka-tarla,Utah,PAC 12,D1,Cal Poly,2024-25,28.222021660649816,-1.73,Limited target-conference role,-1.1192204050805756,-0.8101753671183343,0.9198246328816657
+Nic Lynch,nic lynch,Lehigh,Patriot,D1,San Diego,2022-23,24.882671480144403,-1.34,Limited target-conference role,-0.6079657531049045,-0.8552977363203786,0.48470226367962144
+Rick Issanza,rick issanza,Oklahoma,Big 12,D1,Loyola Marymount,2022-23,37.229241877256314,-1.72,Limited target-conference role,-0.9424672867979822,-0.8921958480716001,0.8278041519283998
+"Shay Johnson, Jr.",demarshay-johnson-jr,San Diego State,Mountain West,D1,Long Beach State,2025-26,27.120938628158846,-1.54,Limited target-conference role,-0.8586756662932524,-0.9424966377491938,0.5975033622508062
+Jordan Ivy-Curry,jordan ivy curry,UTSA,CUSA,D1,Pacific,2022-23,54.79241877256318,1.19,Target-conference rotation,-0.3416144519851976,-0.9462067187469119,-2.136206718746912
+Marcus Tsohonis,marcus-tsohonis,VCU,Atlantic 10,D1,Long Beach State,2022-23,53.60108303249097,-1.13,Target-conference rotation,-0.5781043653706517,-0.9493306366942811,0.1806693633057188
+Jasman Sangha,jasman-sangha,Texas A&M–Corpus Christi,Southland,D1,Cal State Northridge,2023-24,27.09386281588448,-1.04,Limited target-conference role,-0.7955388396812029,-0.9508147239618386,0.0891852760381614
+"Pierre Geneste, Jr.",pierre-geneste-jr,Fresno State,Mountain West,D1,Cal State Bakersfield,2025-26,35.351985559566785,-2.27,Limited target-conference role,-0.8225855659293864,-0.9714660710226609,1.298533928977339
+"Larry Hughes, Jr.",larry-hughes-jr,Saint Louis,Atlantic 10,D1,Cal State Northridge,2025-26,89.51263537906136,1.53,Target-conference impact starter,-0.19059193094368276,-1.1320285121641573,-2.6620285121641576
+Ethan Igbanugo,ethan-igbanugo,North Dakota,Summit League,D1,Cal State Northridge,2022-23,41.03790613718412,-2.25,Limited target-conference role,-1.2809131358604922,-1.2038102965715665,1.0461897034284335
+Tom Beattie,tom-beattie,Hawaii,Big West,D1,UC San Diego,2025-26,87.14801444043322,1.77,Target-conference impact starter,-0.7995537558670622,-1.222368920296435,-2.992368920296435
+Scotty Washington,scotty-washington,California Baptist,WAC,D1,Cal State Northridge,2024-25,77.43682310469313,1.15,Target-conference starter/plus rotation,-0.8252576052471592,-1.2238250417224885,-2.3738250417224886
+Lesown Hallums,lesown hallums,South Carolina State,MEAC,D1,Pacific,2023-24,21.886281588447655,-3.42,Limited target-conference role,-1.758694728513214,-1.234615982272079,2.185384017727921
+Marcus Wilson,marcus-wilson,Washington State,West Coast,D1,UC Davis,2025-26,72.24729241877256,1.54,Target-conference starter/plus rotation,-0.06472146190823103,-1.246482665983855,-2.786482665983855
+Jamal Hartwell II,jamal-hartwell-ii,George Mason,Atlantic 10,D1,UC Riverside,2022-23,52.355595667870034,-0.42,Target-conference rotation,-1.1283535543952126,-1.2933039142377019,-0.8733039142377019
+Chance Hunter,chance-hunter,California Baptist,WAC,D1,Cal Poly,2022-23,54.21480144404332,-2.13,Target-conference rotation,-1.27768611646081,-1.3709355103740903,0.7590644896259096
+Petar Krivokapic,petar krivokapic,Florida International,CUSA,D1,Pacific,2024-25,46.832129963898915,-2.2,Target-conference rotation,-1.5231876921240217,-1.3717842663918132,0.828215733608187
+T.J. Wainwright,tj-wainwright,Robert Morris,Horizon,D1,Long Beach State,2024-25,72.85198555956678,-0.25,Target-conference starter/plus rotation,-1.447313896699145,-1.3779148155435956,-1.1279148155435956
+"Carl Daughtery, Jr.",carl-daughtery-jr,Central Arkansas,ASUN,D1,UC Davis,2024-25,30.73104693140795,-3.43,Limited target-conference role,-1.895007887375094,-1.427386289891387,2.002613710108613
+Tyler Beard,tyler-beard,Pacific,West Coast,D1,Cal State Northridge,2024-25,46.3086642599278,1.33,Target-conference rotation,-0.9793183961966132,-1.441539281010679,-2.7715392810106794
+Dailin Smith,dailin-smith,Alabama A&M,SWAC,D1,Cal State Bakersfield,2025-26,66.1462093862816,-1.47,Target-conference starter/plus rotation,-1.4704044546251054,-1.4936690565240731,-0.02366905652407314
+Aaron Clark,aaron clark,Wake Forest,ACC,D1,Pepperdine,2025-26,71.84115523465704,0.29,Target-conference starter/plus rotation,-0.6921685352128355,-1.5731933937570926,-1.8631933937570926
+Trevon Taylor,trevon-taylor,James Madison,Sun Belt,D1,Cal Poly,2021-22,68.78158844765342,-0.11,Target-conference starter/plus rotation,-1.2878983153546333,-1.5811574380158289,-1.4711574380158288
+Bailey Nunn,bailey-nunn,Sacramento State,Big Sky,D1,Cal State Fullerton,2025-26,37.924187725631775,0.17,Limited target-conference role,-1.5923715744804579,-1.5922467948661194,-1.7622467948661193
+Cole Farrell,cole-farrell,Portland State,Big Sky,D1,Long Beach State,2025-26,33.041516245487365,-3.38,Limited target-conference role,-1.3469136557917785,-1.6451539458162996,1.7348460541837003
+Donovan Oday,donovan-oday,McNeese,Southland,D1,Cal State Fullerton,2023-24,43.294223826714806,1.22,Limited target-conference role,-1.547550533226132,-1.662243363768733,-2.8822433637687332
+Kane Milling,kane-milling,Nevada,Mountain West,D1,UC Davis,2021-22,60.48736462093863,-0.21,Target-conference rotation,-1.792225687243929,-1.8862232572140007,-1.6762232572140008
+Osiris Grady,osiris-grady,Utah Valley,WAC,D1,UC Riverside,2025-26,58.48375451263538,-2.23,Target-conference rotation,-2.133662202823874,-1.99456080422781,0.23543919577218997
+Judson Martindale,judson martindale,Holy Cross,Patriot,D1,Pacific,2022-23,41.13718411552347,-0.05,Limited target-conference role,-1.43566962839868,-2.044377317114248,-1.994377317114248
+Zion Bethea,zion bethea,Delaware,CAA,D1,Pepperdine,2024-25,41.25451263537906,-3.55,Limited target-conference role,-2.449281852860854,-2.131275892747703,1.418724107252297
+Alden Applewhite,alden applewhite,Mississippi State,SEC,D1,Portland,2022-23,46.08303249097473,0.89,Target-conference rotation,-0.9467568007291365,-3.4111062300909065,-4.301106230090906
+Stefan Cicic,stefan cicic,Tulane,AAC,D1,Pepperdine,2025-26,22.048736462093864,-3.11,Limited target-conference role,-2.7326652565846703,-3.8188157871945876,-0.7088157871945877

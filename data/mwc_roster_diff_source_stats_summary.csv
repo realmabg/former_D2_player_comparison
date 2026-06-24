@@ -1,0 +1,16 @@
+bucket,first_target_season,count
+d1_source_stats_found,2022-23,26
+d1_source_stats_found,2023-24,29
+d1_source_stats_found,2024-25,45
+d1_source_stats_found,2025-26,47
+exclude or check earlier playable season before adding,2022-23,7
+exclude or check earlier playable season before adding,2023-24,9
+exclude or check earlier playable season before adding,2024-25,12
+find D2 prior team and source-season stats from school/VC/official pages,2022-23,3
+find D2 prior team and source-season stats from school/VC/official pages,2023-24,4
+find D2 prior team and source-season stats from school/VC/official pages,2024-25,2
+find JUCO prior team and source-season stats from school/VC/official pages,2022-23,3
+find JUCO prior team and source-season stats from school/VC/official pages,2023-24,7
+find JUCO prior team and source-season stats from school/VC/official pages,2024-25,5
+manual review prior school/level,2022-23,3
+manual review prior school/level,2024-25,1

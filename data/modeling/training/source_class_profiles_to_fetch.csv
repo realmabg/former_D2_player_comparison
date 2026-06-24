@@ -1,0 +1,8 @@
+player_name,source_school,source_season,resolution_status,resolved_sports_reference_profile_url,match_method
+T.J. Wainwright,Robert Morris,2023-24,resolved_from_cached_roster,https://www.sports-reference.com/cbb/players/tj-wainwright-1.html,same_last_first_name_substring
+Josh O'Garro,Texas State,2024-25,resolved_from_cached_roster,https://www.sports-reference.com/cbb/players/josh-ogarro-1.html,same_last_first_name_substring
+Ronald Jessamy,Tennessee State,2024-25,resolved_from_cached_roster,https://www.sports-reference.com/cbb/players/ron-jessamy-1.html,same_last_first_name_substring
+B.J. Kolly,Montana State,2024-25,resolved_from_cached_roster,https://www.sports-reference.com/cbb/players/bj-kolly-1.html,same_last_first_name_substring
+Ben Griscti,Incarnate Word,2022-23,resolved_from_cached_roster,https://www.sports-reference.com/cbb/players/benjamin-griscti-1.html,same_last_first_name_substring
+"John Square, Jr.",Fairleigh Dickinson,2021-22,resolved_from_cached_roster,https://www.sports-reference.com/cbb/players/john-squarejr-1.html,same_first_similar_last
+Aleks Szymczyk,Charlotte,2024-25,resolved_from_cached_roster,https://www.sports-reference.com/cbb/players/aleksander-szymczyk-1.html,same_last_first_name_substring

@@ -1,0 +1,78 @@
+{
+  "target": "bpm",
+  "target_column": "big_west_bpm",
+  "target_label": "Big West BPM",
+  "validation": "season_holdout",
+  "validation_label": "GroupKFold by first_big_west_season (5 folds)",
+  "feature_set": "per40_core",
+  "min_big_west_mpg": 0.0,
+  "rows_available": 278,
+  "rows_used": 278,
+  "rows_before_minutes_filter": 278,
+  "rows_excluded_by_minutes_filter": 0,
+  "included_reasons": {
+    "d1_d2_model_scope": 278
+  },
+  "excluded_reasons": {},
+  "source_level_counts": {
+    "D1": 241,
+    "D2": 37
+  },
+  "massey_power_source": "data/massey_conference_power.csv",
+  "juco_policy": "include only rows with matched Massey conference power; none included if no power file/match exists",
+  "numeric_features": [
+    "height_in",
+    "weight_lbs",
+    "source_games",
+    "source_mpg",
+    "source_minutes_share",
+    "source_fg_pct",
+    "source_fg3_pct",
+    "source_ft_pct",
+    "source_efg_pct",
+    "source_ts_pct",
+    "source_three_rate",
+    "source_ft_rate",
+    "source_pts_per_40",
+    "source_reb_per_40",
+    "source_ast_per_40",
+    "source_stl_per_40",
+    "source_blk_per_40",
+    "source_tov_per_40",
+    "source_conf_power",
+    "destination_conf_power",
+    "conf_power_delta"
+  ],
+  "categorical_features": [
+    "position",
+    "source_level",
+    "source_conference"
+  ],
+  "baseline": {
+    "mae": 2.870233785852169,
+    "rmse": 4.3449598826162745,
+    "r2": -0.004889569474258559,
+    "corr": -0.07128652190805629
+  },
+  "best_trained_model": "elastic_net_a1_00_l10_05",
+  "best_trained_model_metrics": {
+    "cv_mae": 2.747208982793467,
+    "cv_rmse": 4.237961282810423,
+    "cv_r2": 0.04399367403234189,
+    "cv_corr": 0.21180303243588122,
+    "train_mae": 2.667728456652004,
+    "train_rmse": 4.147131483852111
+  },
+  "best_overall": "elastic_net_a1_00_l10_05",
+  "best_overall_status": "ok",
+  "best_overall_metrics": {
+    "cv_mae": 2.747208982793467,
+    "cv_rmse": 4.237961282810423,
+    "cv_r2": 0.04399367403234189,
+    "cv_corr": 0.21180303243588122,
+    "train_mae": 2.667728456652004,
+    "train_rmse": 4.147131483852111
+  },
+  "model_count": 33,
+  "successful_model_count": 32
+}

@@ -1,0 +1,117 @@
+first_target_season,destination_school,audit_status,count
+2021-22,Davidson,needs_prior_roster_cache,15
+2021-22,Dayton,needs_prior_roster_cache,15
+2021-22,Duquesne,needs_prior_roster_cache,13
+2021-22,Fordham,needs_prior_roster_cache,14
+2021-22,George Mason,needs_prior_roster_cache,14
+2021-22,George Washington,needs_prior_roster_cache,14
+2021-22,La Salle,needs_prior_roster_cache,16
+2021-22,Massachusetts,needs_prior_roster_cache,15
+2021-22,Rhode Island,needs_prior_roster_cache,12
+2021-22,Richmond,needs_prior_roster_cache,16
+2021-22,Saint Joseph's,needs_prior_roster_cache,14
+2021-22,Saint Louis,needs_prior_roster_cache,13
+2021-22,St. Bonaventure,needs_prior_roster_cache,12
+2021-22,VCU,needs_prior_roster_cache,13
+2022-23,Davidson,possible_transfer,3
+2022-23,Davidson,returning_or_freshman,11
+2022-23,Dayton,possible_transfer,1
+2022-23,Dayton,returning_or_freshman,14
+2022-23,Duquesne,possible_transfer,5
+2022-23,Duquesne,returning_or_freshman,10
+2022-23,Fordham,new_roster_player_needs_profile_check,7
+2022-23,Fordham,possible_transfer,1
+2022-23,Fordham,returning_or_freshman,8
+2022-23,George Mason,new_roster_player_needs_profile_check,15
+2022-23,George Washington,new_roster_player_needs_profile_check,12
+2022-23,George Washington,possible_transfer,1
+2022-23,La Salle,new_roster_player_needs_profile_check,10
+2022-23,La Salle,possible_transfer,2
+2022-23,La Salle,returning_or_freshman,1
+2022-23,Loyola Chicago,needs_prior_roster_cache,15
+2022-23,Massachusetts,new_roster_player_needs_profile_check,15
+2022-23,Rhode Island,new_roster_player_needs_profile_check,13
+2022-23,Richmond,new_roster_player_needs_profile_check,16
+2022-23,Saint Joseph's,new_roster_player_needs_profile_check,14
+2022-23,Saint Louis,new_roster_player_needs_profile_check,13
+2022-23,Saint Louis,returning_or_freshman,1
+2022-23,St. Bonaventure,new_roster_player_needs_profile_check,11
+2022-23,VCU,new_roster_player_needs_profile_check,13
+2023-24,Davidson,possible_transfer,2
+2023-24,Davidson,returning_or_freshman,14
+2023-24,Dayton,possible_transfer,5
+2023-24,Dayton,returning_or_freshman,11
+2023-24,Duquesne,possible_transfer,4
+2023-24,Duquesne,returning_or_freshman,14
+2023-24,Fordham,new_roster_player_needs_profile_check,8
+2023-24,Fordham,returning_or_freshman,7
+2023-24,George Mason,new_roster_player_needs_profile_check,12
+2023-24,George Mason,possible_transfer,1
+2023-24,George Washington,new_roster_player_needs_profile_check,13
+2023-24,George Washington,returning_or_freshman,1
+2023-24,La Salle,new_roster_player_needs_profile_check,12
+2023-24,La Salle,returning_or_freshman,1
+2023-24,Loyola Chicago,new_roster_player_needs_profile_check,15
+2023-24,Loyola Chicago,possible_transfer,1
+2023-24,Massachusetts,new_roster_player_needs_profile_check,14
+2023-24,Massachusetts,returning_or_freshman,1
+2023-24,Rhode Island,new_roster_player_needs_profile_check,15
+2023-24,Rhode Island,returning_or_freshman,1
+2023-24,Richmond,new_roster_player_needs_profile_check,16
+2023-24,Saint Joseph's,new_roster_player_needs_profile_check,15
+2023-24,Saint Louis,new_roster_player_needs_profile_check,11
+2023-24,Saint Louis,possible_transfer,1
+2023-24,Saint Louis,returning_or_freshman,2
+2023-24,St. Bonaventure,new_roster_player_needs_profile_check,14
+2023-24,VCU,new_roster_player_needs_profile_check,9
+2023-24,VCU,possible_transfer,3
+2024-25,Davidson,possible_transfer,3
+2024-25,Davidson,returning_or_freshman,11
+2024-25,Dayton,possible_transfer,4
+2024-25,Dayton,returning_or_freshman,12
+2024-25,Duquesne,possible_transfer,6
+2024-25,Duquesne,returning_or_freshman,6
+2024-25,Fordham,new_roster_player_needs_profile_check,12
+2024-25,Fordham,possible_transfer,1
+2024-25,Fordham,returning_or_freshman,2
+2024-25,George Mason,new_roster_player_needs_profile_check,15
+2024-25,George Washington,new_roster_player_needs_profile_check,15
+2024-25,La Salle,new_roster_player_needs_profile_check,14
+2024-25,Loyola Chicago,new_roster_player_needs_profile_check,14
+2024-25,Loyola Chicago,possible_transfer,1
+2024-25,Loyola Chicago,returning_or_freshman,1
+2024-25,Massachusetts,new_roster_player_needs_profile_check,12
+2024-25,Massachusetts,returning_or_freshman,1
+2024-25,Rhode Island,new_roster_player_needs_profile_check,10
+2024-25,Rhode Island,returning_or_freshman,1
+2024-25,Richmond,new_roster_player_needs_profile_check,14
+2024-25,Saint Joseph's,new_roster_player_needs_profile_check,12
+2024-25,Saint Louis,new_roster_player_needs_profile_check,13
+2024-25,Saint Louis,possible_transfer,1
+2024-25,Saint Louis,returning_or_freshman,1
+2024-25,St. Bonaventure,new_roster_player_needs_profile_check,14
+2024-25,VCU,new_roster_player_needs_profile_check,11
+2024-25,VCU,returning_or_freshman,1
+2025-26,Davidson,possible_transfer,4
+2025-26,Davidson,returning_or_freshman,12
+2025-26,Dayton,possible_transfer,5
+2025-26,Dayton,returning_or_freshman,11
+2025-26,Duquesne,possible_transfer,5
+2025-26,Duquesne,returning_or_freshman,13
+2025-26,Fordham,new_roster_player_needs_profile_check,12
+2025-26,Fordham,possible_transfer,4
+2025-26,George Mason,new_roster_player_needs_profile_check,16
+2025-26,George Washington,new_roster_player_needs_profile_check,14
+2025-26,George Washington,possible_transfer,1
+2025-26,La Salle,new_roster_player_needs_profile_check,17
+2025-26,Loyola Chicago,new_roster_player_needs_profile_check,14
+2025-26,Loyola Chicago,possible_transfer,2
+2025-26,Rhode Island,new_roster_player_needs_profile_check,16
+2025-26,Rhode Island,possible_transfer,1
+2025-26,Richmond,new_roster_player_needs_profile_check,15
+2025-26,Richmond,possible_transfer,1
+2025-26,Saint Joseph's,new_roster_player_needs_profile_check,16
+2025-26,Saint Louis,new_roster_player_needs_profile_check,16
+2025-26,Saint Louis,possible_transfer,1
+2025-26,St. Bonaventure,new_roster_player_needs_profile_check,15
+2025-26,VCU,new_roster_player_needs_profile_check,14

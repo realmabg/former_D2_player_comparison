@@ -1,0 +1,143 @@
+first_big_west_season,destination_school,audit_status,count
+2021-22,Cal Poly,already_in_transfer_table,3
+2021-22,Cal Poly,needs_prior_roster_cache,11
+2021-22,Cal State Bakersfield,already_in_transfer_table,1
+2021-22,Cal State Bakersfield,needs_prior_roster_cache,14
+2021-22,Cal State Fullerton,already_in_transfer_table,1
+2021-22,Cal State Fullerton,needs_prior_roster_cache,12
+2021-22,Cal State Northridge,already_in_transfer_table,2
+2021-22,Cal State Northridge,needs_prior_roster_cache,12
+2021-22,Hawaii,already_in_transfer_table,2
+2021-22,Hawaii,needs_prior_roster_cache,10
+2021-22,UC Davis,already_in_transfer_table,1
+2021-22,UC Davis,needs_prior_roster_cache,11
+2021-22,UC Irvine,needs_prior_roster_cache,14
+2021-22,UC Riverside,already_in_transfer_table,2
+2021-22,UC Riverside,needs_prior_roster_cache,12
+2022-23,Cal Poly,already_in_transfer_table,3
+2022-23,Cal Poly,new_roster_player_no_prior_school_on_cached_profile,3
+2022-23,Cal Poly,possible_missing_transfer,2
+2022-23,Cal State Bakersfield,already_in_transfer_table,2
+2022-23,Cal State Bakersfield,new_roster_player_no_prior_school_on_cached_profile,3
+2022-23,Cal State Bakersfield,possible_missing_transfer,1
+2022-23,Cal State Fullerton,already_in_transfer_table,2
+2022-23,Cal State Fullerton,new_roster_player_no_prior_school_on_cached_profile,4
+2022-23,Cal State Fullerton,possible_missing_transfer,3
+2022-23,Cal State Northridge,already_in_transfer_table,3
+2022-23,Cal State Northridge,new_roster_player_no_prior_school_on_cached_profile,4
+2022-23,Cal State Northridge,possible_missing_transfer,3
+2022-23,Hawaii,already_in_transfer_table,2
+2022-23,Hawaii,new_roster_player_no_prior_school_on_cached_profile,4
+2022-23,Long Beach State,already_in_transfer_table,4
+2022-23,Long Beach State,already_in_transfer_table_different_first_season,1
+2022-23,Long Beach State,needs_prior_roster_cache,8
+2022-23,UC Davis,already_in_transfer_table,2
+2022-23,UC Davis,new_roster_player_no_prior_school_on_cached_profile,3
+2022-23,UC Davis,possible_missing_transfer,3
+2022-23,UC Irvine,already_in_transfer_table,1
+2022-23,UC Irvine,already_in_transfer_table_different_first_season,1
+2022-23,UC Irvine,new_roster_player_no_prior_school_on_cached_profile,3
+2022-23,UC Irvine,possible_missing_transfer,2
+2022-23,UC Riverside,already_in_transfer_table,3
+2022-23,UC Riverside,new_roster_player_no_prior_school_on_cached_profile,2
+2022-23,UC Riverside,possible_missing_transfer,2
+2022-23,UC San Diego,already_in_transfer_table,1
+2022-23,UC San Diego,needs_prior_roster_cache,10
+2022-23,UC Santa Barbara,already_in_transfer_table,2
+2022-23,UC Santa Barbara,needs_prior_roster_cache,15
+2023-24,Cal Poly,already_in_transfer_table,4
+2023-24,Cal Poly,new_roster_player_no_prior_school_on_cached_profile,3
+2023-24,Cal Poly,possible_missing_transfer,1
+2023-24,Cal State Bakersfield,already_in_transfer_table,4
+2023-24,Cal State Bakersfield,already_in_transfer_table_different_first_season,1
+2023-24,Cal State Bakersfield,possible_missing_transfer,1
+2023-24,Cal State Fullerton,already_in_transfer_table,4
+2023-24,Cal State Fullerton,already_in_transfer_table_different_first_season,1
+2023-24,Cal State Fullerton,new_roster_player_no_prior_school_on_cached_profile,2
+2023-24,Cal State Fullerton,possible_missing_transfer,3
+2023-24,Cal State Northridge,already_in_transfer_table,6
+2023-24,Cal State Northridge,new_roster_player_no_prior_school_on_cached_profile,2
+2023-24,Hawaii,already_in_transfer_table,2
+2023-24,Hawaii,already_in_transfer_table_different_first_season,1
+2023-24,Hawaii,new_roster_player_no_prior_school_on_cached_profile,2
+2023-24,Long Beach State,already_in_transfer_table,1
+2023-24,Long Beach State,new_roster_player_no_prior_school_on_cached_profile,2
+2023-24,Long Beach State,possible_missing_transfer,1
+2023-24,UC Davis,already_in_transfer_table,1
+2023-24,UC Davis,already_in_transfer_table_different_first_season,1
+2023-24,UC Davis,new_roster_player_no_prior_school_on_cached_profile,1
+2023-24,UC Riverside,already_in_transfer_table,2
+2023-24,UC Riverside,already_in_transfer_table_different_first_season,1
+2023-24,UC Riverside,new_roster_player_no_prior_school_on_cached_profile,3
+2023-24,UC Riverside,possible_missing_transfer,1
+2023-24,UC Santa Barbara,already_in_transfer_table,2
+2023-24,UC Santa Barbara,already_in_transfer_table_different_first_season,1
+2023-24,UC Santa Barbara,new_roster_player_no_prior_school_on_cached_profile,2
+2023-24,UC Santa Barbara,possible_missing_transfer,1
+2024-25,Cal Poly,already_in_transfer_table,7
+2024-25,Cal Poly,already_in_transfer_table_different_first_season,1
+2024-25,Cal Poly,new_roster_player_no_prior_school_on_cached_profile,2
+2024-25,Cal Poly,possible_missing_transfer,1
+2024-25,Cal State Bakersfield,already_in_transfer_table,3
+2024-25,Cal State Bakersfield,already_in_transfer_table_different_first_season,1
+2024-25,Cal State Bakersfield,new_roster_player_no_prior_school_on_cached_profile,1
+2024-25,Cal State Bakersfield,possible_missing_transfer,2
+2024-25,Cal State Fullerton,already_in_transfer_table,4
+2024-25,Cal State Fullerton,already_in_transfer_table_different_first_season,1
+2024-25,Cal State Fullerton,new_roster_player_no_prior_school_on_cached_profile,1
+2024-25,Cal State Fullerton,possible_missing_transfer,1
+2024-25,Cal State Northridge,already_in_transfer_table,6
+2024-25,Cal State Northridge,already_in_transfer_table_different_first_season,1
+2024-25,Cal State Northridge,new_roster_player_no_prior_school_on_cached_profile,1
+2024-25,Cal State Northridge,possible_missing_transfer,3
+2024-25,Hawaii,already_in_transfer_table,4
+2024-25,Hawaii,new_roster_player_no_prior_school_on_cached_profile,4
+2024-25,Hawaii,possible_missing_transfer,1
+2024-25,Long Beach State,already_in_transfer_table,6
+2024-25,Long Beach State,already_in_transfer_table_different_first_season,1
+2024-25,Long Beach State,new_roster_player_no_prior_school_on_cached_profile,2
+2024-25,Long Beach State,possible_missing_transfer,2
+2024-25,UC Davis,already_in_transfer_table,3
+2024-25,UC Davis,already_in_transfer_table_different_first_season,1
+2024-25,UC Davis,new_roster_player_no_prior_school_on_cached_profile,2
+2024-25,UC Davis,possible_missing_transfer,1
+2024-25,UC Irvine,already_in_transfer_table,2
+2024-25,UC Irvine,already_in_transfer_table_different_first_season,1
+2024-25,UC Irvine,needs_prior_roster_cache,11
+2024-25,UC Riverside,already_in_transfer_table,3
+2024-25,UC Riverside,already_in_transfer_table_different_first_season,1
+2024-25,UC Riverside,new_roster_player_no_prior_school_on_cached_profile,1
+2024-25,UC San Diego,already_in_transfer_table,5
+2024-25,UC San Diego,already_in_transfer_table_different_first_season,3
+2024-25,UC San Diego,needs_prior_roster_cache,5
+2024-25,UC Santa Barbara,already_in_transfer_table,4
+2024-25,UC Santa Barbara,new_roster_player_no_prior_school_on_cached_profile,3
+2024-25,UC Santa Barbara,possible_missing_transfer,4
+2025-26,Cal Poly,already_in_transfer_table,2
+2025-26,Cal Poly,new_roster_player_no_prior_school_on_cached_profile,7
+2025-26,Cal State Bakersfield,already_in_transfer_table,3
+2025-26,Cal State Bakersfield,already_in_transfer_table_different_first_season,1
+2025-26,Cal State Bakersfield,new_roster_player_no_prior_school_on_cached_profile,3
+2025-26,Cal State Bakersfield,possible_missing_transfer,2
+2025-26,Cal State Fullerton,already_in_transfer_table,5
+2025-26,Cal State Fullerton,already_in_transfer_table_different_first_season,1
+2025-26,Cal State Fullerton,new_roster_player_no_prior_school_on_cached_profile,9
+2025-26,Cal State Northridge,already_in_transfer_table,6
+2025-26,Cal State Northridge,new_roster_player_no_prior_school_on_cached_profile,3
+2025-26,Cal State Northridge,possible_missing_transfer,2
+2025-26,Hawaii,already_in_transfer_table,7
+2025-26,Hawaii,new_roster_player_no_prior_school_on_cached_profile,1
+2025-26,Hawaii,possible_missing_transfer,1
+2025-26,Long Beach State,already_in_transfer_table,7
+2025-26,Long Beach State,new_roster_player_no_prior_school_on_cached_profile,4
+2025-26,Long Beach State,possible_missing_transfer,2
+2025-26,UC Davis,already_in_transfer_table,5
+2025-26,UC Davis,new_roster_player_no_prior_school_on_cached_profile,4
+2025-26,UC Irvine,already_in_transfer_table,2
+2025-26,UC Irvine,new_roster_player_no_prior_school_on_cached_profile,8
+2025-26,UC Riverside,already_in_transfer_table,8
+2025-26,UC Riverside,new_roster_player_no_prior_school_on_cached_profile,6
+2025-26,UC San Diego,already_in_transfer_table,8
+2025-26,UC San Diego,new_roster_player_no_prior_school_on_cached_profile,3
+2025-26,UC Santa Barbara,already_in_transfer_table,4
+2025-26,UC Santa Barbara,new_roster_player_no_prior_school_on_cached_profile,7

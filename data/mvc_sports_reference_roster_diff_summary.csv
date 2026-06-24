@@ -1,0 +1,80 @@
+first_target_season,destination_school,audit_status,count
+2021-22,Bradley,needs_prior_roster_cache,15
+2021-22,Drake,needs_prior_roster_cache,13
+2021-22,Evansville,needs_prior_roster_cache,11
+2021-22,Illinois State,needs_prior_roster_cache,15
+2021-22,Indiana State,needs_prior_roster_cache,13
+2021-22,Missouri State,needs_prior_roster_cache,11
+2021-22,Northern Iowa,needs_prior_roster_cache,13
+2021-22,Southern Illinois,needs_prior_roster_cache,13
+2021-22,Valparaiso,needs_prior_roster_cache,16
+2022-23,Belmont,needs_prior_roster_cache,14
+2022-23,Bradley,new_roster_player_needs_profile_check,16
+2022-23,Drake,new_roster_player_needs_profile_check,12
+2022-23,Evansville,new_roster_player_needs_profile_check,12
+2022-23,Evansville,possible_transfer,1
+2022-23,Evansville,returning_or_freshman,1
+2022-23,Illinois State,new_roster_player_needs_profile_check,15
+2022-23,Indiana State,new_roster_player_needs_profile_check,13
+2022-23,Missouri State,new_roster_player_needs_profile_check,12
+2022-23,Missouri State,possible_transfer,1
+2022-23,Murray State,needs_prior_roster_cache,13
+2022-23,Northern Iowa,new_roster_player_needs_profile_check,10
+2022-23,Northern Iowa,returning_or_freshman,2
+2022-23,Southern Illinois,new_roster_player_needs_profile_check,13
+2022-23,Southern Illinois,returning_or_freshman,1
+2022-23,UIC,needs_prior_roster_cache,11
+2022-23,Valparaiso,new_roster_player_needs_profile_check,14
+2022-23,Valparaiso,possible_transfer,1
+2023-24,Belmont,new_roster_player_needs_profile_check,11
+2023-24,Bradley,new_roster_player_needs_profile_check,14
+2023-24,Drake,new_roster_player_needs_profile_check,11
+2023-24,Drake,returning_or_freshman,1
+2023-24,Evansville,new_roster_player_needs_profile_check,14
+2023-24,Evansville,returning_or_freshman,2
+2023-24,Illinois State,new_roster_player_needs_profile_check,15
+2023-24,Indiana State,new_roster_player_needs_profile_check,13
+2023-24,Indiana State,returning_or_freshman,1
+2023-24,Missouri State,new_roster_player_needs_profile_check,13
+2023-24,Murray State,new_roster_player_needs_profile_check,12
+2023-24,Murray State,possible_transfer,1
+2023-24,Northern Iowa,new_roster_player_needs_profile_check,11
+2023-24,Northern Iowa,returning_or_freshman,2
+2023-24,Southern Illinois,new_roster_player_needs_profile_check,12
+2023-24,Southern Illinois,returning_or_freshman,1
+2023-24,UIC,new_roster_player_needs_profile_check,13
+2023-24,UIC,possible_transfer,1
+2023-24,Valparaiso,new_roster_player_needs_profile_check,11
+2023-24,Valparaiso,returning_or_freshman,1
+2024-25,Belmont,new_roster_player_needs_profile_check,12
+2024-25,Belmont,possible_transfer,1
+2024-25,Bradley,new_roster_player_needs_profile_check,16
+2024-25,Drake,new_roster_player_needs_profile_check,8
+2024-25,Drake,possible_transfer,2
+2024-25,Evansville,new_roster_player_needs_profile_check,15
+2024-25,Evansville,possible_transfer,1
+2024-25,Illinois State,new_roster_player_needs_profile_check,12
+2024-25,Indiana State,new_roster_player_needs_profile_check,14
+2024-25,Missouri State,new_roster_player_needs_profile_check,13
+2024-25,Missouri State,possible_transfer,1
+2024-25,Murray State,new_roster_player_needs_profile_check,13
+2024-25,Murray State,returning_or_freshman,1
+2024-25,Northern Iowa,new_roster_player_needs_profile_check,15
+2024-25,Southern Illinois,new_roster_player_needs_profile_check,11
+2024-25,UIC,new_roster_player_needs_profile_check,10
+2024-25,UIC,possible_transfer,2
+2024-25,Valparaiso,new_roster_player_needs_profile_check,14
+2024-25,Valparaiso,possible_transfer,1
+2025-26,Belmont,new_roster_player_needs_profile_check,15
+2025-26,Bradley,new_roster_player_needs_profile_check,15
+2025-26,Drake,new_roster_player_needs_profile_check,12
+2025-26,Drake,possible_transfer,1
+2025-26,Evansville,new_roster_player_needs_profile_check,15
+2025-26,Illinois State,new_roster_player_needs_profile_check,14
+2025-26,Indiana State,new_roster_player_needs_profile_check,16
+2025-26,Murray State,new_roster_player_needs_profile_check,12
+2025-26,Murray State,possible_transfer,3
+2025-26,Northern Iowa,new_roster_player_needs_profile_check,17
+2025-26,Southern Illinois,new_roster_player_needs_profile_check,14
+2025-26,UIC,new_roster_player_needs_profile_check,14
+2025-26,Valparaiso,new_roster_player_needs_profile_check,17

@@ -1,0 +1,18 @@
+Team,Conference,missing_players,players,reason,bucket
+Bridgeport,Central Athletic,4,"Malikai Delgado; Javelle Epps; Turone Kelley, Jr.; Glenn Manigault III",https://www.ubknights.com/sports/mbkb/2025-26/teams/bridgeport: html_with_tables; parsed 18 HTML tables but no matching player row found,priority_to_fix
+Dominican NY,Central Athletic,3,Juelz Dickerson; Nathaniel Wooden; Jeremiah Williams,https://www.chargerathletics.com/sports/mbkb/2025-26/teams/dominicanny: html_with_tables; parsed 18 HTML tables but no matching player row found,priority_to_fix
+Northwood MI,Great Midwest Athletic,3,Delos Rossell; Jacob Burgess; Jaiden Krynicki,https://www.gonorthwood.com/sports/mbkb/2025-26/teams/northwood?view=lineup: html_with_tables; parsed 6 HTML tables but no matching player row found,priority_to_fix
+St Thomas Aquinas,East Coast,2,Ky Panda-Massey; Elhadji Diop,https://stacathletics.com/sports/mens-basketball/stats: HTTP Error 404: Not Found,priority_to_fix
+Barton,Conference Carolinas,1,Owen Pederson,https://bartonbulldogs.com/sports/mens-basketball/stats/2025-26: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Chestnut Hill,Central Athletic,1,Argel Pettit IV,https://griffinathletics.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+District of Columbia,East Coast,1,Jalen Bradberry,https://udcfirebirds.com/sports/mens-basketball/stats: HTTP Error 404: Not Found,deferred_low_priority
+Edward Waters,Southern Intercollegiate Athletic,1,Cam Oates,https://ewutigerpride.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Elizabeth City State,Central Intercollegiate Athletic,1,Say'Quon Deas,https://ecsuvikings.com/sports/mens-basketball/stats: html_with_tables; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Erskine,Conference Carolinas,1,Raquavian Jones,https://erskinesports.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Ferrum,Conference Carolinas,1,A.J. Woodard,https://ferrumpanthers.com/sports/mens-basketball/stats: html_with_tables; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Jefferson,Central Athletic,1,Jake Nguyen,https://jeffersonrams.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Lake Erie,Great Midwest Athletic,1,Louis Connor,https://lakeeriestorm.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Newberry,South Atlantic,1,Matty Foor,https://newberrywolves.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+North Greenville,Conference Carolinas,1,Philip Layne,https://nguathletics.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 23 HTML tables but no matching player row found,deferred_low_priority
+Tusculum,South Atlantic,1,Lorenzo Sedita,https://tusculumpioneers.com/sports/mens-basketball/stats: HTTP Error 404: Not Found,deferred_low_priority
+Virginia Union,Central Intercollegiate Athletic,1,Jaron Walker,https://vuusports.com/sports/mens-basketball/stats: incapsula_protected_or_template_page; parsed 2 HTML tables but no matching player row found,deferred_low_priority

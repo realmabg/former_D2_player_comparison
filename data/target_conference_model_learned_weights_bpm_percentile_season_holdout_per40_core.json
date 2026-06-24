@@ -1,0 +1,23 @@
+{
+  "source_conference": 1.75,
+  "source_efg_pct": 1.347,
+  "source_fg_pct": 0.828,
+  "source_ft_pct": 0.428,
+  "source_stl_per_40": 0.411,
+  "source_pts_per_40": 0.345,
+  "source_level": 0.344,
+  "position": 0.33,
+  "source_ast_per_40": 0.327,
+  "weight_lbs": 0.303,
+  "source_tov_per_40": 0.296,
+  "source_minutes_share": 0.289,
+  "source_mpg": 0.289,
+  "height_in": 0.281,
+  "source_fg3_pct": 0.277,
+  "source_games": 0.273,
+  "source_blk_per_40": 0.261,
+  "source_reb_per_40": 0.26,
+  "source_ft_rate": 0.25,
+  "source_ts_pct": 0.25,
+  "source_three_rate": 0.25
+}

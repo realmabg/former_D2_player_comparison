@@ -1,0 +1,4 @@
+player_name,destination_school,first_big_west_season,exclude_from_porpag_training,reason
+Isaiah Cottrell,UNLV,2022-23,True,One-game target season; Bart has later UNLV/Southern Utah rows but no exact 2022-23 UNLV target row.
+Juan Reyna,Santa Clara,2025-26,True,"One-game target season; Bart screenshot/data is source Jackson State row, not Santa Clara target outcome."
+Mike Saunders,Pepperdine,2024-25,True,Bart target row has PORPAG but BPM fields blank; exclude from Bart/PORPAG training for consistency with threshold/coverage rule.

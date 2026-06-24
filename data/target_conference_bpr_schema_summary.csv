@@ -1,0 +1,5 @@
+metric,value
+rows,502
+rows_with_target_bpr,379
+rows_with_source_bpr,307
+rows_missing_evanmiya_join,0

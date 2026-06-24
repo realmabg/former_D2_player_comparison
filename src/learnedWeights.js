@@ -1,0 +1,16 @@
+export const LEARNED_WEIGHTS = {
+  "heightIn": 1.64,
+  "age": 0.56,
+  "minutesPct": 1.16,
+  "usagePct": 1.17,
+  "ptsPer40": 0.85,
+  "tsPct": 1.3,
+  "astPer40": 1.47,
+  "tovPer40": 0.42,
+  "rebPer40": 1.45,
+  "stlPer40": 1.75,
+  "blkPer40": 1.3,
+  "threePaRate": 1.44,
+  "threePct": 0.5,
+  "ftRate": 1.0
+};

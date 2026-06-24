@@ -1,0 +1,3 @@
+target_conference,first_target_season,destination_school,player_name,source_school_or_label,source_level,source_season,sports_reference_player_url,candidate_action,needed
+American,2024-25,Charlotte,Aleksander Szymczyk,Did not play - dnp,NO_STATS,2023-24,https://www.sports-reference.com/cbb/players/aleksander-szymczyk-1.html,do_not_use_without_earlier_playable_season,exclude or check earlier playable season before adding
+American,2024-25,South Florida,Jimmie Williams,Did not play - juco,JUCO,2023-24,https://www.sports-reference.com/cbb/players/jimmie-williams-1.html,add_transfer_row_and_find_juco_source_stats,find JUCO prior team and source-season stats from school/VC/official pages

@@ -1,0 +1,146 @@
+player_name,player_slug,source_school,source_conference,source_level,destination_school,first_big_west_season,impact_score,predicted_impact_score,cv_predicted_impact_score,prediction_error,projected_tier,outcome_tier
+Derin Saran,derin-saran,Stanford,ACC,D1,UC Irvine,2025-26,76.96180555555557,76.54866454988509,85.26489451336525,8.303088957809678,Big West impact starter,Big West starter/plus rotation
+Miro Little,miro-little,Utah,Big XII,D1,UC Santa Barbara,2025-26,81.00694444444446,80.46030167735998,80.04982410820485,-0.9571203362396119,Big West impact starter,Big West impact starter
+J.P. Moorman II,jp-moorman-ii,Temple,American,D1,UC Riverside,2021-22,65.27777777777779,67.09840031387334,73.19226172670766,7.91448394892987,Big West starter/plus rotation,Big West starter/plus rotation
+Kamaka Hepa,kamaka-hepa,Texas,Big XII,D1,Hawaii,2021-22,70.69444444444444,68.91112140564451,69.49550679843887,-1.1989376460055752,Big West starter/plus rotation,Big West starter/plus rotation
+Max Jones,max-jones,Tampa,SSC,D2,Cal State Fullerton,2022-23,88.24652777777777,74.89016555396987,69.4911740211892,-18.755353756588576,Big West starter/plus rotation,Big West impact starter
+Ben Shtolzberg,ben-shtolzberg,Creighton,Big East,D1,UC Santa Barbara,2023-24,15.03472222222222,63.637161989439065,69.36981910344062,54.3350968812184,Big West starter/plus rotation,Limited Big West role
+Stephan Swenson,stephan-swenson,Stetson,ASUN,D1,UC Santa Barbara,2024-25,89.44444444444444,72.71888366497188,69.05137082714907,-20.39307361729537,Big West starter/plus rotation,Big West impact starter
+Jordan Brinson,jordan-brinson,Fresno State,Mountain West,D1,Cal State Northridge,2023-24,51.440972222222214,57.26119817288123,68.73580174309305,17.294829520870834,Big West starter/plus rotation,Big West rotation
+Hunter Erickson,hunter-erickson,Utah,Big XII,D1,Hawaii,2025-26,76.54513888888889,71.73444952526842,67.68150032004051,-8.863638568848373,Big West starter/plus rotation,Big West starter/plus rotation
+Tyler McGhie,tyler-mcghie,Southern Nazarene,GAC,D2,UC San Diego,2023-24,80.38194444444444,64.90675301076206,65.8981100482031,-14.483834396241349,Big West starter/plus rotation,Big West impact starter
+Dre Bullock,quandre-bullock,South Dakota,Summit League,D1,Hawaii,2025-26,60.19097222222223,69.11755594921007,65.55936433190698,5.3683921096847484,Big West starter/plus rotation,Big West rotation
+"Larry Hughes, Jr.",larry-hughes-jr,Saint Louis,Atlantic 10,D1,Cal State Northridge,2025-26,90.13888888888889,69.69842701317695,65.41653370038424,-24.72235518850465,Big West starter/plus rotation,Big West impact starter
+Marvin McGhee IV,marvin-mcghee-iv,Cal State Bakersfield,Big West,D1,UC Santa Barbara,2025-26,59.18402777777778,67.4625852176292,65.22245817810037,6.038430400322589,Big West starter/plus rotation,Big West rotation
+Hayden Gray,hayden-gray,Azusa Pacific,PacWest,D2,UC San Diego,2023-24,86.89236111111111,69.81287988927647,65.09380184029382,-21.798559270817293,Big West starter/plus rotation,Big West impact starter
+Onyi Eyisi,onyi-eyisi,Fordham,Atlantic 10,D1,Cal State Northridge,2021-22,56.59722222222222,60.37623574799457,64.98567325710482,8.3884510348826,Big West rotation,Big West rotation
+Brayden Fagbemi,brayden-fagbemi,Central Arkansas,ASUN,D1,UC Davis,2025-26,65.13888888888889,68.77659431461245,64.83954747003104,-0.2993414188578498,Big West rotation,Big West starter/plus rotation
+Marcus Tsohonis,marcus-tsohonis,VCU,Atlantic 10,D1,Long Beach State,2022-23,52.482638888888886,66.33974883468514,64.07226840712086,11.589629518231973,Big West rotation,Big West rotation
+Joel Murray,joel-murray,West Texas A&M,LSC,D2,Long Beach State,2021-22,88.42013888888889,74.64456314553867,63.89542234700637,-24.52471654188252,Big West rotation,Big West impact starter
+Messiah Thompson,messiah-thompson,Alabama A&M,SWAC,D1,Long Beach State,2023-24,23.038194444444446,53.90079514804234,63.5662459971574,40.52805155271295,Big West rotation,Limited Big West role
+Yacine Toumi,yacine-toumi,Seton Hall,Big East,D1,Hawaii,2025-26,30.3125,57.90564732137109,63.22001449481008,32.90751449481008,Big West rotation,Limited Big West role
+Julien Franklin,julien-franklin,Oregon State,PAC 12,D1,Cal Poly,2021-22,32.5,57.19818255557286,62.72057621349048,30.22057621349048,Big West rotation,Limited Big West role
+Ethan Menzies,ethan-menzies,Colorado Mesa,RMAC,D2,Cal Poly,2024-25,15.520833333333336,46.93003376923672,62.589853704667306,47.06902037133397,Big West rotation,Limited Big West role
+Leo Beath,leo-beath,Lynn,SSC,D2,UC San Diego,2025-26,76.5625,70.17455865033557,62.251158867891924,-14.311341132108076,Big West rotation,Big West starter/plus rotation
+Jalen Cooper,jalen-cooper,Palm Beach Atlantic,SSC,D2,Cal State Fullerton,2023-24,18.15972222222222,49.36849599006823,61.64250444949385,43.48278222727163,Big West rotation,Limited Big West role
+Beril Kabamba,beril-kabamba2,Spring Hill,SIAC,D2,Cal State Fullerton,2023-24,20.48611111111111,54.66002250924497,61.621606099982536,41.13549498887143,Big West rotation,Limited Big West role
+Colin Smith,colin-smith,Vanderbilt,SEC,D1,UC Santa Barbara,2024-25,51.04166666666667,58.178982515122314,61.47286636445624,10.431199697789566,Big West rotation,Big West rotation
+Mac Riniker,mac-riniker,Colorado Mesa,RMAC,D2,Cal Poly,2024-25,56.70138888888889,56.872115914648745,61.05306221652177,4.351673327632874,Big West rotation,Big West rotation
+Alex Chaikin,alex-chaikin,Lafayette,Patriot League,D1,UC San Diego,2025-26,57.63888888888889,61.331735606764326,60.60069444016533,2.9618055512764343,Big West rotation,Big West rotation
+Tanner Christensen,tanner-christensen,Utah Tech,WAC,D1,Hawaii,2024-25,72.8125,63.16079310909621,59.74795531002541,-13.06454468997459,Big West rotation,Big West starter/plus rotation
+Joshua Ward,joshua-ward,Palm Beach Atlantic,SSC,D2,Cal State Fullerton,2025-26,86.75347222222221,65.08181036073641,59.44496505189426,-27.308507170327957,Big West rotation,Big West impact starter
+Jaden Henderson,jaden-henderson,Concordia Irvine,PacWest,D2,Cal State Fullerton,2025-26,36.579861111111114,58.79016733866135,59.306909199929194,22.72704808881808,Big West rotation,Limited Big West role
+Shaquil Bender,shaquil-bender,Manhattan,MAAC,D1,Long Beach State,2025-26,37.916666666666664,53.17436441780855,59.13242212488707,21.215755458220407,Big West rotation,Limited Big West role
+Miloš Vićentić,milo-vienti,McKendree,GLVC,D2,UC San Diego,2024-25,19.999999999999996,46.5487612920572,58.986383792660355,38.98638379266036,Big West rotation,Limited Big West role
+Aidan Mahaney,aidan-mahaney,Connecticut,Big East,D1,UC Santa Barbara,2025-26,85.64236111111111,65.30711910607211,58.47667203380888,-27.165689077302233,Big West rotation,Big West impact starter
+Bol Dengdit,bol-dengdit,Portland,West Coast,D1,UC San Diego,2025-26,66.12847222222223,57.431278052154205,58.338813494851365,-7.789658727370863,Big West rotation,Big West starter/plus rotation
+Jefferson De La Cruz Monegro,jefferson-monegro,Valparaiso,Missouri Valley,D1,Cal State Fullerton,2025-26,72.48263888888889,57.44985752754667,58.258041230094804,-14.224597658794082,Big West rotation,Big West starter/plus rotation
+Kaleb Brown,kaleb-brown,Missouri,SEC,D1,Cal State Fullerton,2024-25,24.479166666666664,49.93745482137509,58.211403944868394,33.73223727820173,Big West rotation,Limited Big West role
+Christian Gray,christian-gray,Fresno State,Mountain West,D1,Cal State Northridge,2021-22,29.40972222222222,51.22120133330778,57.52963167020302,28.119909447980795,Big West rotation,Limited Big West role
+Isaiah Lewis,isaiah-lewis2,Little Rock,Ohio Valley,D1,Long Beach State,2025-26,35.572916666666664,52.78471044670151,57.34023959301053,21.767322926343866,Big West rotation,Limited Big West role
+Marcus Greene,marcus-greene2,Houston Christian,Southland,D1,Hawaii,2024-25,35.520833333333336,55.49100091993914,57.26064107480128,21.739807741467942,Big West rotation,Limited Big West role
+Andre Kelly,andre-kelly,California,PAC 12,D1,UC Santa Barbara,2022-23,66.80555555555556,59.861769301853556,56.9879694482849,-9.817586107270657,Big West rotation,Big West starter/plus rotation
+Cole Farrell,cole-farrell,Portland State,Big Sky,D1,Long Beach State,2025-26,31.75347222222222,51.90606552434873,56.56477106765147,24.81129884542925,Big West rotation,Limited Big West role
+Gianni Hunt,gianni-hunt,Sacramento State,Big Sky,D1,Cal State Northridge,2023-24,61.770833333333336,57.057937290630846,56.25427876373999,-5.516554569593346,Big West rotation,Big West rotation
+Devin Askew,devin-askew,California,PAC 12,D1,Long Beach State,2024-25,88.21180555555556,62.534568794860576,55.86799939995413,-32.34380615560143,Big West rotation,Big West impact starter
+Judson Martindale,judson-martindale,Pacific,West Coast,D1,Cal State Northridge,2024-25,20.79861111111111,51.92345449039776,55.58313598336588,34.784524872254764,Big West rotation,Limited Big West role
+Yohan Traore,yohan-traore,Auburn,SEC,D1,UC Santa Barbara,2023-24,70.29513888888889,51.80933706092804,55.25667003424756,-15.038468854641323,Big West rotation,Big West starter/plus rotation
+"Marcus Adams, Jr.",marcus-adams-jr,Brigham Young,Big XII,D1,Cal State Northridge,2024-25,88.36805555555556,69.27385885159926,55.03850869689485,-33.329546858660706,Big West rotation,Big West impact starter
+Isaiah Kerr,isaiah-kerr,Chico State,CCAA,D2,Hawaii,2025-26,50.71180555555556,56.869984114901655,54.74871053622462,4.036904980669064,Big West rotation,Big West rotation
+Jamal Hartwell II,jamal-hartwell-ii,George Mason,Atlantic 10,D1,UC Riverside,2022-23,50.572916666666664,57.11437954668503,54.40666196208309,3.8337452954164277,Big West rotation,Big West rotation
+Osiris Grady,osiris-grady,Utah Valley,WAC,D1,UC Riverside,2025-26,57.74305555555556,49.53577038679332,54.34286907217093,-3.40018648338463,Big West rotation,Big West rotation
+Kane Milling,kane-milling,Nevada,Mountain West,D1,UC Davis,2021-22,59.548611111111114,51.816911563788594,54.330210589369585,-5.218400521741529,Big West rotation,Big West rotation
+"Marqui Worthy, Jr.",marqui-worthy,Massachusetts,Atlantic 10,D1,UC Riverside,2025-26,79.51388888888889,60.41063529862177,54.142487128437466,-25.37140176045142,Big West rotation,Big West starter/plus rotation
+Harrison Carrington,harrison-carrington,Colorado,Big XII,D1,UC Irvine,2025-26,57.96875000000001,58.36578096847752,54.10259335860143,-3.8661566413985753,Big West rotation,Big West rotation
+Andrew Henderson,andrew-henderson,Cal State San Bernardino,CCAA,D2,UC Riverside,2025-26,85.01736111111111,55.77765091362305,54.01406057762936,-31.003300533481756,Big West rotation,Big West impact starter
+Chance Hunter,chance-hunter,California Baptist,WAC,D1,Cal Poly,2022-23,53.454861111111114,52.493349769322215,53.560913697367255,0.10605258625614056,Big West rotation,Big West rotation
+Rob Diaz III,robert-diaz,Cal Poly Humboldt,CCAA,D2,Long Beach State,2025-26,63.80208333333333,56.738464247964984,53.257176589328736,-10.544906744004592,Big West rotation,Big West rotation
+Kieves Turner,kieves-turner,San Diego,West Coast,D1,UC Santa Barbara,2024-25,40.10416666666667,57.12951456263713,53.20013524903118,13.095968582364506,Big West rotation,Limited Big West role
+Josh O'Garro,josh-ogarro,Texas State,Sun Belt,D1,Cal State Northridge,2025-26,70.32986111111111,58.21062823238854,52.85418059679999,-17.475680514311122,Big West rotation,Big West starter/plus rotation
+Tom Beattie,tom-beattie,Hawaii,Big West,D1,UC San Diego,2025-26,86.57986111111111,56.84882165116264,52.534673907196556,-34.04518720391456,Big West rotation,Big West impact starter
+Pierre Crockrell II,pierre-crockrell-ii,Pacific,West Coast,D1,UC Irvine,2022-23,46.42361111111111,53.264419295138765,52.144700334170224,5.721089223059117,Big West rotation,Big West rotation
+Owen Koonce,owen-koonce,Colorado Mesa,RMAC,D2,Cal Poly,2024-25,87.08333333333331,56.443214904896614,52.12969575982575,-34.953637573507564,Big West rotation,Big West impact starter
+Jacob Davison,jacob-davison,Eastern Washington,Big Sky,D1,Cal Poly,2021-22,45.20833333333333,57.34902015984095,52.091592966988095,6.883259633654767,Big West rotation,Big West rotation
+Isaac Jessup,isaac-jessup,Colorado Mesa,RMAC,D2,Cal Poly,2024-25,83.33333333333334,56.58976052874675,52.056297869423815,-31.277035463909527,Big West rotation,Big West impact starter
+Max Murrell,max-murrell,Stanford,PAC 12,D1,UC Santa Barbara,2024-25,39.479166666666664,46.42815476006978,51.95556591978072,12.476399253114053,Big West rotation,Limited Big West role
+A.J. George,aj-george,SMU,ACC,D1,Cal State Bakersfield,2025-26,35.57291666666666,50.803718327723,51.88590637424119,16.31298970757453,Big West rotation,Limited Big West role
+Nordin Kapić,nordin-kapi,Lynn,SSC,D2,UC San Diego,2024-25,70.92013888888889,58.50221753494695,51.784030777654195,-19.13610811123469,Big West rotation,Big West starter/plus rotation
+E.J. Anosike,ej-anosike,Tennessee,SEC,D1,Cal State Fullerton,2021-22,95.83333333333334,58.28785938874372,51.709119086948014,-44.12421424638533,Big West rotation,Big West impact starter
+Cameron Wilbon,cameron-wilbon,Sacramento State,Big Sky,D1,Cal State Bakersfield,2023-24,31.822916666666668,51.04851209536077,51.69525200299904,19.872335336332373,Big West rotation,Limited Big West role
+Isa Silva,isael-silva,Stanford,PAC 12,D1,Long Beach State,2023-24,23.42013888888889,53.073030107485124,51.59487827932868,28.174739390439793,Big West rotation,Limited Big West role
+Ryan Rapp,ryan-rapp,Washington State,PAC 12,D1,Hawaii,2022-23,28.61111111111111,43.65776118878056,51.444569088378024,22.833457977266914,Big West rotation,Limited Big West role
+Zion Richardson,zion-richardson,Quincy,GLVC,D2,Cal State Fullerton,2024-25,45.08680555555556,53.526226959016185,51.30549426779402,6.21868871223846,Big West rotation,Big West rotation
+Hamad Mousa,hamad-mousa,Dayton,Atlantic 10,D1,Cal Poly,2025-26,93.68055555555556,60.9970030197377,51.14272948133586,-42.537826074219694,Big West rotation,Big West impact starter
+Dionte Bostick,dionte-bostick,Murray State,Missouri Valley,D1,Cal State Northridge,2022-23,57.32638888888889,56.03226756980545,51.09113629174579,-6.235252597143102,Big West rotation,Big West rotation
+Grady Lewis,grady-lewis,Cal State East Bay,CCAA,D2,Cal State Northridge,2024-25,29.94791666666667,49.175096330216235,51.00518946258909,21.057272795922415,Big West rotation,Limited Big West role
+Isaac Johnson,isaac-johnson,Utah State,Mountain West,D1,Hawaii,2025-26,77.43055555555556,59.08385862472039,50.941506776656134,-26.489048778899424,Big West rotation,Big West starter/plus rotation
+Myles Che,myles-che,Chattanooga,Southern,D1,UC Irvine,2024-25,70.60763888888889,50.15849498786063,50.51601715959505,-20.091621729293834,Big West rotation,Big West starter/plus rotation
+Jalen Myers,jalen-myers,Norfolk State,MEAC,D1,Hawaii,2025-26,8.506944444444445,45.80073735084354,49.379701585367215,40.87275714092277,Big West rotation,Limited Big West role
+Luke Turner,luke-turner,Wofford,Southern,D1,UC Riverside,2022-23,42.361111111111114,51.31140479939776,49.35483116736029,6.993720056249174,Big West rotation,Limited Big West role
+"De'Undrae Perteete, Jr.",deundrae-perteete,Westmont,PacWest,D2,UC Riverside,2025-26,55.55555555555556,51.79180039509982,49.35250789439794,-6.203047661157619,Big West rotation,Big West rotation
+Aniwaniwa Tait-Jones,aniwaniwa-tait-jones,Hawaii–Hilo,PacWest,D2,UC San Diego,2023-24,88.52430555555554,57.61318139702973,49.198436800257504,-39.32586875529804,Big West rotation,Big West impact starter
+Matija Svetozarević,matija-svetozarevi,Portland,West Coast,D1,Hawaii,2022-23,1.4583333333333337,45.989412007821,49.19514449081843,47.73681115748509,Big West rotation,Limited Big West role
+Nils Cooper,nils-cooper,Pepperdine,West Coast,D1,UC Davis,2024-25,33.125,46.6421924960335,48.82925740374887,15.70425740374887,Big West rotation,Limited Big West role
+Daniel Tobiloba,daniel-tobiloba,South Florida,American,D1,UC Riverside,2025-26,2.4652777777777777,36.16434502381835,48.40770019339155,45.94242241561377,Big West rotation,Limited Big West role
+Landon Seaman,landon-seaman,Menlo,PacWest,D2,Cal State Fullerton,2025-26,64.67013888888889,54.04693595526125,48.33542945307169,-16.334709435817196,Big West rotation,Big West rotation
+Kenny Pohto,kenny-pohto,Wichita State,American,D1,UC Santa Barbara,2024-25,74.32291666666667,55.32769654683833,48.2987315440617,-26.02418512260497,Big West rotation,Big West starter/plus rotation
+"Carl Daughtery, Jr.",carl-daughtery-jr,Central Arkansas,ASUN,D1,UC Davis,2024-25,30.069444444444443,38.838374498654325,47.940113328460626,17.870668884016183,Big West rotation,Limited Big West role
+Denzel Hines,denzel-hines,Coastal Carolina,Sun Belt,D1,UC Riverside,2025-26,14.53125,46.96536108142105,47.76520756845531,33.23395756845531,Big West rotation,Limited Big West role
+Sydney Shipp,sydney-shipp,Occidental,SCIAC,D2,Cal State Fullerton,2023-24,8.402777777777779,35.40424804322133,47.66979313651416,39.26701535873638,Big West rotation,Limited Big West role
+Jerome Palm,jerome-palm,Valparaiso,Missouri Valley,D1,Hawaii,2024-25,11.666666666666666,38.02903765415171,47.48434066133977,35.81767399467311,Big West rotation,Limited Big West role
+Nick Fleming,nick-fleming,Southern Utah,WAC,D1,Cal Poly,2022-23,26.961805555555557,43.13430231903987,47.107269041899094,20.145463486343537,Big West rotation,Limited Big West role
+Josiah Davis,josiah-davis,Niagara,MAAC,D1,Cal State Northridge,2025-26,76.47569444444444,54.331242832839514,46.68299667552107,-29.792697768923375,Big West rotation,Big West starter/plus rotation
+T.J. Wainwright,tj-wainwright,Robert Morris,Horizon,D1,Long Beach State,2024-25,71.35416666666667,47.64415886338989,46.300616505252094,-25.053550161414577,Big West rotation,Big West starter/plus rotation
+Justin Rochelin,justin-rochelin,Oregon State,PAC 12,D1,UC San Diego,2024-25,48.21180555555556,42.863184337104066,45.73133094971283,-2.48047460584273,Big West rotation,Big West rotation
+Petar Majstorović,petar-majstorovi,Syracuse,ACC,D1,Long Beach State,2025-26,87.06597222222223,50.3912731367629,45.59613024680621,-41.46984197541602,Big West rotation,Big West impact starter
+"John Square, Jr.",john-square-jr,Fairleigh Dickinson,Northeast,D1,Cal State Fullerton,2022-23,24.895833333333332,41.04336173899021,45.21829558756527,20.32246225423194,Big West rotation,Limited Big West role
+Dominic Brewton,dominic-brewton,Alcorn State,SWAC,D1,Cal State Fullerton,2023-24,90.19097222222224,53.51543759765023,45.045363050046326,-45.14560917217592,Big West rotation,Big West impact starter
+Kyle Evans,kyle-evans,Colorado State,Mountain West,D1,UC Irvine,2024-25,48.263888888888886,44.9767592265539,44.99924710527709,-3.2646417836117934,Limited Big West role,Big West rotation
+Ethan Igbanugo,ethan-igbanugo,North Dakota,Summit League,D1,Cal State Northridge,2022-23,39.01041666666667,45.84876806595088,44.225388980102316,5.214972313435645,Limited Big West role,Limited Big West role
+Kyle Owens,kyle-owens,Montana,Big Sky,D1,UC Riverside,2022-23,64.34027777777777,42.254913568937894,44.03457235828419,-20.305705419493584,Limited Big West role,Big West rotation
+Scotty Washington,scotty-washington,California Baptist,WAC,D1,Cal State Northridge,2024-25,77.60416666666667,50.23389106853152,43.715637423280974,-33.8885292433857,Limited Big West role,Big West starter/plus rotation
+Cam Denson,cam-denson,Pacific,West Coast,D1,Long Beach State,2024-25,22.69097222222222,40.30590804650356,43.66996681709529,20.978994594873072,Limited Big West role,Limited Big West role
+Emanuel Prospere II,emanuel-prospere-ii,Missouri–St. Louis,GLVC,D2,UC San Diego,2025-26,60.486111111111114,51.11602513583517,43.127748978256655,-17.35836213285446,Limited Big West role,Big West rotation
+Dailin Smith,dailin-smith,Alabama A&M,SWAC,D1,Cal State Bakersfield,2025-26,65.3298611111111,49.62683950786572,42.83668380626174,-22.49317730484936,Limited Big West role,Big West starter/plus rotation
+Derrick Michael Xzavierro,derrick-michael-xzavierro,GCU,WAC,D1,Long Beach State,2024-25,46.111111111111114,41.58252580794688,42.75641362459743,-3.354697486513686,Limited Big West role,Big West rotation
+Trevon Taylor,trevon-taylor,James Madison,Sun Belt,D1,Cal Poly,2021-22,67.88194444444446,43.926274458472705,42.6443875784384,-25.23755686600606,Limited Big West role,Big West starter/plus rotation
+Lassina Traoré,lassina-traor,Saint Louis,Atlantic 10,D1,Long Beach State,2022-23,82.70833333333333,52.997524345393444,42.63814965833534,-40.07018367499799,Limited Big West role,Big West impact starter
+Dylan Godfrey,dylan-godfrey,Canisius,MAAC,D1,UC Riverside,2025-26,11.875,34.922303476460534,42.290834138155965,30.415834138155965,Limited Big West role,Limited Big West role
+Garrison Wade,garrison-wade,Dartmouth,Ivy,D1,Cal State Fullerton,2022-23,35.65972222222222,41.041851984809064,41.69873258686004,6.039010364637818,Limited Big West role,Limited Big West role
+Bailey Nunn,bailey-nunn,Sacramento State,Big Sky,D1,Cal State Fullerton,2025-26,36.12847222222223,48.423485961150504,41.62480076933313,5.496328547110899,Limited Big West role,Limited Big West role
+Jailen Daniel-Dalton,jailen-daniel-dalton2,San Francisco State,CCAA,D2,UC Riverside,2025-26,42.30902777777778,45.048268818559656,41.18778150974768,-1.1212462680300987,Limited Big West role,Limited Big West role
+Jarred Hyder,jarred-hyder,California,PAC 12,D1,Cal Poly,2023-24,53.45486111111111,46.353943989064334,40.60884683742431,-12.846014273686798,Limited Big West role,Big West rotation
+Marcus Wilson,marcus-wilson,Washington State,West Coast,D1,UC Davis,2025-26,71.14583333333334,46.04119219254617,40.49710571886753,-30.648727614465813,Limited Big West role,Big West starter/plus rotation
+Kobe Young,kobe-young,Boise State,Mountain West,D1,Cal State Fullerton,2024-25,33.35069444444444,41.95483669131669,40.39730346193002,7.046609017485579,Limited Big West role,Limited Big West role
+Ty Johnson,ty-johnson2,Loyola Chicago,Atlantic 10,D1,UC Davis,2022-23,66.75347222222223,46.352846026334745,40.29519256315136,-26.458279659070868,Limited Big West role,Big West starter/plus rotation
+Dearon Tucker,dearon-tucker2,Indiana State,Missouri Valley,D1,Cal State Northridge,2022-23,22.326388888888893,38.80778090789799,39.748373536856036,17.421984647967143,Limited Big West role,Limited Big West role
+Gytis Nemeikša,gytis-nemeika,Xavier,Big East,D1,Hawaii,2024-25,75.13888888888889,43.36988342721018,39.550201230073725,-35.58868765881516,Limited Big West role,Big West starter/plus rotation
+"Shay Johnson, Jr.",demarshay-johnson-jr,San Diego State,Mountain West,D1,Long Beach State,2025-26,26.89236111111111,37.133093360576275,39.46965762879963,12.57729651768852,Limited Big West role,Limited Big West role
+Donovan Oday,donovan-oday,McNeese,Southland,D1,Cal State Fullerton,2023-24,41.28472222222223,40.4239949701593,39.388096332310525,-1.8966258899117037,Limited Big West role,Limited Big West role
+Emmanuel Tshimanga,emmanuel-tshimanga,UC Irvine,Big West,D1,UC San Diego,2022-23,40.43402777777778,42.714551144752775,39.21845654528708,-1.2155712324906958,Limited Big West role,Limited Big West role
+DeSean Allen-Eikens,desean-allen-eikens,New Orleans,Southland,D1,Cal State Northridge,2022-23,70.53819444444444,43.326396442802626,39.19731232484913,-31.340882119595314,Limited Big West role,Big West starter/plus rotation
+Aleks Szymczyk,aleksander-szymczyk,Charlotte,American,D1,Cal State Northridge,2025-26,21.197916666666664,33.122582143626154,39.05985838187624,17.861941715209575,Limited Big West role,Limited Big West role
+Fidelis Okereke,fidelis-okereke,Cal State Northridge,Big West,D1,Cal State Bakersfield,2023-24,30.03472222222222,41.67571379505687,38.68296363896583,8.648241416743609,Limited Big West role,Limited Big West role
+Luka Tarlać,luka-tarla,Utah,PAC 12,D1,Cal Poly,2024-25,27.274305555555554,29.740462481333584,38.57247877504419,11.298173219488636,Limited Big West role,Limited Big West role
+"Pierre Geneste, Jr.",pierre-geneste-jr,Fresno State,Mountain West,D1,Cal State Bakersfield,2025-26,33.35069444444444,36.83201324116613,36.91559110853852,3.5648966640940785,Limited Big West role,Limited Big West role
+B.J. Kolly,bj-kolly,Montana State,Big Sky,D1,UC Riverside,2025-26,48.072916666666664,36.45215748793887,36.55506806222627,-11.517848604440395,Limited Big West role,Big West rotation
+Justin McKoy,justin-mckoy,North Carolina,ACC,D1,Hawaii,2023-24,86.52777777777779,50.04112567858345,35.60145390479042,-50.92632387298737,Limited Big West role,Big West impact starter
+Jasman Sangha,jasman-sangha,Texas A&M–Corpus Christi,Southland,D1,Cal State Northridge,2023-24,25.13888888888889,33.55896028799444,35.53780003882015,10.398911149931262,Limited Big West role,Limited Big West role
+Chris Howell,chris-howell,Saint Mary's,West Coast,D1,UC San Diego,2024-25,80.32986111111111,40.049527792510794,35.41963200190452,-44.9102291092066,Limited Big West role,Big West impact starter
+Ben Griscti,benjamin-griscti,Incarnate Word,Southland,D1,UC Riverside,2023-24,34.65277777777777,41.292511551484296,34.99876655913776,0.345988781359992,Limited Big West role,Limited Big West role
+Ronald Jessamy,ronald-jessamy,Tennessee State,Ohio Valley,D1,Cal State Bakersfield,2025-26,56.267361111111114,41.11599293518812,34.489124038330715,-21.7782370727804,Limited Big West role,Big West rotation
+Maximo Milovich,maximo-milovich,Biola,PacWest,D2,UC San Diego,2024-25,30.781250000000004,38.16032356166794,33.94780738186195,3.1665573818619457,Limited Big West role,Limited Big West role
+Tyler Beard,tyler-beard,Pacific,West Coast,D1,Cal State Northridge,2024-25,44.65277777777778,41.36061117013085,33.57993311113113,-11.072844666646645,Limited Big West role,Limited Big West role
+Mahmoud Fofana,mahmoud-fofana,Cal State San Bernardino,CCAA,D2,Cal State Northridge,2023-24,45.29513888888889,36.71204613190986,30.932621233113792,-14.3625176557751,Limited Big West role,Big West rotation
+Joel Armotrading,joel-armotrading,Cal Poly,Big West,D1,UC Riverside,2024-25,55.052083333333336,36.601844191359106,28.804095426271985,-26.24798790706135,Limited Big West role,Big West rotation
+Rikus Schulte,rikus-schulte,Davidson,Atlantic 10,D1,UC Riverside,2024-25,30.086805555555557,26.06738730804842,27.474307854216967,-2.61249770133859,Limited Big West role,Limited Big West role
+Kieran Elliott,kieran-elliott,West Texas A&M,LSC,D2,Cal Poly,2024-25,18.420138888888893,25.024237674905507,27.42106311318563,9.000924224296739,Limited Big West role,Limited Big West role
+Paul Bizimana,paul-bizimana,Eastern Illinois,Ohio Valley,D1,Cal Poly,2023-24,20.364583333333336,30.330902227530952,26.23439487553035,5.869811542197013,Limited Big West role,Limited Big West role
+Modestas Kancleris,modestas-kancleris,Creighton,Big East,D1,Cal State Bakersfield,2022-23,34.01041666666667,37.85656820085361,24.535046163901036,-9.475370502765635,Limited Big West role,Limited Big West role
+Chris Mitchell,chris-mitchell,Cal State San Bernardino,CCAA,D2,UC Santa Barbara,2024-25,4.409722222222222,12.227667935789654,23.813427216561443,19.403704994339222,Limited Big West role,Limited Big West role
+Derek Sangster,derek-sangster,Princeton,Ivy,D1,UC Davis,2024-25,5.416666666666666,16.448521434650544,22.30393634241528,16.887269675748612,Limited Big West role,Limited Big West role
+Lathaniel Bastian,lathaniel-bastian,Angelo State,LSC,D2,Cal State Fullerton,2022-23,20.17361111111111,26.497136139322123,21.885209520307072,1.711598409195961,Limited Big West role,Limited Big West role
+Jared Barnett,jared-barnett2,San Diego State,Mountain West,D1,Cal State Northridge,2023-24,13.368055555555555,22.62560108546801,17.583884841266585,4.215829285711029,Limited Big West role,Limited Big West role
+Caleb McCarty,caleb-mccarty,South Carolina State,MEAC,D1,Cal State Bakersfield,2025-26,18.76736111111111,21.985922617522252,16.263305532064635,-2.504055579046476,Limited Big West role,Limited Big West role
+Isaac Spears,isaac-spears,Montana State,Big Sky,D1,Cal Poly,2022-23,13.281249999999998,14.332146225246873,5.51811111748227,-7.763138882517728,Limited Big West role,Limited Big West role
+Festus Ndumanya,festus-ndumanya,Southern,SWAC,D1,Cal State Northridge,2024-25,6.059027777777779,6.862212963593521,4.998770533919284,-1.0602572438584943,Limited Big West role,Limited Big West role

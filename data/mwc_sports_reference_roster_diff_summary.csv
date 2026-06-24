@@ -1,0 +1,98 @@
+first_target_season,destination_school,audit_status,count
+2021-22,Air Force,needs_prior_roster_cache,15
+2021-22,Boise State,needs_prior_roster_cache,12
+2021-22,Colorado State,needs_prior_roster_cache,14
+2021-22,Fresno State,needs_prior_roster_cache,14
+2021-22,Nevada,needs_prior_roster_cache,12
+2021-22,New Mexico,needs_prior_roster_cache,15
+2021-22,San Diego State,needs_prior_roster_cache,15
+2021-22,San Jose State,needs_prior_roster_cache,13
+2021-22,UNLV,needs_prior_roster_cache,14
+2021-22,Utah State,needs_prior_roster_cache,15
+2021-22,Wyoming,needs_prior_roster_cache,12
+2022-23,Air Force,possible_transfer,3
+2022-23,Air Force,returning_or_freshman,15
+2022-23,Boise State,possible_transfer,4
+2022-23,Boise State,returning_or_freshman,9
+2022-23,Colorado State,possible_transfer,3
+2022-23,Colorado State,returning_or_freshman,10
+2022-23,Fresno State,possible_transfer,5
+2022-23,Fresno State,returning_or_freshman,8
+2022-23,Nevada,possible_transfer,4
+2022-23,Nevada,returning_or_freshman,9
+2022-23,New Mexico,possible_transfer,2
+2022-23,New Mexico,returning_or_freshman,12
+2022-23,San Diego State,possible_transfer,3
+2022-23,San Diego State,returning_or_freshman,13
+2022-23,San Jose State,possible_transfer,4
+2022-23,San Jose State,returning_or_freshman,13
+2022-23,UNLV,possible_transfer,8
+2022-23,UNLV,returning_or_freshman,7
+2022-23,Utah State,possible_transfer,3
+2022-23,Utah State,returning_or_freshman,10
+2022-23,Wyoming,possible_transfer,3
+2022-23,Wyoming,returning_or_freshman,10
+2023-24,Air Force,returning_or_freshman,14
+2023-24,Boise State,possible_transfer,6
+2023-24,Boise State,returning_or_freshman,8
+2023-24,Colorado State,possible_transfer,4
+2023-24,Colorado State,returning_or_freshman,10
+2023-24,Fresno State,possible_transfer,7
+2023-24,Fresno State,returning_or_freshman,7
+2023-24,Nevada,possible_transfer,2
+2023-24,Nevada,returning_or_freshman,12
+2023-24,New Mexico,possible_transfer,5
+2023-24,New Mexico,returning_or_freshman,7
+2023-24,San Diego State,possible_transfer,4
+2023-24,San Diego State,returning_or_freshman,11
+2023-24,San Jose State,possible_transfer,2
+2023-24,San Jose State,returning_or_freshman,12
+2023-24,UNLV,possible_transfer,4
+2023-24,UNLV,returning_or_freshman,9
+2023-24,Utah State,possible_transfer,10
+2023-24,Utah State,returning_or_freshman,3
+2023-24,Wyoming,possible_transfer,5
+2023-24,Wyoming,returning_or_freshman,8
+2024-25,Air Force,possible_transfer,2
+2024-25,Air Force,returning_or_freshman,15
+2024-25,Boise State,possible_transfer,5
+2024-25,Boise State,returning_or_freshman,7
+2024-25,Colorado State,possible_transfer,5
+2024-25,Colorado State,returning_or_freshman,7
+2024-25,Fresno State,possible_transfer,7
+2024-25,Fresno State,returning_or_freshman,5
+2024-25,Nevada,possible_transfer,6
+2024-25,Nevada,returning_or_freshman,6
+2024-25,New Mexico,possible_transfer,4
+2024-25,New Mexico,returning_or_freshman,8
+2024-25,San Diego State,possible_transfer,5
+2024-25,San Diego State,returning_or_freshman,9
+2024-25,San Jose State,possible_transfer,8
+2024-25,San Jose State,returning_or_freshman,3
+2024-25,UNLV,possible_transfer,6
+2024-25,UNLV,returning_or_freshman,8
+2024-25,Utah State,possible_transfer,7
+2024-25,Utah State,returning_or_freshman,6
+2024-25,Wyoming,possible_transfer,10
+2024-25,Wyoming,returning_or_freshman,4
+2025-26,Air Force,returning_or_freshman,17
+2025-26,Boise State,possible_transfer,3
+2025-26,Boise State,returning_or_freshman,12
+2025-26,Colorado State,possible_transfer,6
+2025-26,Colorado State,returning_or_freshman,8
+2025-26,Fresno State,possible_transfer,3
+2025-26,Fresno State,returning_or_freshman,12
+2025-26,Nevada,possible_transfer,4
+2025-26,Nevada,returning_or_freshman,10
+2025-26,New Mexico,possible_transfer,7
+2025-26,New Mexico,returning_or_freshman,7
+2025-26,San Diego State,possible_transfer,3
+2025-26,San Diego State,returning_or_freshman,12
+2025-26,San Jose State,possible_transfer,5
+2025-26,San Jose State,returning_or_freshman,11
+2025-26,UNLV,possible_transfer,7
+2025-26,UNLV,returning_or_freshman,7
+2025-26,Utah State,possible_transfer,5
+2025-26,Utah State,returning_or_freshman,10
+2025-26,Wyoming,possible_transfer,4
+2025-26,Wyoming,returning_or_freshman,11

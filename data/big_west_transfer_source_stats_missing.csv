@@ -1,0 +1,71 @@
+player_name,player_slug,source_school,source_school_slug,source_level,destination_school,destination_school_slug,first_big_west_season,expected_source_season,reason
+Kaleb Higgins,kaleb-higgins,Holmes Community College,holmes-community-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2021-22,2020-21,source_level_not_yet_supported
+Jérôme Desrosiers,jrme-desrosiers,Princeton,princeton,D1,Hawaii,hawaii,2021-22,2020-21,sports_reference_source_row_not_in_local_cache
+Jhaylon Martinez,jhaylon-martinez,UNLV,unlv,D1,UC Riverside,uc-riverside,2021-22,2020-21,sports_reference_source_row_not_in_local_cache
+Marvin McGhee III,marvin-mcghee,South Georgia Technical College,south-georgia-technical-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2022-23,2021-22,source_level_not_yet_supported
+Tom Mark,tom-mark,Tallahassee Community College,tallahassee-community-college2,JUCO,Cal State Bakersfield,cal-state-bakersfield,2022-23,2021-22,source_level_not_yet_supported
+Keith Richard,keith-richard,South Plains College,south-plains-college2,JUCO,Cal State Fullerton,cal-state-fullerton,2022-23,2021-22,source_level_not_yet_supported
+Zachary Visentin,zachary-visentin,Snow College,snow-college2,JUCO,Cal State Fullerton,cal-state-fullerton,2022-23,2021-22,source_level_not_yet_supported
+Amari Stroud,amari-stroud,Allan Hancock College,allan-hancock-college2,JUCO,Long Beach State,long-beach-state,2022-23,2021-22,source_level_not_yet_supported
+Chayce Polynice,chayce-polynice,College of Southern Idaho,college-of-southern-idaho2,JUCO,Long Beach State,long-beach-state,2022-23,2021-22,source_level_not_yet_supported
+Sam Manu,sam-manu,College of San Mateo,college-of-san-mateo,JUCO,UC Davis,uc-davis,2022-23,2021-22,source_level_not_yet_supported
+Isaiah Moses,isaiah-moses,Alaska Anchorage,alaska-anchorage,D2,UC Riverside,uc-riverside,2022-23,2021-22,d2_source_row_not_in_phase1_school_stats
+Vlad Salaridze,vladimer-salaridze,Eastern Florida State College,eastern-florida-state-college2,JUCO,UC Riverside,uc-riverside,2022-23,2021-22,source_level_not_yet_supported
+Evans Kipruto,evans-kipruto2,Barton Community College,barton-community-college,JUCO,UC Santa Barbara,uc-santa-barbara,2022-23,2021-22,source_level_not_yet_supported
+Mezziah Oakman,mezziah-oakman,City College of San Francisco,city-college-of-san-francisco2,JUCO,UC Santa Barbara,uc-santa-barbara,2022-23,2021-22,source_level_not_yet_supported
+Cam Malray,cameron-malray,Dodge City Community College,dodge-city-community-college,JUCO,Cal Poly,cal-poly,2023-24,2022-23,source_level_not_yet_supported
+Joel Armotrading,joel-armotrading,College of Southern Idaho,college-of-southern-idaho,JUCO,Cal Poly,cal-poly,2023-24,2022-23,source_level_not_yet_supported
+C.J. Hardy,cj-hardy,West Los Angeles College,west-los-angeles-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2023-24,2022-23,source_level_not_yet_supported
+Cameron Clark,cam-clark,College of the Sequoias,college-of-the-sequoias,JUCO,Cal State Bakersfield,cal-state-bakersfield,2023-24,2022-23,source_level_not_yet_supported
+Corey Stephenson,corey-stephenson,Northeast Mississippi Community College,northeast-mississippi-community-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2023-24,2022-23,source_level_not_yet_supported
+Jaden Alexander,jaden-alexander,New Mexico State,new-mexico-state,D1,Cal State Bakersfield,cal-state-bakersfield,2023-24,2022-23,sports_reference_source_row_not_in_local_cache
+LoLo Rudolph,lolo-rudolph,Hutchinson Community College,hutchinson-community-college2,JUCO,Cal State Fullerton,cal-state-fullerton,2023-24,2022-23,source_level_not_yet_supported
+B.J. Comer,bj-comer,Ranger College,ranger-college2,JUCO,Cal State Northridge,cal-state-northridge,2023-24,2022-23,source_level_not_yet_supported
+Jalen Barbee,jalen-barbee,Cochise College,cochise-college,JUCO,Cal State Northridge,cal-state-northridge,2023-24,2022-23,source_level_not_yet_supported
+Keonte Jones,keonte-jones,Midland College,midland-college2,JUCO,Cal State Northridge,cal-state-northridge,2023-24,2022-23,source_level_not_yet_supported
+Noah Williams,noah-williams2,Barton Community College,barton-community-college,JUCO,Cal State Northridge,cal-state-northridge,2023-24,2022-23,source_level_not_yet_supported
+Matthue Cotton,matthue-cotton,Yale,yale,D1,Hawaii,hawaii,2023-24,2022-23,sports_reference_source_row_not_in_local_cache
+Drew Carter,drew-carter,Colorado,colorado,D1,UC Davis,uc-davis,2023-24,2022-23,sports_reference_source_row_not_in_local_cache
+Chip Brunt,chris-brunt,Gulf Coast State College,gulf-coast-state-college2,JUCO,UC Riverside,uc-riverside,2023-24,2022-23,source_level_not_yet_supported
+Clancy Bird,clancy-bird,Seattle,seattle,D1,UC Riverside,uc-riverside,2023-24,2022-23,sports_reference_source_row_not_in_local_cache
+Gavin Davis,gavin-davis,West Los Angeles College,west-los-angeles-college,JUCO,UC Riverside,uc-riverside,2023-24,2022-23,source_level_not_yet_supported
+Guzmán Vasilić,guzmn-vasili,Southeastern Oklahoma State,southeastern-oklahoma-state,D2,Cal Poly,cal-poly,2024-25,2023-24,d2_source_row_not_in_phase1_school_stats
+Dylan Purnell,dylan-purnell,South Plains College,south-plains-college2,JUCO,Cal State Bakersfield,cal-state-bakersfield,2024-25,2023-24,source_level_not_yet_supported
+Gloire Goma,gloire-goma,Clarendon College,clarendon-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2024-25,2023-24,source_level_not_yet_supported
+Jemel Jones,jemel-jones,South Suburban College,south-suburban-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2024-25,2023-24,source_level_not_yet_supported
+Marvin McGhee IV,marvin-mcghee-iv,Bishop State Community College,bishop-state-community-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2024-25,2023-24,source_level_not_yet_supported
+Shakiru Odunewu,shakiru-odunewu,West Valley College,west-valley-college,JUCO,Cal State Bakersfield,cal-state-bakersfield,2024-25,2023-24,source_level_not_yet_supported
+Freddie Cooper,freddie-cooper,Moberly Area Community College,moberly-area-community-college2,JUCO,Cal State Fullerton,cal-state-fullerton,2024-25,2023-24,source_level_not_yet_supported
+Yesan Warren,yesan-warren,Frank Phillips College,frank-phillips-college2,JUCO,Cal State Fullerton,cal-state-fullerton,2024-25,2023-24,source_level_not_yet_supported
+Christian Richardson,christian-richardson,Butler Community College,butler-community-college,JUCO,Long Beach State,long-beach-state,2024-25,2023-24,source_level_not_yet_supported
+"Cory Curtis, Jr.",cory-curtis-jr,Independence Community College,independence-community-college2,JUCO,Long Beach State,long-beach-state,2024-25,2023-24,source_level_not_yet_supported
+"Ramel Lloyd, Jr.",ramel-lloyd-jr,Nebraska,nebraska,D1,Long Beach State,long-beach-state,2024-25,2023-24,sports_reference_source_row_not_in_local_cache
+Jamaal Unuakhalu,jamal-unuakhalu,Moorpark College,moorpark-college,JUCO,UC Davis,uc-davis,2024-25,2023-24,source_level_not_yet_supported
+Parker Strauss,parker-strauss,Northwestern,northwestern,D1,UC Riverside,uc-riverside,2024-25,2023-24,sports_reference_source_row_not_in_local_cache
+Jake Davis,jake-davis2,West Valley College,west-valley-college,JUCO,Cal Poly,cal-poly,2025-26,2024-25,source_level_not_yet_supported
+Davis White,davis-white,College of the Sequoias,college-of-the-sequoias,JUCO,Cal State Fullerton,cal-state-fullerton,2025-26,2024-25,source_level_not_yet_supported
+Davius Loury,davius-loury,John A. Logan College,john-a.-logan-college,JUCO,Cal State Northridge,cal-state-northridge,2025-26,2024-25,source_level_not_yet_supported
+Jai Chisolm,jai-chisolm,University of South Carolina Salkehatchie,university-of-south-carolina-salkehatchie,JUCO,Cal State Northridge,cal-state-northridge,2025-26,2024-25,source_level_not_yet_supported
+"James Evans, Jr.",james-evans,UNLV,unlv,D1,Cal State Northridge,cal-state-northridge,2025-26,2024-25,sports_reference_source_row_not_in_local_cache
+Naceiar Kirksey,naceiar-kirksey,Monroe College,monroe-college2,JUCO,Cal State Northridge,cal-state-northridge,2025-26,2024-25,source_level_not_yet_supported
+Isaac Finlinson,isaac-finlinson,Snow College,snow-college2,JUCO,Hawaii,hawaii,2025-26,2024-25,source_level_not_yet_supported
+Christian Jones,christian-jones,Angelina College,angelina-college2,JUCO,Long Beach State,long-beach-state,2025-26,2024-25,source_level_not_yet_supported
+Immanuel Lewis,immanuel-lewis,Atlantic Cape Community College,atlantic-cape-community-college,JUCO,Long Beach State,long-beach-state,2025-26,2024-25,source_level_not_yet_supported
+J.J. Chaikovsky,jj-chaikovsky,Cal State Northridge,cal-state-northridge,D1,Long Beach State,long-beach-state,2025-26,2024-25,sports_reference_source_row_not_in_local_cache
+"Cyril Franklin, Jr.",cyril-franklin,College of Southern Nevada,college-of-southern-nevada,JUCO,UC Davis,uc-davis,2025-26,2024-25,source_level_not_yet_supported
+Jonathan Noudjihidi,jonathan-noudjihidi,Coahoma Community College,coahoma-community-college,JUCO,UC Davis,uc-davis,2025-26,2024-25,source_level_not_yet_supported
+Ylan Esso-Essis,ylan-esso-essis,Modesto Junior College,modesto-junior-college,JUCO,UC Davis,uc-davis,2025-26,2024-25,source_level_not_yet_supported
+E.J. Spillman,ej-spillman,College of the Sequoias,college-of-the-sequoias,JUCO,UC Riverside,uc-riverside,2025-26,2024-25,source_level_not_yet_supported
+Dimitrije Vukićević,dimitrije-vukievi,Washington State,washington-state,D1,UC San Diego,uc-san-diego,2025-26,2024-25,sports_reference_source_row_not_in_local_cache
+Trap Johnson,trap-johnson,Montana State,montana-state,D1,UC San Diego,uc-san-diego,2025-26,2024-25,sports_reference_source_row_not_in_local_cache
+Hosana Kitenge,hosana-kitenge,Louisiana,louisiana,D1,UC Santa Barbara,uc-santa-barbara,2025-26,2024-25,sports_reference_source_row_not_in_local_cache
+Anthony Moore,anthony-moore3,Weber State,weber-state,D1,Cal Poly,cal-poly,2026-27,2025-26,sports_reference_source_row_not_in_local_cache
+Zach Lee,zach-lee2,Loyola University New Orleans,loyola-university-new-orleans,NAIA,Cal State Bakersfield,cal-state-bakersfield,2026-27,2025-26,source_level_not_yet_supported
+Andrew McConnell,andrew-mcconnell,Cumberland University,cumberland-university,NAIA,Cal State Fullerton,cal-state-fullerton,2026-27,2025-26,source_level_not_yet_supported
+Marley Zeller,marley-zeller,Loyola Marymount,loyola-marymount,D1,Cal State Fullerton,cal-state-fullerton,2026-27,2025-26,sports_reference_source_row_not_in_local_cache
+Rockwell Reynolds,rockwell-reynolds,Citrus College,citrus-college2,JUCO,Cal State Fullerton,cal-state-fullerton,2026-27,2025-26,source_level_not_yet_supported
+Daniel Culberson,daniel-culberson,Howard College,howard-college2,JUCO,Cal State Northridge,cal-state-northridge,2026-27,2025-26,source_level_not_yet_supported
+Blake Bahr,blake-bahr,Snow College,snow-college2,JUCO,Long Beach State,long-beach-state,2026-27,2025-26,source_level_not_yet_supported
+Henry Lau,henry-cody-lau,Pittsburgh,pittsburgh,D1,Long Beach State,long-beach-state,2026-27,2025-26,sports_reference_source_row_not_in_local_cache
+McCaden Adams,mccaden-adams,Snow College,snow-college2,JUCO,Long Beach State,long-beach-state,2026-27,2025-26,source_level_not_yet_supported
+Jordan Johnson,jordan-johnson8,Calhoun Community College,calhoun-community-college,JUCO,UC San Diego,uc-san-diego,2026-27,2025-26,source_level_not_yet_supported

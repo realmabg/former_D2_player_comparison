@@ -1,0 +1,3 @@
+experiment,target,feature_set,validation,min_big_west_mpg,rows_used,rows_excluded_by_minutes_filter,source_levels,best_model,cv_mae,cv_rmse,cv_r2,cv_corr,baseline_mae,mae_improvement_vs_baseline,train_mae
+bpm_percentile_all_rows,bpm_percentile,per40_core,season_holdout,0.0,145,0,"{'D1': 114, 'D2': 31}",elastic_net_a0_20_l10_25,23.5274325609241,27.4682990407075,0.09386850026022375,0.32749552721096903,25.38294086400367,1.8555083030795672,20.81157505210815
+bpm_percentile_min_10_bw_mpg,bpm_percentile,per40_core,season_holdout,10.0,128,17,"{'D1': 101, 'D2': 27}",elastic_net_a0_10_l10_50,22.759438219754607,26.926738235398847,0.05601051916688782,0.2999558297006249,24.534027870125968,1.774589650371361,18.833892094410412

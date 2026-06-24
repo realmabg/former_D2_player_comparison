@@ -1,0 +1,177 @@
+[
+  {
+    "source": "Bart data/trank_data_2020.csv",
+    "target": "data/modeling_package/raw/barttorvik/trank_data_2020.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Bart data/trank_data_2021.csv",
+    "target": "data/modeling_package/raw/barttorvik/trank_data_2021.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Bart data/trank_data_2022.csv",
+    "target": "data/modeling_package/raw/barttorvik/trank_data_2022.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Bart data/trank_data_2023.csv",
+    "target": "data/modeling_package/raw/barttorvik/trank_data_2023.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Bart data/trank_data_2024.csv",
+    "target": "data/modeling_package/raw/barttorvik/trank_data_2024.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Bart data/trank_data_2025.csv",
+    "target": "data/modeling_package/raw/barttorvik/trank_data_2025.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Bart data/trank_data_2026.csv",
+    "target": "data/modeling_package/raw/barttorvik/trank_data_2026.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/massey_conference_power.csv",
+    "target": "data/modeling_package/raw/massey/massey_conference_power.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/massey_team_ratings.csv",
+    "target": "data/modeling_package/raw/massey/massey_team_ratings.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/massey_team_ratings_summary.csv",
+    "target": "data/modeling_package/raw/massey/massey_team_ratings_summary.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Massey Ratings 20-26 Uncleaned - Sheet1.csv",
+    "target": "data/modeling_package/raw/massey/Massey Ratings 20-26 Uncleaned - Sheet1.csv",
+    "status": "copied"
+  },
+  {
+    "source": "Massey Ratings 20-26 Uncleaned - Team.csv",
+    "target": "data/modeling_package/raw/massey/Massey Ratings 20-26 Uncleaned - Team.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/evanmiya_player_ratings_2020_21_to_2025_26.csv",
+    "target": "data/modeling_package/raw/evanmiya/evanmiya_player_ratings_2020_21_to_2025_26.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/target_conference_transfer_modeling_dataset.csv",
+    "target": "data/modeling_package/intermediate/target_conference_transfer_modeling_dataset.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/target_conference_transfer_modeling_big_west_schema.csv",
+    "target": "data/modeling_package/intermediate/target_conference_transfer_modeling_big_west_schema.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/target_conference_barttorvik_outcomes.csv",
+    "target": "data/modeling_package/intermediate/target_conference_barttorvik_outcomes.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/target_conference_barttorvik_outcomes_missing.csv",
+    "target": "data/modeling_package/intermediate/target_conference_barttorvik_outcomes_missing.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/target_conference_evanmiya_match_summary.csv",
+    "target": "data/modeling_package/intermediate/target_conference_evanmiya_match_summary.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/target_conference_evanmiya_missing_matches.csv",
+    "target": "data/modeling_package/intermediate/target_conference_evanmiya_missing_matches.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/target_conference_massey_power_unmatched_after_fallback.csv",
+    "target": "data/modeling_package/intermediate/target_conference_massey_power_unmatched_after_fallback.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/master/target_conference_all_stats.csv",
+    "target": "data/modeling_package/combined/target_conference_all_stats.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/training/d2_available_training.csv",
+    "target": "data/modeling_package/training/d2_available_training.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/training/d2_available_feature_manifest.json",
+    "target": "data/modeling_package/training/d2_available_feature_manifest.json",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/training/source_class_backfill_input_rows.csv",
+    "target": "data/modeling_package/training/source_class_backfill_input_rows.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/training/source_class_backfill_found.csv",
+    "target": "data/modeling_package/training/source_class_backfill_found.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/training/source_class_backfill_needs_review.csv",
+    "target": "data/modeling_package/training/source_class_backfill_needs_review.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/training/source_class_missing_rows.csv",
+    "target": "data/modeling_package/training/source_class_missing_rows.csv",
+    "status": "copied"
+  },
+  {
+    "source": "data/modeling/training/source_team_power_missing_rows.csv",
+    "target": "data/modeling_package/training/source_team_power_missing_rows.csv",
+    "status": "copied"
+  },
+  {
+    "source": "reports/target_conference_expansion_summary.md",
+    "target": "data/modeling_package/reports/target_conference_expansion_summary.md",
+    "status": "copied"
+  },
+  {
+    "source": "reports/target_conference_bpr_model_summary.md",
+    "target": "data/modeling_package/reports/target_conference_bpr_model_summary.md",
+    "status": "copied"
+  },
+  {
+    "source": "scripts/clean_massey_team_ratings.py",
+    "target": "data/modeling_package/code/clean_massey_team_ratings.py",
+    "status": "copied"
+  },
+  {
+    "source": "scripts/backfill_source_classes.py",
+    "target": "data/modeling_package/code/backfill_source_classes.py",
+    "status": "copied"
+  },
+  {
+    "source": "scripts/build_target_conference_barttorvik_outcomes.py",
+    "target": "data/modeling_package/code/build_target_conference_barttorvik_outcomes.py",
+    "status": "copied"
+  },
+  {
+    "source": "scripts/build_modeling_artifacts.py",
+    "target": "data/modeling_package/code/build_modeling_artifacts.py",
+    "status": "copied"
+  },
+  {
+    "source": "scripts/run_d2_available_model_comparison.py",
+    "target": "data/modeling_package/code/run_d2_available_model_comparison.py",
+    "status": "copied"
+  }
+]

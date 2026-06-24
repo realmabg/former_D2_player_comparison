@@ -1,0 +1,92 @@
+first_wcc_season,destination_school,audit_status,count
+2021-22,BYU,needs_prior_roster_cache,15
+2021-22,Gonzaga,needs_prior_roster_cache,14
+2021-22,Loyola Marymount,needs_prior_roster_cache,12
+2021-22,Pacific,needs_prior_roster_cache,13
+2021-22,Pepperdine,needs_prior_roster_cache,13
+2021-22,Portland,needs_prior_roster_cache,14
+2021-22,Saint Mary's,needs_prior_roster_cache,13
+2021-22,San Diego,needs_prior_roster_cache,14
+2021-22,San Francisco,needs_prior_roster_cache,15
+2021-22,Santa Clara,needs_prior_roster_cache,13
+2022-23,BYU,possible_transfer,4
+2022-23,BYU,returning_or_freshman,10
+2022-23,Gonzaga,possible_transfer,3
+2022-23,Gonzaga,returning_or_freshman,9
+2022-23,Loyola Marymount,possible_transfer,3
+2022-23,Loyola Marymount,returning_or_freshman,10
+2022-23,Pacific,possible_transfer,7
+2022-23,Pacific,returning_or_freshman,7
+2022-23,Pepperdine,possible_transfer,1
+2022-23,Pepperdine,returning_or_freshman,12
+2022-23,Portland,possible_transfer,3
+2022-23,Portland,returning_or_freshman,9
+2022-23,Saint Mary's,possible_transfer,1
+2022-23,Saint Mary's,returning_or_freshman,9
+2022-23,San Diego,possible_transfer,8
+2022-23,San Diego,returning_or_freshman,9
+2022-23,San Francisco,possible_transfer,4
+2022-23,San Francisco,returning_or_freshman,10
+2022-23,Santa Clara,possible_transfer,2
+2022-23,Santa Clara,returning_or_freshman,10
+2023-24,Gonzaga,possible_transfer,4
+2023-24,Gonzaga,returning_or_freshman,8
+2023-24,Loyola Marymount,possible_transfer,7
+2023-24,Loyola Marymount,returning_or_freshman,7
+2023-24,Pacific,possible_transfer,2
+2023-24,Pacific,returning_or_freshman,12
+2023-24,Pepperdine,possible_transfer,4
+2023-24,Pepperdine,returning_or_freshman,10
+2023-24,Portland,possible_transfer,6
+2023-24,Portland,returning_or_freshman,8
+2023-24,Saint Mary's,possible_transfer,2
+2023-24,Saint Mary's,returning_or_freshman,11
+2023-24,San Diego,possible_transfer,2
+2023-24,San Diego,returning_or_freshman,13
+2023-24,San Francisco,possible_transfer,5
+2023-24,San Francisco,returning_or_freshman,9
+2023-24,Santa Clara,possible_transfer,7
+2023-24,Santa Clara,returning_or_freshman,9
+2024-25,Gonzaga,possible_transfer,5
+2024-25,Gonzaga,returning_or_freshman,9
+2024-25,Loyola Marymount,possible_transfer,6
+2024-25,Loyola Marymount,returning_or_freshman,7
+2024-25,Oregon State,needs_prior_roster_cache,15
+2024-25,Pacific,possible_transfer,9
+2024-25,Pacific,returning_or_freshman,5
+2024-25,Pepperdine,possible_transfer,8
+2024-25,Pepperdine,returning_or_freshman,5
+2024-25,Portland,possible_transfer,3
+2024-25,Portland,returning_or_freshman,11
+2024-25,Saint Mary's,possible_transfer,3
+2024-25,Saint Mary's,returning_or_freshman,9
+2024-25,San Diego,possible_transfer,5
+2024-25,San Diego,returning_or_freshman,14
+2024-25,San Francisco,possible_transfer,4
+2024-25,San Francisco,returning_or_freshman,10
+2024-25,Santa Clara,possible_transfer,2
+2024-25,Santa Clara,returning_or_freshman,12
+2024-25,Washington State,needs_prior_roster_cache,13
+2025-26,Gonzaga,possible_transfer,5
+2025-26,Gonzaga,returning_or_freshman,11
+2025-26,Loyola Marymount,possible_transfer,5
+2025-26,Loyola Marymount,returning_or_freshman,11
+2025-26,Oregon State,possible_transfer,6
+2025-26,Oregon State,returning_or_freshman,9
+2025-26,Pacific,possible_transfer,8
+2025-26,Pacific,returning_or_freshman,10
+2025-26,Pepperdine,possible_transfer,7
+2025-26,Pepperdine,returning_or_freshman,8
+2025-26,Portland,possible_transfer,3
+2025-26,Portland,returning_or_freshman,13
+2025-26,Saint Mary's,possible_transfer,2
+2025-26,Saint Mary's,returning_or_freshman,13
+2025-26,San Diego,possible_transfer,6
+2025-26,San Diego,returning_or_freshman,14
+2025-26,San Francisco,possible_transfer,6
+2025-26,San Francisco,returning_or_freshman,9
+2025-26,Santa Clara,possible_transfer,4
+2025-26,Santa Clara,returning_or_freshman,13
+2025-26,Seattle,needs_prior_roster_cache,16
+2025-26,Washington State,possible_transfer,4
+2025-26,Washington State,returning_or_freshman,10

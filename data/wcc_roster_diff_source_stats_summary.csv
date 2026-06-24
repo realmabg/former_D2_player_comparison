@@ -1,0 +1,16 @@
+bucket,first_wcc_season,count
+d1_source_stats_found,2022-23,28
+d1_source_stats_found,2023-24,21
+d1_source_stats_found,2024-25,27
+d1_source_stats_found,2025-26,56
+exclude or check earlier playable season before adding,2022-23,3
+exclude or check earlier playable season before adding,2023-24,13
+exclude or check earlier playable season before adding,2024-25,9
+find D2 prior team and source-season stats from school/VC/official pages,2022-23,2
+find D2 prior team and source-season stats from school/VC/official pages,2023-24,2
+find D2 prior team and source-season stats from school/VC/official pages,2024-25,2
+find JUCO prior team and source-season stats from school/VC/official pages,2022-23,3
+find JUCO prior team and source-season stats from school/VC/official pages,2023-24,1
+find JUCO prior team and source-season stats from school/VC/official pages,2024-25,6
+manual review prior school/level,2023-24,2
+manual review prior school/level,2024-25,1

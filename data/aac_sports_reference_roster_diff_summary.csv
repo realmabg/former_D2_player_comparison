@@ -1,0 +1,85 @@
+first_target_season,destination_school,audit_status,count
+2021-22,Cincinnati,needs_prior_roster_cache,14
+2021-22,East Carolina,needs_prior_roster_cache,15
+2021-22,Houston,needs_prior_roster_cache,13
+2021-22,Memphis,needs_prior_roster_cache,15
+2021-22,SMU,needs_prior_roster_cache,13
+2021-22,South Florida,needs_prior_roster_cache,14
+2021-22,Temple,needs_prior_roster_cache,15
+2021-22,Tulane,needs_prior_roster_cache,13
+2021-22,Tulsa,needs_prior_roster_cache,15
+2021-22,UCF,needs_prior_roster_cache,15
+2021-22,Wichita State,needs_prior_roster_cache,10
+2022-23,Cincinnati,new_roster_player_needs_profile_check,15
+2022-23,East Carolina,new_roster_player_needs_profile_check,15
+2022-23,Houston,new_roster_player_needs_profile_check,12
+2022-23,Memphis,new_roster_player_needs_profile_check,13
+2022-23,SMU,new_roster_player_needs_profile_check,14
+2022-23,SMU,possible_transfer,1
+2022-23,SMU,returning_or_freshman,1
+2022-23,South Florida,new_roster_player_needs_profile_check,15
+2022-23,Temple,new_roster_player_needs_profile_check,10
+2022-23,Temple,returning_or_freshman,1
+2022-23,Tulane,new_roster_player_needs_profile_check,14
+2022-23,Tulane,returning_or_freshman,1
+2022-23,Tulsa,new_roster_player_needs_profile_check,12
+2022-23,Tulsa,returning_or_freshman,1
+2022-23,UCF,new_roster_player_needs_profile_check,13
+2022-23,Wichita State,new_roster_player_needs_profile_check,12
+2022-23,Wichita State,returning_or_freshman,1
+2023-24,Charlotte,needs_prior_roster_cache,13
+2023-24,East Carolina,new_roster_player_needs_profile_check,15
+2023-24,Florida Atlantic,needs_prior_roster_cache,14
+2023-24,Memphis,new_roster_player_needs_profile_check,15
+2023-24,Memphis,returning_or_freshman,1
+2023-24,North Texas,needs_prior_roster_cache,14
+2023-24,Rice,needs_prior_roster_cache,15
+2023-24,South Florida,new_roster_player_needs_profile_check,13
+2023-24,South Florida,returning_or_freshman,1
+2023-24,Temple,new_roster_player_needs_profile_check,14
+2023-24,Tulane,new_roster_player_needs_profile_check,12
+2023-24,Tulane,possible_transfer,1
+2023-24,Tulsa,new_roster_player_needs_profile_check,13
+2023-24,UAB,needs_prior_roster_cache,14
+2023-24,UTSA,needs_prior_roster_cache,11
+2023-24,Wichita State,new_roster_player_needs_profile_check,12
+2023-24,Wichita State,returning_or_freshman,1
+2024-25,Charlotte,new_roster_player_needs_profile_check,13
+2024-25,Charlotte,possible_transfer,1
+2024-25,East Carolina,new_roster_player_needs_profile_check,14
+2024-25,Florida Atlantic,new_roster_player_needs_profile_check,11
+2024-25,Florida Atlantic,possible_transfer,1
+2024-25,Memphis,new_roster_player_needs_profile_check,10
+2024-25,Memphis,returning_or_freshman,1
+2024-25,North Texas,new_roster_player_needs_profile_check,14
+2024-25,Rice,new_roster_player_needs_profile_check,12
+2024-25,Rice,possible_transfer,2
+2024-25,South Florida,new_roster_player_needs_profile_check,10
+2024-25,South Florida,possible_transfer,1
+2024-25,South Florida,returning_or_freshman,1
+2024-25,Temple,new_roster_player_needs_profile_check,14
+2024-25,Temple,possible_transfer,2
+2024-25,Tulane,new_roster_player_needs_profile_check,14
+2024-25,Tulane,returning_or_freshman,1
+2024-25,Tulsa,new_roster_player_needs_profile_check,15
+2024-25,UAB,new_roster_player_needs_profile_check,15
+2024-25,UTSA,new_roster_player_needs_profile_check,16
+2024-25,Wichita State,new_roster_player_needs_profile_check,13
+2025-26,Charlotte,new_roster_player_needs_profile_check,16
+2025-26,East Carolina,new_roster_player_needs_profile_check,17
+2025-26,Florida Atlantic,new_roster_player_needs_profile_check,15
+2025-26,Memphis,new_roster_player_needs_profile_check,14
+2025-26,Memphis,possible_transfer,1
+2025-26,North Texas,new_roster_player_needs_profile_check,11
+2025-26,North Texas,possible_transfer,1
+2025-26,Rice,new_roster_player_needs_profile_check,16
+2025-26,Rice,returning_or_freshman,1
+2025-26,South Florida,new_roster_player_needs_profile_check,15
+2025-26,Temple,new_roster_player_needs_profile_check,14
+2025-26,Tulane,new_roster_player_needs_profile_check,15
+2025-26,Tulsa,new_roster_player_needs_profile_check,14
+2025-26,Tulsa,possible_transfer,1
+2025-26,UAB,new_roster_player_needs_profile_check,15
+2025-26,UTSA,new_roster_player_needs_profile_check,15
+2025-26,Wichita State,new_roster_player_needs_profile_check,14
+2025-26,Wichita State,possible_transfer,1

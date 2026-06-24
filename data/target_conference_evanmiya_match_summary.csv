@@ -1,0 +1,9 @@
+metric,count
+source_exact_name_team,275
+source_missing,158
+source_not_d1,37
+source_suffix_insensitive_name_team,23
+source_unique_name_year,9
+target_exact_name_team,357
+target_missing,123
+target_suffix_insensitive_name_team,22

@@ -1,0 +1,90 @@
+{
+  "target": "bpr",
+  "target_column": "big_west_bpr",
+  "target_label": "Target-conference EvanMiya BPR",
+  "validation": "season_holdout",
+  "validation_label": "GroupKFold by first_big_west_season (5 folds)",
+  "feature_set": "per40_core",
+  "min_big_west_mpg": 0.0,
+  "rows_available": 278,
+  "rows_used": 215,
+  "rows_before_minutes_filter": 278,
+  "rows_excluded_by_minutes_filter": 63,
+  "included_reasons": {
+    "d1_d2_model_scope": 215
+  },
+  "excluded_reasons": {},
+  "source_level_counts": {
+    "D1": 189,
+    "D2": 26
+  },
+  "massey_power_source": "data/massey_conference_power.csv",
+  "juco_policy": "include only rows with matched Massey conference power; none included if no power file/match exists",
+  "numeric_features": [
+    "height_in",
+    "weight_lbs",
+    "source_games",
+    "source_mpg",
+    "source_minutes_share",
+    "source_fg_pct",
+    "source_fg3_pct",
+    "source_ft_pct",
+    "source_efg_pct",
+    "source_ts_pct",
+    "source_three_rate",
+    "source_ft_rate",
+    "source_pts_per_40",
+    "source_reb_per_40",
+    "source_ast_per_40",
+    "source_stl_per_40",
+    "source_blk_per_40",
+    "source_tov_per_40",
+    "source_conf_power",
+    "destination_conf_power",
+    "conf_power_delta",
+    "source_evanmiya_rank",
+    "source_evanmiya_obpr",
+    "source_evanmiya_dbpr",
+    "source_evanmiya_bpr",
+    "source_evanmiya_poss",
+    "source_evanmiya_box_obpr",
+    "source_evanmiya_box_dbpr",
+    "source_evanmiya_box_bpr",
+    "source_evanmiya_adj_team_off_eff",
+    "source_evanmiya_adj_team_def_eff",
+    "source_evanmiya_adj_team_eff_margin",
+    "source_evanmiya_plus_minus"
+  ],
+  "categorical_features": [
+    "position",
+    "source_level",
+    "source_conference"
+  ],
+  "baseline": {
+    "mae": 1.743595444812319,
+    "rmse": 2.2264004725147606,
+    "r2": -0.0038169259264233535,
+    "corr": -0.0844876896462704
+  },
+  "best_trained_model": "ridge_alpha_10",
+  "best_trained_model_metrics": {
+    "cv_mae": 1.3611596281566363,
+    "cv_rmse": 1.7693003033585402,
+    "cv_r2": 0.36605577892301877,
+    "cv_corr": 0.6123795553691087,
+    "train_mae": 1.1528345067773516,
+    "train_rmse": 1.4833058973504352
+  },
+  "best_overall": "ridge_alpha_10",
+  "best_overall_status": "ok",
+  "best_overall_metrics": {
+    "cv_mae": 1.3611596281566363,
+    "cv_rmse": 1.7693003033585402,
+    "cv_r2": 0.36605577892301877,
+    "cv_corr": 0.6123795553691087,
+    "train_mae": 1.1528345067773516,
+    "train_rmse": 1.4833058973504352
+  },
+  "model_count": 33,
+  "successful_model_count": 32
+}
