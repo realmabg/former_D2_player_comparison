@@ -228,11 +228,13 @@ NUMERIC_FEATURES = [
     "source_team_power",
     "destination_team_power",
     "team_power_delta",
+    "projected_destination_mpg",
     "source_low_minutes_flag",
     "source_low_games_flag",
 ]
 
 CATEGORICAL_FEATURES = [
+    "destination_school",
     "position",
     "position_bucket",
     "height_bucket",
@@ -831,6 +833,8 @@ def main() -> None:
     raw = pd.read_csv(RAW_SCHEMA_PATH)
     all_stats = merge_bart_outcomes(raw)
     training = build_training_frame(all_stats)
+    training["big_west_bpm_percentile"] = pd.to_numeric(training.get("big_west_bpm"), errors="coerce").rank(pct=True) * 100
+    training["projected_destination_mpg"] = pd.to_numeric(training.get("big_west_mpg"), errors="coerce")
 
     ALL_STATS_PATH.parent.mkdir(parents=True, exist_ok=True)
     TRAINING_PATH.parent.mkdir(parents=True, exist_ok=True)

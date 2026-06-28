@@ -8,10 +8,13 @@ import math
 import re
 from pathlib import Path
 
+import lightgbm as lgb
 import numpy as np
 import pandas as pd
+import xgboost as xgb
 from sklearn.compose import ColumnTransformer
-from sklearn.ensemble import GradientBoostingRegressor
+from sklearn.ensemble import ExtraTreesRegressor, GradientBoostingRegressor, HistGradientBoostingRegressor, RandomForestRegressor
+from sklearn.linear_model import ElasticNet, Ridge
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
@@ -27,6 +30,7 @@ SUSPICIOUS_CURRENT_STATS_PATH = Path("data/current_d2_suspicious_event_stats.csv
 VERIFIED_CURRENT_STATS_PATH = Path("data/current_d2_verified_stats.csv")
 SCHOOL_VERIFIED_CURRENT_STATS_PATH = Path("data/current_d2_school_verified_stats.csv")
 REALGM_VERIFIED_CURRENT_STATS_PATH = Path("data/current_d2_realgm_verified_stats.csv")
+MIN_CURRENT_MPG = 10.0
 
 TARGET_CONFERENCES = [
     "Big West",
@@ -36,6 +40,14 @@ TARGET_CONFERENCES = [
     "American",
     "Missouri Valley",
 ]
+MINUTE_SCENARIOS = [10, 15, 20, 25, 30, 35]
+PROJECTION_TARGETS = {
+    "bpr": {"column": "big_west_bpr", "label": "EvanMiya BPR", "short_label": "BPR"},
+    "bpm": {"column": "big_west_bpm", "label": "Sports Reference BPM", "short_label": "BPM"},
+    "bpm_percentile": {"column": "big_west_bpm_percentile", "label": "BPM Percentile", "short_label": "BPM %ile"},
+    "porpag": {"column": "target_porpag", "label": "BartTorvik PORPAG", "short_label": "PORPAG"},
+}
+DEFAULT_TARGET = "bpr"
 
 TARGET_CONFERENCE_TO_MASSEY = {
     "Big West": "Big West",
@@ -375,51 +387,134 @@ def role_bucket(mpg: float) -> str:
     return "high_usage_role"
 
 
-def fit_model(training: pd.DataFrame) -> tuple[Pipeline, list[str], list[str], dict[str, float], dict[str, object]]:
+def build_estimator(family: str, params: dict[str, object]) -> object:
+    if family == "ridge":
+        return Ridge(alpha=float(params["alpha"]))
+    if family == "elastic_net":
+        return ElasticNet(
+            alpha=float(params["alpha"]),
+            l1_ratio=float(params["l1_ratio"]),
+            max_iter=30000,
+            random_state=42,
+        )
+    if family == "random_forest":
+        return RandomForestRegressor(
+            n_estimators=int(params.get("n_estimators", 250)),
+            max_depth=params.get("max_depth"),
+            min_samples_leaf=int(params.get("min_samples_leaf", 1)),
+            max_features=float(params.get("max_features", 0.75)),
+            random_state=42,
+            n_jobs=1,
+        )
+    if family == "extra_trees":
+        return ExtraTreesRegressor(
+            n_estimators=int(params.get("n_estimators", 250)),
+            max_depth=params.get("max_depth"),
+            min_samples_leaf=int(params.get("min_samples_leaf", 1)),
+            max_features=float(params.get("max_features", 0.75)),
+            random_state=42,
+            n_jobs=1,
+        )
+    if family == "gradient_boosting":
+        return GradientBoostingRegressor(
+            n_estimators=int(params.get("n_estimators", 180)),
+            learning_rate=float(params.get("learning_rate", 0.06)),
+            max_depth=int(params.get("max_depth", 1)),
+            min_samples_leaf=int(params.get("min_samples_leaf", 10)),
+            subsample=float(params.get("subsample", 0.8)),
+            random_state=42,
+        )
+    if family == "hist_gradient_boosting":
+        return HistGradientBoostingRegressor(
+            max_iter=int(params.get("max_iter", 180)),
+            learning_rate=float(params.get("learning_rate", 0.06)),
+            max_leaf_nodes=int(params.get("max_leaf_nodes", 4)),
+            l2_regularization=float(params.get("l2_regularization", 0.0)),
+            random_state=42,
+        )
+    if family == "lightgbm":
+        return lgb.LGBMRegressor(
+            n_estimators=int(params.get("n_estimators", 180)),
+            learning_rate=float(params.get("learning_rate", 0.06)),
+            num_leaves=int(params.get("num_leaves", 4)),
+            reg_lambda=float(params.get("reg_lambda", 0.0)),
+            random_state=42,
+            n_jobs=1,
+            verbose=-1,
+        )
+    if family == "xgboost":
+        return xgb.XGBRegressor(
+            n_estimators=int(params.get("n_estimators", 180)),
+            learning_rate=float(params.get("learning_rate", 0.06)),
+            max_depth=int(params.get("max_depth", 2)),
+            reg_lambda=float(params.get("reg_lambda", 0.0)),
+            subsample=float(params.get("subsample", 0.8)),
+            colsample_bytree=float(params.get("colsample_bytree", 0.8)),
+            random_state=42,
+            n_jobs=1,
+            objective="reg:squarederror",
+        )
+    raise ValueError(f"Unsupported model family: {family}")
+
+
+def fit_models(
+    training: pd.DataFrame,
+) -> tuple[dict[str, dict[str, object]], list[str], list[str]]:
+    training = training.copy()
+    if "big_west_bpm_percentile" not in training.columns:
+        training["big_west_bpm_percentile"] = pd.to_numeric(training.get("big_west_bpm"), errors="coerce").rank(pct=True) * 100
     manifest = json.loads(FEATURE_MANIFEST_PATH.read_text(encoding="utf-8"))
     numeric_features = list(manifest["numeric_features"])
     categorical_features = list(manifest["categorical_features"])
-    target = "big_west_bpr"
-    included = training[
-        pd.to_numeric(training[target], errors="coerce").notna()
-        & (pd.to_numeric(training["big_west_mpg"], errors="coerce").fillna(0) >= 10)
-    ].copy()
-    medians: dict[str, float] = {}
-    for column in numeric_features:
-        values = pd.to_numeric(included[column], errors="coerce")
-        median = float(values.median()) if values.notna().any() else 0.0
-        medians[column] = median
-        included[column] = values.fillna(median)
-    for column in categorical_features:
-        included[column] = included[column].fillna("").astype(str)
-    pipeline = Pipeline(
-        steps=[
-            (
-                "preprocess",
-                ColumnTransformer(
-                    transformers=[
-                        ("num", StandardScaler(), numeric_features),
-                        ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_features),
-                    ]
-                ),
-            ),
-            (
-                "model",
-                GradientBoostingRegressor(
-                    n_estimators=180,
-                    learning_rate=0.06,
-                    max_depth=1,
-                    min_samples_leaf=10,
-                    subsample=0.8,
-                    random_state=42,
-                ),
-            ),
-        ]
-    )
-    pipeline.fit(included[numeric_features + categorical_features], included[target])
     summary = pd.read_csv(MODEL_SUMMARY_PATH)
-    bpr = summary[summary["target"].eq("bpr")].iloc[0].to_dict()
-    return pipeline, numeric_features, categorical_features, medians, bpr
+    fitted: dict[str, dict[str, object]] = {}
+    for target_key, target_meta in PROJECTION_TARGETS.items():
+        target_summary = summary[summary["target"].eq(target_key)]
+        if target_summary.empty:
+            continue
+        summary_row = target_summary.iloc[0].to_dict()
+        included = training[
+            pd.to_numeric(training[target_meta["column"]], errors="coerce").notna()
+            & (pd.to_numeric(training["big_west_mpg"], errors="coerce").fillna(0) >= 10)
+        ].copy()
+        if "projected_destination_mpg" in numeric_features:
+            included["projected_destination_mpg"] = pd.to_numeric(
+                included.get("projected_destination_mpg", included.get("big_west_mpg")),
+                errors="coerce",
+            )
+        medians: dict[str, float] = {}
+        for column in numeric_features:
+            values = pd.to_numeric(included[column], errors="coerce")
+            median = float(values.median()) if values.notna().any() else 0.0
+            medians[column] = median
+            included[column] = values.fillna(median)
+        for column in categorical_features:
+            included[column] = included[column].fillna("").astype(str)
+        estimator = build_estimator(
+            str(summary_row["family"]),
+            json.loads(str(summary_row["params_json"])),
+        )
+        pipeline = Pipeline(
+            steps=[
+                (
+                    "preprocess",
+                    ColumnTransformer(
+                        transformers=[
+                            ("num", StandardScaler(), numeric_features),
+                            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_features),
+                        ]
+                    ),
+                ),
+                ("model", estimator),
+            ]
+        )
+        pipeline.fit(included[numeric_features + categorical_features], included[target_meta["column"]])
+        fitted[target_key] = {
+            "pipeline": pipeline,
+            "medians": medians,
+            "summary": summary_row,
+        }
+    return fitted, numeric_features, categorical_features
 
 
 def current_source_row(row: dict[str, object], source_power: float, source_team_power: float) -> dict[str, object]:
@@ -480,13 +575,63 @@ def tier(value: float) -> str:
     return "depth risk"
 
 
+def nearest_minute_scenario(value: float) -> int:
+    if not math.isfinite(value):
+        return MINUTE_SCENARIOS[2]
+    return min(MINUTE_SCENARIOS, key=lambda option: abs(option - value))
+
+
+def build_destination_school_contexts(training: pd.DataFrame) -> tuple[
+    dict[str, list[dict[str, object]]],
+    dict[str, str],
+]:
+    contexts: dict[str, list[dict[str, object]]] = {}
+    defaults: dict[str, str] = {}
+    grouped = (
+        training.dropna(subset=["target_conference", "destination_school"])
+        .groupby(["target_conference", "destination_school"], dropna=False)
+        .agg(
+            rows=("player_name", "size"),
+            destination_team_power=("destination_team_power", "median"),
+            projected_destination_mpg=("big_west_mpg", "median"),
+        )
+        .reset_index()
+    )
+    for conference in TARGET_CONFERENCES:
+        subset = grouped[grouped["target_conference"].astype(str).eq(conference)].copy()
+        if subset.empty:
+            contexts[conference] = []
+            defaults[conference] = ""
+            continue
+        subset["school_slug"] = subset["destination_school"].map(slugify)
+        subset["default_projected_mpg"] = subset["projected_destination_mpg"].map(
+            lambda value: nearest_minute_scenario(number(value, float(MINUTE_SCENARIOS[2])))
+        )
+        subset = subset.sort_values(["destination_school"])
+        contexts[conference] = [
+            {
+                "slug": row["school_slug"],
+                "name": row["destination_school"],
+                "teamPower": None
+                if not math.isfinite(number(row["destination_team_power"]))
+                else round(number(row["destination_team_power"]), 2),
+                "defaultProjectedMpg": int(row["default_projected_mpg"]),
+                "historicalRows": int(row["rows"]),
+            }
+            for row in subset.to_dict("records")
+        ]
+        default_row = subset.sort_values(["rows", "destination_school"], ascending=[False, True]).iloc[0]
+        defaults[conference] = str(default_row["school_slug"])
+    return contexts, defaults
+
+
 def main() -> int:
     training = pd.read_csv(TRAINING_PATH)
     current = pd.read_csv(CURRENT_D2_PATH)
     verified_current_stats = load_verified_current_stats()
     power = load_power()
     team_power = load_team_power()
-    model, numeric_features, categorical_features, medians, bpr_summary = fit_model(training)
+    fitted_models, numeric_features, categorical_features = fit_models(training)
 
     suspicious_rows: list[dict[str, object]] = []
 
@@ -494,12 +639,7 @@ def main() -> int:
         conference: latest_power(power, TARGET_CONFERENCE_TO_MASSEY[conference])
         for conference in TARGET_CONFERENCES
     }
-    destination_team_power = (
-        training.groupby("target_conference")["destination_team_power"]
-        .median()
-        .reindex(TARGET_CONFERENCES)
-        .to_dict()
-    )
+    destination_school_contexts, default_destination_school = build_destination_school_contexts(training)
 
     base_rows: list[dict[str, object]] = []
     player_records: list[dict[str, object]] = []
@@ -507,6 +647,8 @@ def main() -> int:
         row = apply_verified_row(row, verified_current_stats)
         name = display_name(row.get("Player Name", ""))
         if not name:
+            continue
+        if number(row.get("MPG"), 0.0) < MIN_CURRENT_MPG:
             continue
         source_power = latest_power(power, str(row.get("Conference", "")))
         source_team_power = team_power.get(normalize_key(row.get("Team", "")), np.nan)
@@ -573,8 +715,7 @@ def main() -> int:
                 "eventStatsFlagged": any(quality.values()),
                 "verifiedCurrentStats": bool(row.get("verified_current_stats", False)),
                 "verifiedSourceUrl": row.get("verified_source_url", ""),
-                "bestConference": "",
-                "bestBpr": 0.0,
+                "bestByTarget": {},
                 "projections": {},
                 "classOrder": CLASS_ORDER.get(row.get("Year", ""), 0),
             }
@@ -583,47 +724,110 @@ def main() -> int:
     base_frame = pd.DataFrame(base_rows)
     source_powers = pd.to_numeric(base_frame["source_conf_power"], errors="coerce")
     for conference in TARGET_CONFERENCES:
-        frame = base_frame.copy()
         destination_power = conference_power[conference]
-        destination_team = number(destination_team_power.get(conference), destination_power)
-        frame["destination_conf_power"] = destination_power
-        frame["conf_power_delta"] = destination_power - source_powers
-        frame["destination_team_power"] = destination_team
-        frame["team_power_delta"] = destination_team - pd.to_numeric(frame["source_team_power"], errors="coerce")
-        for column in numeric_features:
-            values = pd.to_numeric(frame[column], errors="coerce").replace([np.inf, -np.inf], np.nan)
-            frame[column] = values.fillna(medians[column])
-        for column in categorical_features:
-            frame[column] = frame[column].fillna("").astype(str)
-        predictions = model.predict(frame[numeric_features + categorical_features])
-        for player, predicted in zip(player_records, predictions):
-            predicted = float(predicted)
+        schools = destination_school_contexts.get(conference, [])
+        fallback_destination_team = destination_power
+        for player in player_records:
             player["projections"][conference] = {
-                "bpr": round(predicted, 2),
-                "tier": tier(predicted),
-                "destinationPower": None if not math.isfinite(destination_power) else round(destination_power, 2),
-                "destinationTeamPower": None if not math.isfinite(destination_team) else round(destination_team, 2),
+                "defaultSchool": default_destination_school.get(conference, ""),
+                "schools": {},
             }
+        for school in schools:
+            destination_team = number(school.get("teamPower"), fallback_destination_team)
+            for projected_mpg in MINUTE_SCENARIOS:
+                frame = base_frame.copy()
+                frame["destination_school"] = school["name"]
+                frame["destination_conf_power"] = destination_power
+                frame["conf_power_delta"] = destination_power - source_powers
+                frame["destination_team_power"] = destination_team
+                frame["team_power_delta"] = destination_team - pd.to_numeric(frame["source_team_power"], errors="coerce")
+                frame["projected_destination_mpg"] = projected_mpg
+                for target_key, target_model in fitted_models.items():
+                    target_frame = frame.copy()
+                    medians = target_model["medians"]
+                    for column in numeric_features:
+                        values = pd.to_numeric(target_frame[column], errors="coerce").replace([np.inf, -np.inf], np.nan)
+                        target_frame[column] = values.fillna(medians[column])
+                    for column in categorical_features:
+                        target_frame[column] = target_frame[column].fillna("").astype(str)
+                    predictions = target_model["pipeline"].predict(target_frame[numeric_features + categorical_features])
+                    for player, predicted in zip(player_records, predictions):
+                        school_projection = player["projections"][conference]["schools"].setdefault(
+                            school["slug"],
+                            {
+                                "name": school["name"],
+                                "destinationPower": None
+                                if not math.isfinite(destination_power)
+                                else round(destination_power, 2),
+                                "destinationTeamPower": None
+                                if not math.isfinite(destination_team)
+                                else round(destination_team, 2),
+                                "targets": {},
+                            },
+                        )
+                        target_projection = school_projection["targets"].setdefault(target_key, {"minuteScenarios": {}})
+                        target_projection["minuteScenarios"][str(projected_mpg)] = round(float(predicted), 2)
 
     for player in player_records:
-        best_conference = max(player["projections"], key=lambda conf: player["projections"][conf]["bpr"])
-        player["bestConference"] = best_conference
-        player["bestBpr"] = player["projections"][best_conference]["bpr"]
+        for target_key in fitted_models:
+            default_scores: dict[str, float] = {}
+            best_school_by_conference: dict[str, tuple[str, int]] = {}
+            for conference in TARGET_CONFERENCES:
+                projection = player["projections"].get(conference, {})
+                school_slug = projection.get("defaultSchool", "")
+                school_context = next(
+                    (item for item in destination_school_contexts.get(conference, []) if item["slug"] == school_slug),
+                    None,
+                )
+                if not school_slug or not school_context:
+                    continue
+                mpg_key = str(int(school_context["defaultProjectedMpg"]))
+                school_projection = projection.get("schools", {}).get(school_slug, {})
+                target_projection = school_projection.get("targets", {}).get(target_key, {})
+                score = number(target_projection.get("minuteScenarios", {}).get(mpg_key))
+                if math.isfinite(score):
+                    default_scores[conference] = score
+                    best_school_by_conference[conference] = (school_slug, int(school_context["defaultProjectedMpg"]))
+            if not default_scores:
+                continue
+            best_conference = max(default_scores, key=default_scores.get)
+            best_school_slug, best_projected_mpg = best_school_by_conference[best_conference]
+            player["bestByTarget"][target_key] = {
+                "conference": best_conference,
+                "destinationSchool": best_school_slug,
+                "projectedMpg": best_projected_mpg,
+                "value": round(default_scores[best_conference], 2),
+            }
 
     pd.DataFrame(suspicious_rows).to_csv(SUSPICIOUS_CURRENT_STATS_PATH, index=False)
 
     payload = {
         "meta": {
-            "model": "gradient_boosting_bpr_min_mpg_10",
-            "target": "EvanMiya BPR",
-            "rowsUsed": int(bpr_summary["rows_used"]),
-            "cvMae": round(float(bpr_summary["cv_mae"]), 3),
-            "cvR2": round(float(bpr_summary["cv_r2"]), 3),
-            "cvCorr": round(float(bpr_summary["cv_pearson"]), 3),
+            "defaultTarget": DEFAULT_TARGET,
+            "projectionTargets": {
+                target_key: {
+                    "label": PROJECTION_TARGETS[target_key]["label"],
+                    "shortLabel": PROJECTION_TARGETS[target_key]["short_label"],
+                    "model": str(target_model["summary"]["model_name"]),
+                    "family": str(target_model["summary"]["family"]),
+                    "rowsUsed": int(target_model["summary"]["rows_used"]),
+                    "cvMae": round(float(target_model["summary"]["cv_mae"]), 3),
+                    "cvRmse": round(float(target_model["summary"]["cv_rmse"]), 3),
+                    "cvR2": round(float(target_model["summary"]["cv_r2"]), 3),
+                    "cvCorr": round(float(target_model["summary"]["cv_pearson"]), 3),
+                    "cvSpearman": round(float(target_model["summary"]["cv_spearman"]), 3),
+                    "baselineMae": round(float(target_model["summary"]["baseline_mae"]), 3),
+                    "maeGainVsBaseline": round(float(target_model["summary"]["mae_gain_vs_baseline"]), 3),
+                    "modelParams": json.loads(str(target_model["summary"]["params_json"])),
+                }
+                for target_key, target_model in fitted_models.items()
+            },
             "conferences": TARGET_CONFERENCES,
+            "minuteScenarioOptions": MINUTE_SCENARIOS,
             "conferencePower": {key: round(value, 2) for key, value in conference_power.items()},
-            "modelParams": json.loads(bpr_summary["params_json"]),
-            "note": "Current D2 players are scored only with features available for D2 players: box/per-40 stats, position, height, D2 conference power, destination conference power, and conference power jump.",
+            "destinationSchoolsByConference": destination_school_contexts,
+            "defaultDestinationSchoolByConference": default_destination_school,
+            "note": f"Current D2 players are scored only with D2-available source features, plus destination-school context and an assumed destination MPG that the UI can adjust. The app can switch among BPR, BPM, BPM percentile, and PORPAG targets. Website candidates are limited to current players at or above {MIN_CURRENT_MPG:g} MPG.",
         },
         "players": player_records,
     }

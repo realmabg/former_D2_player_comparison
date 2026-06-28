@@ -73,10 +73,12 @@ NUMERIC_FEATURES = [
     "source_team_power",
     "destination_team_power",
     "team_power_delta",
+    "projected_destination_mpg",
     "source_low_minutes_flag",
     "source_low_games_flag",
 ]
 CATEGORICAL_FEATURES = [
+    "destination_school",
     "position",
     "position_bucket",
     "height_bucket",
@@ -508,7 +510,7 @@ def main() -> int:
         f"- Candidate model configurations per target: {len(all_candidates)}",
         "- Validation: season-holdout GroupKFold using `first_big_west_season`",
         "- Selection objective: lowest cross-validated MAE",
-        "- Features: D2-available box/per-40 stats, position, source level/conference, source Massey power, destination Massey power, and conference power delta",
+        "- Features: D2-available box/per-40 stats, destination school, assumed destination MPG, position, source level/conference, source Massey power, destination Massey power, and conference/team power jump.",
         "",
         "## Best Models",
         "",

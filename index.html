@@ -3,202 +3,62 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>D2 Transfer Projection Board</title>
-    <link rel="stylesheet" href="styles.css" />
+    <title>D2 Player Dashboard</title>
+    <link rel="stylesheet" href="styles.css?v=20260628b" />
   </head>
   <body>
-    <main class="shell">
-      <aside class="sidebar" aria-label="Filters">
-        <div class="brand">
-          <div class="brand-mark">D2</div>
-          <div>
-            <h1>Transfer Projection Board</h1>
-            <p id="modelMeta">Loading model</p>
-          </div>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="topbar-left">
+          <button id="menuToggle" class="icon-button" type="button" aria-label="Open menu" aria-expanded="false">
+            <span></span>
+            <span></span>
+            <span></span>
+          </button>
+          <a class="brand" href="#leaderboard">
+            <div class="brand-mark">~</div>
+            <div class="brand-copy">
+              <strong>D2 Player Dashboard</strong>
+              <span>D2 → D1 Projections</span>
+            </div>
+          </a>
         </div>
-
-        <section class="sidebar-copy">
-          <p class="eyebrow">Current cycle</p>
-          <p>
-            Static scouting board for current D2 men's basketball players, ranked by projected
-            post-transfer EvanMiya BPR.
-          </p>
-        </section>
-
-        <label class="field">
-          <span>Player</span>
-          <input id="searchInput" type="search" placeholder="Search name or school" />
-        </label>
-
-        <div class="field-grid">
-          <label class="field">
-            <span>Destination</span>
-            <select id="destinationFilter"></select>
-          </label>
-          <label class="field">
-            <span>Class</span>
-            <select id="classFilter"></select>
-          </label>
+        <div class="topbar-actions">
+          <button id="quickCompare" class="ghost-button" type="button">Compare players</button>
+          <button class="theme-button" type="button" aria-label="Theme">
+            <span class="theme-ring"></span>
+          </button>
         </div>
+      </header>
 
-        <label class="field">
-          <span>D2 conference</span>
-          <select id="sourceConferenceFilter"></select>
-        </label>
+      <div id="navOverlay" class="nav-overlay" hidden></div>
 
-        <label class="field">
-          <span>Position</span>
-          <select id="positionFilter"></select>
-        </label>
-
-        <div class="range-stack">
-          <label class="range-row">
-            <span>Min projected BPR</span>
-            <strong id="minBprValue">-2.0</strong>
-            <input id="minBpr" type="range" min="-2" max="6" step="0.25" value="-2" />
-          </label>
-          <label class="range-row">
-            <span>Min MPG</span>
-            <strong id="minMpgValue">0</strong>
-            <input id="minMpg" type="range" min="0" max="36" step="1" value="0" />
-          </label>
-          <label class="range-row">
-            <span>Min PPG</span>
-            <strong id="minPpgValue">0</strong>
-            <input id="minPpg" type="range" min="0" max="30" step="1" value="0" />
-          </label>
-        </div>
-
-        <label class="field">
-          <span>Sort</span>
-          <select id="sortSelect">
-            <option value="projected">Projected BPR</option>
-            <option value="ppg">PPG</option>
-            <option value="mpg">MPG</option>
-            <option value="ptsPer40">PTS/40</option>
-            <option value="astPer40">AST/40</option>
-            <option value="rebPer40">REB/40</option>
-            <option value="sourcePower">Conference power</option>
-          </select>
-        </label>
-
-        <button id="resetFilters" class="reset-button" type="button">Reset filters</button>
-
-        <section class="sidebar-note">
-          <p class="eyebrow">What this is</p>
-          <p>
-            Use this board to scan likely D1 fits by destination conference, compare production,
-            and see which rows already have reviewed stat sources behind them.
-          </p>
-        </section>
-      </aside>
-
-      <section class="content">
-        <header class="topbar">
-          <div class="hero-copy">
-            <p class="eyebrow">Projected EvanMiya BPR</p>
-            <h2 id="boardTitle">Current D2 transfer candidates</h2>
-            <p id="boardSubtitle" class="board-subtitle">Loading board context</p>
-          </div>
-          <div class="summary-metrics" aria-label="Model summary">
-            <div>
-              <span>Rows</span>
-              <strong id="rowsUsed">-</strong>
-            </div>
-            <div>
-              <span>CV R2</span>
-              <strong id="cvR2">-</strong>
-            </div>
-            <div>
-              <span>CV Corr</span>
-              <strong id="cvCorr">-</strong>
-            </div>
-            <div>
-              <span>CV MAE</span>
-              <strong id="cvMae">-</strong>
-            </div>
-          </div>
-        </header>
-
-        <section class="headline-metrics" aria-label="Board summary">
-          <article class="headline-card">
-            <span>Visible players</span>
-            <strong id="visiblePlayers">-</strong>
-            <p>After current filters</p>
-          </article>
-          <article class="headline-card">
-            <span>Verified stats</span>
-            <strong id="verifiedPlayers">-</strong>
-            <p>Rows backed by school or manual review</p>
-          </article>
-          <article class="headline-card">
-            <span>Flagged rows</span>
-            <strong id="flaggedPlayers">-</strong>
-            <p>Needs extra caution or cleanup</p>
-          </article>
-          <article class="headline-card">
-            <span>Top projected BPR</span>
-            <strong id="topProjection">-</strong>
-            <p id="topProjectionLabel">Loading leader</p>
-          </article>
-        </section>
-
-        <section class="workspace">
-          <section class="board-panel">
-            <div class="panel-head">
-              <div>
-                <h3>Player Board</h3>
-                <p id="resultCount">0 players</p>
+      <div class="layout">
+        <aside id="sidebar" class="sidebar" aria-label="Primary navigation">
+          <div class="sidebar-head">
+            <a class="brand" href="#leaderboard">
+              <div class="brand-mark">~</div>
+              <div class="brand-copy">
+                <strong>D2 Player Dashboard</strong>
+                <span>D2 → D1 Projections</span>
               </div>
-              <div class="segmented" id="conferenceTabs" aria-label="Destination conference"></div>
-            </div>
-
-            <div class="table-wrap">
-              <table>
-                <thead>
-                  <tr>
-                    <th>Player</th>
-                    <th>Destination</th>
-                    <th>BPR</th>
-                    <th>MPG</th>
-                    <th>PPG</th>
-                    <th>Per 40</th>
-                    <th>Profile</th>
-                  </tr>
-                </thead>
-                <tbody id="playerRows"></tbody>
-              </table>
-            </div>
-          </section>
-
-          <aside class="detail-panel" aria-label="Player detail">
-            <div id="playerDetail"></div>
-          </aside>
-        </section>
-
-        <section class="methodology-panel" aria-label="Methodology">
-          <div>
-            <p class="eyebrow">How to read it</p>
-            <h3>Built for actual roster triage, not just a leaderboard</h3>
+            </a>
+            <button id="menuClose" class="close-button" type="button" aria-label="Close menu">×</button>
           </div>
-          <div class="methodology-grid">
-            <article>
-              <strong>Projection target</strong>
-              <p>Projected post-transfer EvanMiya BPR using only features available for current D2 players.</p>
-            </article>
-            <article>
-              <strong>What matters most</strong>
-              <p>Conference tabs show how the same player's projection changes when the destination level changes.</p>
-            </article>
-            <article>
-              <strong>Data quality cue</strong>
-              <p>Verified rows come from reviewed school or manual stat sources. Flagged rows deserve a second look.</p>
-            </article>
-          </div>
-        </section>
-      </section>
-    </main>
 
-    <script type="module" src="src/app.js"></script>
+          <nav id="navList" class="nav-list">
+            <a class="nav-link" data-route="leaderboard" href="#leaderboard"><span class="nav-icon">⌘</span><span>Leaderboard</span></a>
+            <a class="nav-link" data-route="compare" href="#compare"><span class="nav-icon">⇄</span><span>Compare</span></a>
+            <a class="nav-link" data-route="recruiting-board" href="#recruiting-board"><span class="nav-icon">☆</span><span>Recruiting Board</span><span class="beta-chip">Beta</span></a>
+          </nav>
+        </aside>
+
+        <main class="page">
+          <div id="viewRoot"></div>
+        </main>
+      </div>
+    </div>
+
+    <script type="module" src="src/app.js?v=20260628b"></script>
   </body>
 </html>

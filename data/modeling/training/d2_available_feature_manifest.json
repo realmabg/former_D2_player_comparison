@@ -32,10 +32,12 @@
     "source_team_power",
     "destination_team_power",
     "team_power_delta",
+    "projected_destination_mpg",
     "source_low_minutes_flag",
     "source_low_games_flag"
   ],
   "categorical_features": [
+    "destination_school",
     "position",
     "position_bucket",
     "height_bucket",
@@ -58,6 +60,7 @@
     "big_west_dbpr": 379,
     "big_west_bpr_poss": 379,
     "big_west_bpm": 502,
+    "big_west_bpm_percentile": 502,
     "big_west_porpag": 500,
     "target_porpag": 500,
     "target_barttorvik_bpm": 499,

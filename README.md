@@ -1,14 +1,16 @@
 # Former D2 Player Comparison
 
-A browser prototype for comparing former NCAA Division II men's basketball players who transferred to Division I.
+A browser app for screening current NCAA Division II men's basketball players as potential Division I transfers, with an emphasis on UCSD/Big West-style recruiting.
 
-The current version implements the Stage 1 similarity engine from the concept:
+The current website is driven by `data/projection_dashboard_data.json` and focuses on projected post-transfer EvanMiya BPR using only D2-available features.
 
-- select a former D2 -> D1 player
-- compare their final D2 season to the current D2 player pool from `d2_data_cleaned copy.csv`
-- standardize stats with z-scores
-- apply weighted distance across role, scoring, shooting, playmaking, rebounding, defense, usage, age, and strength of schedule
-- show nearest current D2 neighbors and a feature-by-feature profile
+The current frontend direction is:
+
+- lighter landing page instead of a dense all-in-one dashboard
+- drawer navigation instead of a permanently visible sidebar
+- separate views for `Screening Board`, `Leaderboard`, `Compare`, `Teams`, `Transfer Portal`, and `Recruiting Board`
+- product focus on `Leaderboard` and `Teams` as the highest-priority surfaces
+- overall emphasis on screening and triage rather than a full research workspace
 
 Run a local server, then open the app in a browser:
 
@@ -18,14 +20,13 @@ python3 -m http.server 8000
 
 Then visit `http://127.0.0.1:8000/`.
 
-## Files
+## Frontend Files
 
-- `index.html` - app shell
-- `styles.css` - UI styles
-- `src/data.js` - seed player seasons and feature weights
-- `src/csvPlayers.js` - CSV loader and current D2 player mapper
-- `src/similarity.js` - z-score and weighted-distance engine
-- `src/app.js` - app state, rendering, and interactions
+- `index.html` - app shell and navigation container
+- `styles.css` - UI styles and route-level layout styling
+- `src/app.js` - route rendering, filtering, leaderboard, compare, and teams views
+
+## Data / Modeling / Scripts
 - `scripts/scrape_school_stats_poc.py` - proof-of-concept scraper for school cumulative-stat pages
 - `scripts/scrape_phase1_school_stats.py` - batch scraper for model-eligible phase-one D2 -> D1 transfers
 - `scripts/scrape_phase1_d1_outcomes.py` - first-D1-season outcome scraper, using Sports Reference player pages first and Sports Reference school-season pages as fallback
@@ -97,7 +98,8 @@ Then visit `http://127.0.0.1:8000/`.
 - `data/d2_team_directory.csv` - 289-team D2 directory from the current D2 player pool
 - `data/d2_schedule_results.csv` - scraped 2023-24 through 2025-26 schedule results for known-domain teams
 - `data/d2_schedule_results_missing.csv` - schedule pages that could not be parsed
-- `src/learnedWeights.js` - learned weights imported by the browser app
+- `src/learnedWeights.js` - learned weights imported by older browser-prototype work
+- `src/data.js`, `src/csvPlayers.js`, `src/similarity.js` - older prototype files that are no longer the main current website path
 
 ## Next Data Step
 

@@ -31,6 +31,21 @@ The current production target is projected EvanMiya BPR after transferring. The 
 
 The model/website pipeline exists. The current focus has been cleaning bad current-D2 stat rows because `d2_data_cleaned.csv` has corrupted event stats for some players, especially assists/turnovers/steals/blocks.
 
+Frontend direction has also shifted from a single all-in-one static board to a lighter screening app shell. The current website is now a multi-view browser app built from `index.html`, `styles.css`, and `src/app.js`, with the primary product emphasis on:
+
+- `Leaderboard`
+- `Teams`
+- a simpler `Screening Board` flow for narrowing prospects
+
+The UI was intentionally simplified so the first screen is less overwhelming:
+
+- navigation is now a drawer instead of a permanently visible sidebar,
+- the home screen is a lighter landing page instead of a dense dashboard,
+- content is split across focused views instead of putting every control and panel on one page,
+- the site is being treated primarily as a screening tool, not a full research workspace.
+
+The `Data Upload` page/route was removed.
+
 We created a verified override system:
 
 - Base current D2 data comes from `d2_data_cleaned.csv`.
@@ -176,13 +191,36 @@ The most recent cleanup batch fixed/verified several suspicious D2 players using
   - Website data file.
 
 - `index.html`
-  - Static dashboard page.
+  - Website shell for the current browser app.
 
 - `styles.css`
-  - Dashboard styling.
+  - Current app styling.
 
 - `src/`
-  - Dashboard JavaScript/assets.
+  - Browser app JavaScript/assets.
+
+### Current frontend routes/views
+
+- `Home`
+  - Lighter landing page with summary cards and a short list of top prospects.
+
+- `Screening Board`
+  - Main filtering/search page for prospect triage.
+
+- `Leaderboard`
+  - Primary ranking surface with sortable table, destination context switcher, and detail panel.
+
+- `Compare`
+  - Side-by-side player comparison page.
+
+- `Teams`
+  - Conference/team-context page showing strongest fits by destination context.
+
+- `Transfer Portal`
+  - Simplified portal-watch style page using current model data.
+
+- `Recruiting Board`
+  - Tiered board view for organizing targets.
 
 ## Current Model Choice
 
@@ -306,21 +344,26 @@ PY
 1. Finish appending the latest verified/manual rows.
 2. Rebuild `data/projection_dashboard_data.json`.
 3. Open the website and spot-check the fixed players.
-4. Rerun current D2 validation/missing reports to see what remains:
+4. Keep frontend work centered on the two highest-priority product pages:
+   - `Leaderboard`
+   - `Teams`
+5. Continue simplifying the screening flow before expanding secondary pages.
+6. Only add new frontend views/features if they clearly help roster triage.
+7. Rerun current D2 validation/missing reports to see what remains:
 
 ```bash
 .venv/bin/python scripts/validate_current_d2_stats.py
 .venv/bin/python scripts/fetch_current_d2_school_stats.py --mode suspicious --sleep 3
 ```
 
-5. Split remaining missing rows into:
+8. Split remaining missing rows into:
    - high-priority players worth fixing now,
    - lower-priority/deferred rows,
    - manual rows needed because the school site is protected or not parseable.
 
-6. Once current D2 stat quality is acceptable, rerun dashboard build and model comparison if feature inputs changed enough to matter.
+9. Once current D2 stat quality is acceptable, rerun dashboard build and model comparison if feature inputs changed enough to matter.
 
-7. Longer-term data/model work:
+10. Longer-term data/model work:
    - Finish/source team Massey power matching.
    - Add reliable height/position buckets.
    - Add `college_stat_seasons_before_transfer`.
@@ -337,4 +380,3 @@ PY
 - Manual rows should include PF if available.
 - Do not rely on `d2_data_cleaned.csv` event stats blindly until verified or validator-cleaned.
 - If running large web fetches, use sleep and small batches to avoid rate limits or blocked pages.
-

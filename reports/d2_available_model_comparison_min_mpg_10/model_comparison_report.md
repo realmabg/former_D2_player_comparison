@@ -11,16 +11,16 @@ This report intentionally excludes source-side features that current D2 players 
 - Candidate model configurations per target: 156
 - Validation: season-holdout GroupKFold using `first_big_west_season`
 - Selection objective: lowest cross-validated MAE
-- Features: D2-available box/per-40 stats, position, source level/conference, source Massey power, destination Massey power, and conference power delta
+- Features: D2-available box/per-40 stats, destination school, assumed destination MPG, position, source level/conference, source Massey power, destination Massey power, and conference/team power jump.
 
 ## Best Models
 
 | Target | Rows | Best model | Family | CV MAE | CV RMSE | CV R2 | Pearson | Spearman | MAE gain vs baseline | Top-decile lift |
 |---|---:|---|---|---:|---:|---:|---:|---:|---:|---:|
-| bpm | 426 | xgb_lr_0.03_depth_2_lambda_8.0 | xgboost | 1.949 | 2.505 | 0.384 | 0.620 | 0.616 | 0.608 | 3.791 |
-| bpm_percentile | 426 | lgbm_lr_0.06_leaves_4_lambda_12.0 | lightgbm | 18.146 | 22.808 | 0.376 | 0.617 | 0.615 | 6.908 | 33.372 |
-| bpr | 378 | gbr_depth_1_lr_0.06_leaf_10 | gradient_boosting | 1.291 | 1.631 | 0.457 | 0.677 | 0.670 | 0.469 | 2.318 |
-| porpag | 426 | gbr_depth_1_lr_0.06_leaf_5 | gradient_boosting | 0.911 | 1.132 | 0.117 | 0.351 | 0.323 | 0.052 | 0.791 |
+| bpm | 426 | elastic_alpha_0.1_l1_0.65 | elastic_net | 1.738 | 2.250 | 0.503 | 0.710 | 0.714 | 0.819 | 4.049 |
+| bpm_percentile | 426 | histgb_lr_0.06_leaves_4_l2_12.0 | hist_gradient_boosting | 16.346 | 20.517 | 0.495 | 0.704 | 0.703 | 8.708 | 34.851 |
+| bpr | 378 | elastic_alpha_0.1_l1_0.35 | elastic_net | 1.104 | 1.385 | 0.608 | 0.781 | 0.780 | 0.656 | 3.067 |
+| porpag | 426 | elastic_alpha_0.03_l1_0.65 | elastic_net | 0.643 | 0.828 | 0.527 | 0.726 | 0.732 | 0.320 | 1.793 |
 
 ## Interpretation
 
