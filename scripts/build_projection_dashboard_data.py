@@ -21,10 +21,12 @@ from sklearn.preprocessing import OneHotEncoder, StandardScaler
 
 CURRENT_D2_PATH = Path("d2_data_cleaned.csv")
 TRAINING_PATH = Path("data/modeling/training/d2_available_training.csv")
+TRAINING_RAPM_ALL_PATH = Path("data/modeling/training/d2_available_training_rapm_all.csv")
 MASSEY_PATH = Path("data/massey_conference_power.csv")
 TEAM_RATINGS_PATH = Path("data/massey_team_ratings.csv")
-MODEL_SUMMARY_PATH = Path("reports/d2_available_model_comparison_min_mpg_10/best_models_summary.csv")
+MODEL_SUMMARY_PATH = Path("reports/d2_available_model_comparison_dual_rapm/combined_best_models_summary.csv")
 FEATURE_MANIFEST_PATH = Path("data/modeling/training/d2_available_feature_manifest.json")
+FEATURE_MANIFEST_RAPM_ALL_PATH = Path("data/modeling/training/d2_available_feature_manifest_rapm_all.json")
 OUTPUT_PATH = Path("data/projection_dashboard_data.json")
 SUSPICIOUS_CURRENT_STATS_PATH = Path("data/current_d2_suspicious_event_stats.csv")
 VERIFIED_CURRENT_STATS_PATH = Path("data/current_d2_verified_stats.csv")
@@ -46,6 +48,16 @@ PROJECTION_TARGETS = {
     "bpm": {"column": "big_west_bpm", "label": "Sports Reference BPM", "short_label": "BPM"},
     "bpm_percentile": {"column": "big_west_bpm_percentile", "label": "BPM Percentile", "short_label": "BPM %ile"},
     "porpag": {"column": "target_porpag", "label": "BartTorvik PORPAG", "short_label": "PORPAG"},
+    "rapm_standard": {
+        "column": "target_rapm",
+        "label": "RAPM (adequate volume, beta)",
+        "short_label": "RAPM",
+    },
+    "rapm_all": {
+        "column": "target_rapm",
+        "label": "RAPM (low volume included, beta)",
+        "short_label": "RAPM all",
+    },
 }
 DEFAULT_TARGET = "bpr"
 
@@ -85,6 +97,7 @@ CONFERENCE_ALIASES = {
 }
 
 CLASS_ORDER = {"Fr.": 1, "So.": 2, "Jr.": 3, "Sr.": 4, "Gr.": 5}
+SOURCE_CLASS_LABELS = {"FR": "Fr.", "SO": "So.", "JR": "Jr.", "SR": "Sr.", "GR": "Gr."}
 NEXT_CLASS = {
     "FR": "SO",
     "SO": "JR",
@@ -149,6 +162,11 @@ def height_label(inches: float) -> str:
     return f"{int(inches // 12)}'{int(inches % 12)}\""
 
 
+def source_class_label(value: object) -> str:
+    raw = str(value or "").strip().upper()
+    return SOURCE_CLASS_LABELS.get(raw, str(value or "").strip())
+
+
 def event_stat_quality(row: dict[str, object]) -> dict[str, bool]:
     apg = number(row.get("APG"), 0.0)
     topg = number(row.get("TOPG"), 0.0)
@@ -168,6 +186,35 @@ def event_stat_quality(row: dict[str, object]) -> dict[str, bool]:
 
 def stat_or_missing(value: object, suspicious: bool, fallback: float = np.nan) -> float:
     return np.nan if suspicious else number(value, fallback)
+
+
+def missing_current_stat_fields(row: dict[str, object]) -> list[str]:
+    checks = [
+        ("GP", "GP"),
+        ("MPG", "MPG"),
+        ("PPG", "PPG"),
+        ("RPG", "RPG"),
+        ("APG", "APG"),
+        ("SPG", "SPG"),
+        ("BPG", "BPG"),
+        ("TOPG", "TOPG"),
+        ("FG%", "FG%"),
+        ("3PT%", "3P%"),
+        ("FT%", "FT%"),
+        ("eFG", "eFG%"),
+        ("TS_pct", "TS%"),
+        ("pts_per_40", "PTS/40"),
+        ("reb_per_40", "REB/40"),
+        ("ast_per_40", "AST/40"),
+        ("stl_per_40", "STL/40"),
+        ("blk_per_40", "BLK/40"),
+        ("tov_per_40", "TOV/40"),
+    ]
+    missing: list[str] = []
+    for source_column, label in checks:
+        if not math.isfinite(number(row.get(source_column))):
+            missing.append(label)
+    return missing
 
 
 def verified_key(name: object, team: object) -> tuple[str, str]:
@@ -300,6 +347,98 @@ def apply_verified_row(row: dict[str, object], verified: dict[tuple[str, str], d
     updated["verified_current_stats"] = True
     updated["verified_source_url"] = override.get("source_url", override.get("verified_source_url", ""))
     return updated
+
+
+def rounded_or_none(value: object, digits: int = 1) -> float | None:
+    numeric = number(value)
+    if not math.isfinite(numeric):
+        return None
+    return round(numeric, digits)
+
+
+def training_row_key(row: dict[str, object]) -> tuple[str, str, str]:
+    return (
+        str(row.get("player_slug", "")),
+        str(row.get("destination_school_slug", "")),
+        str(row.get("first_big_west_season", "")),
+    )
+
+
+def build_former_d2_comparison_records(training: pd.DataFrame, rapm_all_training: pd.DataFrame) -> list[dict[str, object]]:
+    former = training.loc[training["source_level"].fillna("").eq("D2")].copy()
+    former = former.sort_values(
+        by=["target_conference", "destination_school", "player_name"],
+        kind="stable",
+    )
+    rapm_all_lookup = {
+        training_row_key(row): row
+        for row in rapm_all_training.to_dict("records")
+    }
+    records: list[dict[str, object]] = []
+    for index, row in enumerate(former.to_dict("records")):
+        rapm_all_row = rapm_all_lookup.get(training_row_key(row), {})
+        height = number(row.get("height_in"), np.nan)
+        record = {
+            "id": f"{slugify(row.get('player_name', ''))}-{slugify(row.get('destination_school', ''))}-{index}",
+            "name": row.get("player_name", ""),
+            "sourceSchool": row.get("source_school", ""),
+            "sourceConference": row.get("source_conference", ""),
+            "destinationSchool": row.get("destination_school", ""),
+            "targetConference": row.get("target_conference", ""),
+            "firstD1Season": row.get("first_big_west_season", ""),
+            "sourceSeason": row.get("source_season", ""),
+            "position": row.get("position", ""),
+            "positionBucket": row.get("position_bucket", ""),
+            "classYear": source_class_label(row.get("source_class", "")),
+            "height": None if not math.isfinite(height) else int(height),
+            "heightLabel": height_label(height),
+            "games": rounded_or_none(row.get("source_games"), 0),
+            "mpg": rounded_or_none(row.get("source_mpg"), 1),
+            "ppg": rounded_or_none(row.get("source_ppg"), 1),
+            "rpg": rounded_or_none(row.get("source_rpg"), 1),
+            "apg": rounded_or_none(row.get("source_apg"), 1),
+            "spg": rounded_or_none(row.get("source_spg"), 1),
+            "bpg": rounded_or_none(row.get("source_bpg"), 1),
+            "topg": rounded_or_none(row.get("source_topg"), 1),
+            "fgPct": rounded_or_none(row.get("source_fg_pct"), 3),
+            "threePct": rounded_or_none(row.get("source_fg3_pct"), 3),
+            "ftPct": rounded_or_none(row.get("source_ft_pct"), 3),
+            "efgPct": rounded_or_none(row.get("source_efg_pct"), 3),
+            "tsPct": rounded_or_none(row.get("source_ts_pct"), 3),
+            "threeRate": rounded_or_none(row.get("source_three_rate"), 3),
+            "ftRate": rounded_or_none(row.get("source_ft_rate"), 3),
+            "ptsPer40": rounded_or_none(row.get("source_pts_per_40"), 1),
+            "rebPer40": rounded_or_none(row.get("source_reb_per_40"), 1),
+            "astPer40": rounded_or_none(row.get("source_ast_per_40"), 1),
+            "stlPer40": rounded_or_none(row.get("source_stl_per_40"), 1),
+            "blkPer40": rounded_or_none(row.get("source_blk_per_40"), 1),
+            "tovPer40": rounded_or_none(row.get("source_tov_per_40"), 1),
+            "sourceConfPower": rounded_or_none(row.get("source_conf_power"), 2),
+            "sourceTeamPower": rounded_or_none(row.get("source_team_power"), 2),
+            "actualGames": rounded_or_none(row.get("big_west_games"), 0),
+            "actualMpg": rounded_or_none(row.get("big_west_mpg"), 1),
+            "actualPpg": rounded_or_none(row.get("big_west_ppg"), 1),
+            "actualRpg": rounded_or_none(row.get("big_west_rpg"), 1),
+            "actualApg": rounded_or_none(row.get("big_west_apg"), 1),
+            "actualByTarget": {
+                "bpr": rounded_or_none(row.get("big_west_bpr"), 2),
+                "bpm": rounded_or_none(row.get("big_west_bpm"), 2),
+                "bpm_percentile": rounded_or_none(row.get("big_west_bpm_percentile"), 2),
+                "porpag": rounded_or_none(row.get("target_porpag"), 2),
+                "rapm_standard": rounded_or_none(row.get("target_rapm"), 2),
+                "rapm_all": rounded_or_none(rapm_all_row.get("target_rapm"), 2),
+            },
+            "actualBpr": rounded_or_none(row.get("big_west_bpr"), 2),
+            "actualBpm": rounded_or_none(row.get("big_west_bpm"), 2),
+            "actualPorpag": rounded_or_none(row.get("target_porpag"), 2),
+            "actualRapm": rounded_or_none(row.get("target_rapm"), 2),
+            "actualBarttorvikBpm": rounded_or_none(row.get("target_barttorvik_bpm"), 2),
+            "outcomeTier": row.get("outcome_tier", ""),
+            "sourceUrl": row.get("source_url", ""),
+            "outcomeUrl": row.get("outcome_url", ""),
+        }
+        records.append(record)
+    return records
 
 
 def load_power() -> dict[tuple[str, str], float]:
@@ -458,12 +597,10 @@ def build_estimator(family: str, params: dict[str, object]) -> object:
 
 
 def fit_models(
-    training: pd.DataFrame,
+    training_by_target: dict[str, pd.DataFrame],
 ) -> tuple[dict[str, dict[str, object]], list[str], list[str]]:
-    training = training.copy()
-    if "big_west_bpm_percentile" not in training.columns:
-        training["big_west_bpm_percentile"] = pd.to_numeric(training.get("big_west_bpm"), errors="coerce").rank(pct=True) * 100
     manifest = json.loads(FEATURE_MANIFEST_PATH.read_text(encoding="utf-8"))
+    rapm_all_manifest = json.loads(FEATURE_MANIFEST_RAPM_ALL_PATH.read_text(encoding="utf-8"))
     numeric_features = list(manifest["numeric_features"])
     categorical_features = list(manifest["categorical_features"])
     summary = pd.read_csv(MODEL_SUMMARY_PATH)
@@ -473,22 +610,31 @@ def fit_models(
         if target_summary.empty:
             continue
         summary_row = target_summary.iloc[0].to_dict()
+        training = training_by_target.get(target_key)
+        if training is None:
+            continue
+        training = training.copy()
+        if "big_west_bpm_percentile" not in training.columns:
+            training["big_west_bpm_percentile"] = pd.to_numeric(training.get("big_west_bpm"), errors="coerce").rank(pct=True) * 100
+        target_manifest = rapm_all_manifest if target_key == "rapm_all" else manifest
+        target_numeric_features = list(target_manifest["numeric_features"])
+        target_categorical_features = list(target_manifest["categorical_features"])
         included = training[
             pd.to_numeric(training[target_meta["column"]], errors="coerce").notna()
             & (pd.to_numeric(training["big_west_mpg"], errors="coerce").fillna(0) >= 10)
         ].copy()
-        if "projected_destination_mpg" in numeric_features:
+        if "projected_destination_mpg" in target_numeric_features:
             included["projected_destination_mpg"] = pd.to_numeric(
                 included.get("projected_destination_mpg", included.get("big_west_mpg")),
                 errors="coerce",
             )
         medians: dict[str, float] = {}
-        for column in numeric_features:
+        for column in target_numeric_features:
             values = pd.to_numeric(included[column], errors="coerce")
             median = float(values.median()) if values.notna().any() else 0.0
             medians[column] = median
             included[column] = values.fillna(median)
-        for column in categorical_features:
+        for column in target_categorical_features:
             included[column] = included[column].fillna("").astype(str)
         estimator = build_estimator(
             str(summary_row["family"]),
@@ -500,18 +646,20 @@ def fit_models(
                     "preprocess",
                     ColumnTransformer(
                         transformers=[
-                            ("num", StandardScaler(), numeric_features),
-                            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), categorical_features),
+                            ("num", StandardScaler(), target_numeric_features),
+                            ("cat", OneHotEncoder(handle_unknown="ignore", sparse_output=False), target_categorical_features),
                         ]
                     ),
                 ),
                 ("model", estimator),
             ]
         )
-        pipeline.fit(included[numeric_features + categorical_features], included[target_meta["column"]])
+        pipeline.fit(included[target_numeric_features + target_categorical_features], included[target_meta["column"]])
         fitted[target_key] = {
             "pipeline": pipeline,
             "medians": medians,
+            "numeric_features": target_numeric_features,
+            "categorical_features": target_categorical_features,
             "summary": summary_row,
         }
     return fitted, numeric_features, categorical_features
@@ -627,11 +775,21 @@ def build_destination_school_contexts(training: pd.DataFrame) -> tuple[
 
 def main() -> int:
     training = pd.read_csv(TRAINING_PATH)
+    rapm_all_training = pd.read_csv(TRAINING_RAPM_ALL_PATH)
     current = pd.read_csv(CURRENT_D2_PATH)
     verified_current_stats = load_verified_current_stats()
     power = load_power()
     team_power = load_team_power()
-    fitted_models, numeric_features, categorical_features = fit_models(training)
+    fitted_models, numeric_features, categorical_features = fit_models(
+        {
+            "bpr": training,
+            "bpm": training,
+            "bpm_percentile": training,
+            "porpag": training,
+            "rapm_standard": training,
+            "rapm_all": rapm_all_training,
+        }
+    )
 
     suspicious_rows: list[dict[str, object]] = []
 
@@ -655,6 +813,7 @@ def main() -> int:
         if not math.isfinite(source_team_power):
             source_team_power = source_power
         base = current_source_row(row, source_power, source_team_power)
+        missing_fields = missing_current_stat_fields(row)
         quality = event_stat_quality(row)
         if any(quality.values()):
             suspicious_rows.append(
@@ -713,6 +872,8 @@ def main() -> int:
                 "sourceConfPower": None if not math.isfinite(source_power) else round(source_power, 2),
                 "sourceTeamPower": None if not math.isfinite(source_team_power) else round(source_team_power, 2),
                 "eventStatsFlagged": any(quality.values()),
+                "missingCurrentStats": bool(missing_fields),
+                "missingStatFields": missing_fields,
                 "verifiedCurrentStats": bool(row.get("verified_current_stats", False)),
                 "verifiedSourceUrl": row.get("verified_source_url", ""),
                 "bestByTarget": {},
@@ -745,12 +906,16 @@ def main() -> int:
                 for target_key, target_model in fitted_models.items():
                     target_frame = frame.copy()
                     medians = target_model["medians"]
-                    for column in numeric_features:
+                    target_numeric_features = target_model.get("numeric_features", numeric_features)
+                    target_categorical_features = target_model.get("categorical_features", categorical_features)
+                    for column in target_numeric_features:
                         values = pd.to_numeric(target_frame[column], errors="coerce").replace([np.inf, -np.inf], np.nan)
                         target_frame[column] = values.fillna(medians[column])
-                    for column in categorical_features:
+                    for column in target_categorical_features:
                         target_frame[column] = target_frame[column].fillna("").astype(str)
-                    predictions = target_model["pipeline"].predict(target_frame[numeric_features + categorical_features])
+                    predictions = target_model["pipeline"].predict(
+                        target_frame[target_numeric_features + target_categorical_features]
+                    )
                     for player, predicted in zip(player_records, predictions):
                         school_projection = player["projections"][conference]["schools"].setdefault(
                             school["slug"],
@@ -799,6 +964,7 @@ def main() -> int:
                 "value": round(default_scores[best_conference], 2),
             }
 
+    former_d2_records = build_former_d2_comparison_records(training, rapm_all_training)
     pd.DataFrame(suspicious_rows).to_csv(SUSPICIOUS_CURRENT_STATS_PATH, index=False)
 
     payload = {
@@ -827,15 +993,18 @@ def main() -> int:
             "conferencePower": {key: round(value, 2) for key, value in conference_power.items()},
             "destinationSchoolsByConference": destination_school_contexts,
             "defaultDestinationSchoolByConference": default_destination_school,
-            "note": f"Current D2 players are scored only with D2-available source features, plus destination-school context and an assumed destination MPG that the UI can adjust. The app can switch among BPR, BPM, BPM percentile, and PORPAG targets. Website candidates are limited to current players at or above {MIN_CURRENT_MPG:g} MPG.",
+            "formerD2Count": len(former_d2_records),
+            "note": f"Current D2 players are scored only with D2-available source features, plus destination-school context and an assumed destination MPG that the UI can adjust. The app can switch among BPR, BPM, BPM percentile, PORPAG, RAPM (adequate volume, beta), and RAPM (low volume included, beta). Website candidates are limited to current players at or above {MIN_CURRENT_MPG:g} MPG.",
         },
         "players": player_records,
+        "formerD2Players": former_d2_records,
     }
     OUTPUT_PATH.write_text(
         json.dumps(json_safe(payload), separators=(",", ":"), allow_nan=False),
         encoding="utf-8",
     )
     print(f"Wrote {len(player_records)} players to {OUTPUT_PATH}")
+    print(f"Wrote {len(former_d2_records)} former D2 -> D1 comparison rows into {OUTPUT_PATH}")
     print(f"Wrote {len(suspicious_rows)} suspicious current D2 stat rows to {SUSPICIOUS_CURRENT_STATS_PATH}")
     print(f"Target conferences: {', '.join(TARGET_CONFERENCES)}")
     return 0

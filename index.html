@@ -4,7 +4,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>D2 Player Dashboard</title>
-    <link rel="stylesheet" href="styles.css?v=20260628b" />
+    <link rel="stylesheet" href="styles.css?v=20260703a" />
   </head>
   <body>
     <div class="app-shell">
@@ -24,10 +24,10 @@
           </a>
         </div>
         <div class="topbar-actions">
-          <button id="quickCompare" class="ghost-button" type="button">Compare players</button>
-          <button class="theme-button" type="button" aria-label="Theme">
-            <span class="theme-ring"></span>
-          </button>
+          <a class="ghost-button" href="#raw-stats">Raw Stats</a>
+          <a class="ghost-button" href="#leaderboard">Projections</a>
+          <button id="quickCompare" class="ghost-button" type="button">Historical Comps</button>
+          <a class="ghost-button" href="#methodology">Methodology</a>
         </div>
       </header>
 
@@ -47,8 +47,10 @@
           </div>
 
           <nav id="navList" class="nav-list">
-            <a class="nav-link" data-route="leaderboard" href="#leaderboard"><span class="nav-icon">⌘</span><span>Leaderboard</span></a>
-            <a class="nav-link" data-route="compare" href="#compare"><span class="nav-icon">⇄</span><span>Compare</span></a>
+            <a class="nav-link" data-route="raw-stats" href="#raw-stats"><span class="nav-icon">#</span><span>Raw Stats</span></a>
+            <a class="nav-link" data-route="leaderboard" href="#leaderboard"><span class="nav-icon">⌘</span><span>Projections</span></a>
+            <a class="nav-link" data-route="pathways" href="#pathways"><span class="nav-icon">⇄</span><span>Historical Comps</span></a>
+            <a class="nav-link" data-route="methodology" href="#methodology"><span class="nav-icon">≡</span><span>Methodology</span></a>
             <a class="nav-link" data-route="recruiting-board" href="#recruiting-board"><span class="nav-icon">☆</span><span>Recruiting Board</span><span class="beta-chip">Beta</span></a>
           </nav>
         </aside>
@@ -59,6 +61,6 @@
       </div>
     </div>
 
-    <script type="module" src="src/app.js?v=20260628b"></script>
+    <script type="module" src="src/app.js?v=20260703a"></script>
   </body>
 </html>

@@ -3,21 +3,23 @@ const DEFAULT_DESTINATION = "Big West";
 const DEFAULT_ROUTE = "leaderboard";
 
 const ROUTES = [
+  "raw-stats",
   "leaderboard",
-  "compare",
+  "pathways",
+  "methodology",
   "recruiting-board",
 ];
 
 const state = {
   data: null,
   players: [],
+  formerPlayers: [],
   route: DEFAULT_ROUTE,
   destination: DEFAULT_DESTINATION,
   target: "bpr",
   destinationSchoolByConference: {},
   projectedMpgByConference: {},
   navOpen: false,
-  compareIds: [null, null],
   search: {
     query: "",
     classYear: "All",
@@ -29,7 +31,45 @@ const state = {
     sort: "bpr",
     selectedId: null,
   },
+  rawStats: {
+    sort: "ppg",
+    selectedId: null,
+  },
+  pathways: {
+    formerId: null,
+    selectedCurrentId: null,
+  },
+  modal: {
+    playerId: null,
+  },
+  benchmarks: {},
 };
+
+const SIMILARITY_FEATURES = [
+  { key: "height", weight: 1.3 },
+  { key: "mpg", weight: 1.2 },
+  { key: "ppg", weight: 1.15 },
+  { key: "rpg", weight: 0.9 },
+  { key: "apg", weight: 0.95 },
+  { key: "spg", weight: 0.65 },
+  { key: "bpg", weight: 0.6 },
+  { key: "topg", weight: 0.35 },
+  { key: "ptsPer40", weight: 1.15 },
+  { key: "rebPer40", weight: 0.95 },
+  { key: "astPer40", weight: 1.05 },
+  { key: "stlPer40", weight: 1.1 },
+  { key: "blkPer40", weight: 0.85 },
+  { key: "tovPer40", weight: 0.35 },
+  { key: "fgPct", weight: 0.45 },
+  { key: "threePct", weight: 0.45 },
+  { key: "ftPct", weight: 0.3 },
+  { key: "efgPct", weight: 0.75 },
+  { key: "tsPct", weight: 1.15 },
+  { key: "threeRate", weight: 1.05 },
+  { key: "ftRate", weight: 0.85 },
+  { key: "sourceConfPower", weight: 0.7 },
+  { key: "sourceTeamPower", weight: 0.6 },
+];
 
 const els = {
   viewRoot: document.querySelector("#viewRoot"),
@@ -71,6 +111,14 @@ function formatInteger(value) {
   return Number.isFinite(number) ? number.toLocaleString() : "-";
 }
 
+function formatRatio(numerator, denominator, digits = 1) {
+  const top = Number(numerator);
+  const bottom = Number(denominator);
+  if (!Number.isFinite(top) || !Number.isFinite(bottom) || bottom <= 0) return "-";
+  const ratio = top / bottom;
+  return ratio >= 10 ? ratio.toFixed(0) : ratio.toFixed(digits);
+}
+
 function projectionTier(target, value) {
   const number = Number(value);
   if (!Number.isFinite(number)) return "depth risk";
@@ -105,6 +153,16 @@ function uniqueSorted(values) {
   return [...new Set(values.filter(Boolean))].sort((a, b) => String(a).localeCompare(String(b)));
 }
 
+function normalizeClassFilterValue(value) {
+  const text = String(value ?? "").trim().toLowerCase().replace(/\./g, "");
+  if (text.startsWith("fr")) return "Fr";
+  if (text.startsWith("so")) return "So";
+  if (text.startsWith("jr")) return "Jr";
+  if (text.startsWith("sr")) return "Sr";
+  if (text.startsWith("gr")) return "Gr";
+  return "Other";
+}
+
 function normalizeRoute(hash) {
   const route = hash.replace(/^#/, "") || DEFAULT_ROUTE;
   return ROUTES.includes(route) ? route : DEFAULT_ROUTE;
@@ -121,8 +179,51 @@ function targetMeta(target = state.target) {
   };
 }
 
+function targetOptionLabel(key, meta) {
+  const label = meta?.label ?? key.toUpperCase();
+  return key === "bpr" ? `${label} (recommended)` : label;
+}
+
 function targetOptions() {
   return Object.entries(state.data?.meta?.projectionTargets ?? {});
+}
+
+function renderPageHeader({ title, subtitle, stats = "" }) {
+  return `
+    <section class="page-header-card ${stats ? "" : "single"}">
+      <div class="page-intro">
+        <h1 class="page-title">${escapeHtml(title)}</h1>
+        <p class="page-subtitle">${escapeHtml(subtitle)}</p>
+      </div>
+      ${stats}
+    </section>
+  `;
+}
+
+function benchmarkFor(statKey) {
+  return state.benchmarks?.[statKey] ?? null;
+}
+
+function statInsight(player, statKey, digits = 1, asPct = false) {
+  const benchmark = benchmarkFor(statKey);
+  const value = Number(player?.[statKey]);
+  if (!benchmark || !Number.isFinite(value)) return "";
+  const avg = benchmark.mean;
+  const delta = value - avg;
+  const percentile = benchmark.percentileById?.[player.id];
+  if (!Number.isFinite(avg) || !Number.isFinite(percentile)) return "";
+  const deltaLabel = asPct ? `${delta >= 0 ? "+" : ""}${Math.round(delta * 100)} pts vs avg` : `${delta >= 0 ? "+" : ""}${delta.toFixed(digits)} vs avg`;
+  return `${Math.round(percentile)}th pct · ${deltaLabel}`;
+}
+
+function renderStatCell({ label, value, insight = "" }) {
+  return `
+    <div>
+      <span class="mini-label">${label}</span>
+      <strong>${value}</strong>
+      ${insight ? `<small class="stat-context">${escapeHtml(insight)}</small>` : ""}
+    </div>
+  `;
 }
 
 function destinationSchools(conference = state.destination) {
@@ -204,7 +305,199 @@ function projectionEntries(player) {
     .sort((a, b) => b[1].bpr - a[1].bpr);
 }
 
-function filteredPlayers() {
+function positionGroup(value) {
+  const text = String(value ?? "").toLowerCase();
+  if (text.includes("guard") || text === "g" || text === "pg" || text === "sg") return "G";
+  if (text.includes("center") || text === "c") return "C";
+  if (text.includes("forward") || text === "f" || text === "pf" || text === "sf") return "F";
+  if (text === "gf" || text === "g/f") return "G/F";
+  if (text === "fc" || text === "f/c") return "F/C";
+  return String(value ?? "").toUpperCase() || "-";
+}
+
+function classRank(value) {
+  const text = String(value ?? "").toLowerCase();
+  if (text.startsWith("fr")) return 1;
+  if (text.startsWith("so")) return 2;
+  if (text.startsWith("jr")) return 3;
+  if (text.startsWith("sr")) return 4;
+  if (text.startsWith("gr")) return 5;
+  return 0;
+}
+
+function isUcsdPathway(player) {
+  return String(player?.destinationSchool ?? "").toLowerCase() === "uc san diego";
+}
+
+function sortedFormerPlayers() {
+  return [...state.formerPlayers].sort((a, b) => {
+    const aUcsd = Number(isUcsdPathway(a));
+    const bUcsd = Number(isUcsdPathway(b));
+    if (bUcsd !== aUcsd) return bUcsd - aUcsd;
+    return a.name.localeCompare(b.name) || a.destinationSchool.localeCompare(b.destinationSchool);
+  });
+}
+
+function buildSimilarityStats(players, features = SIMILARITY_FEATURES) {
+  return features.reduce((stats, feature) => {
+    const values = players
+      .map((player) => Number(player?.[feature.key]))
+      .filter((value) => Number.isFinite(value));
+    if (!values.length) {
+      stats[feature.key] = { mean: 0, std: 1 };
+      return stats;
+    }
+    const mean = values.reduce((sum, value) => sum + value, 0) / values.length;
+    const variance = values.reduce((sum, value) => sum + (value - mean) ** 2, 0) / values.length;
+    stats[feature.key] = {
+      mean,
+      std: Math.sqrt(variance) || 1,
+    };
+    return stats;
+  }, {});
+}
+
+function similarityScoreFromStats(target, candidate, stats, features = SIMILARITY_FEATURES) {
+  if (!target || !candidate) return 0;
+  let squaredDistance = 0;
+  let weightTotal = 0;
+  features.forEach((feature) => {
+    const targetValue = Number(target?.[feature.key]);
+    const candidateValue = Number(candidate?.[feature.key]);
+    if (!Number.isFinite(targetValue) || !Number.isFinite(candidateValue)) return;
+    const metric = stats[feature.key] ?? { mean: 0, std: 1 };
+    const std = Number(metric.std) || 1;
+    const delta = (targetValue - candidateValue) / std;
+    const capped = Math.max(-3, Math.min(3, delta));
+    squaredDistance += feature.weight * capped * capped;
+    weightTotal += feature.weight;
+  });
+  if (!weightTotal) return 0;
+  const distance = Math.sqrt(squaredDistance / weightTotal);
+  let score = 100 - (distance / 2.6) * 100;
+  const targetPosition = positionGroup(target.positionBucket || target.position);
+  const candidatePosition = positionGroup(candidate.positionBucket || candidate.position);
+  if (targetPosition === candidatePosition) score += 5;
+  else if (targetPosition.includes(candidatePosition) || candidatePosition.includes(targetPosition)) score += 2;
+  const classDelta = Math.abs(classRank(target.classYear) - classRank(candidate.classYear));
+  if (classDelta === 0) score += 3;
+  else if (classDelta === 1) score += 1.5;
+  return Math.max(0, Math.min(100, Math.round(score)));
+}
+
+function rawStatValue(player, key) {
+  switch (key) {
+    case "games":
+      return Number(player.games);
+    case "mpg":
+      return Number(player.mpg);
+    case "ppg":
+      return Number(player.ppg);
+    case "rpg":
+      return Number(player.rpg);
+    case "apg":
+      return Number(player.apg);
+    case "ptsPer40":
+      return Number(player.ptsPer40);
+    case "rebPer40":
+      return Number(player.rebPer40);
+    case "astPer40":
+      return Number(player.astPer40);
+    case "threePct":
+      return Number(player.threePct);
+    case "sourceConfPower":
+      return Number(player.sourceConfPower);
+    case "name":
+      return player.name;
+    default:
+      return Number(player[key]);
+  }
+}
+
+function sortRawPlayers(players, key = "ppg") {
+  const copy = [...players];
+  copy.sort((a, b) => {
+    if (key === "name") return a.name.localeCompare(b.name);
+    if (key === "conference") return a.conference.localeCompare(b.conference) || a.team.localeCompare(b.team);
+    return (rawStatValue(b, key) || 0) - (rawStatValue(a, key) || 0);
+  });
+  return copy;
+}
+
+function selectedFormerPathwayPlayer() {
+  const sorted = sortedFormerPlayers();
+  return sorted.find((player) => player.id === state.pathways.formerId) ?? sorted[0] ?? null;
+}
+
+function similarCurrentPlayers(former) {
+  const stats = buildSimilarityStats([...state.players, ...state.formerPlayers]);
+  return [...state.players]
+    .map((current) => ({ ...current, similarity: similarityScoreFromStats(former, current, stats) }))
+    .sort((a, b) => {
+      if (b.similarity !== a.similarity) return b.similarity - a.similarity;
+      const projectionB = currentProjection(b);
+      const projectionA = currentProjection(a);
+      return (projectionB?.bpr ?? -999) - (projectionA?.bpr ?? -999);
+    });
+}
+
+function similarPeerPlayers(player) {
+  const stats = buildSimilarityStats(state.players);
+  return [...state.players]
+    .filter((candidate) => candidate.id !== player.id)
+    .map((candidate) => ({
+      ...candidate,
+      similarity: similarityScoreFromStats(player, candidate, stats),
+    }))
+    .sort((a, b) => {
+      if (b.similarity !== a.similarity) return b.similarity - a.similarity;
+      return (currentProjection(b)?.bpr ?? -999) - (currentProjection(a)?.bpr ?? -999);
+    });
+}
+
+function buildBenchmarks(players) {
+  const statKeys = [
+    "games",
+    "mpg",
+    "ppg",
+    "rpg",
+    "apg",
+    "spg",
+    "bpg",
+    "topg",
+    "fgPct",
+    "threePct",
+    "ftPct",
+    "efgPct",
+    "tsPct",
+    "threeRate",
+    "ftRate",
+    "ptsPer40",
+    "rebPer40",
+    "astPer40",
+    "stlPer40",
+    "blkPer40",
+    "tovPer40",
+    "sourceConfPower",
+    "sourceTeamPower",
+  ];
+  return Object.fromEntries(
+    statKeys.map((key) => {
+      const values = players
+        .map((player) => ({ id: player.id, value: Number(player?.[key]) }))
+        .filter((entry) => Number.isFinite(entry.value))
+        .sort((a, b) => a.value - b.value);
+      if (!values.length) return [key, null];
+      const mean = values.reduce((sum, entry) => sum + entry.value, 0) / values.length;
+      const percentileById = Object.fromEntries(
+        values.map((entry, index) => [entry.id, ((index + 1) / values.length) * 100])
+      );
+      return [key, { mean, percentileById }];
+    })
+  );
+}
+
+function filteredPlayers({ applyProjectionMin = true } = {}) {
   const query = state.search.query.trim().toLowerCase();
   return state.players.filter((player) => {
     const projection = currentProjection(player);
@@ -213,10 +506,10 @@ function filteredPlayers() {
       const haystack = `${player.name} ${player.team} ${player.conference} ${player.position}`.toLowerCase();
       if (!haystack.includes(query)) return false;
     }
-    if (state.search.classYear !== "All" && player.classYear !== state.search.classYear) return false;
+    if (state.search.classYear !== "All" && normalizeClassFilterValue(player.classYear) !== state.search.classYear) return false;
     if (state.search.conference !== "All" && player.conference !== state.search.conference) return false;
     if (state.search.position !== "All" && player.position !== state.search.position) return false;
-    if (projection.bpr < state.search.minBpr) return false;
+    if (applyProjectionMin && projection.bpr < state.search.minBpr) return false;
     return true;
   });
 }
@@ -227,7 +520,6 @@ function sortPlayers(players, key = "bpr") {
     if (key === "name") return a.name.localeCompare(b.name);
     if (key === "ppg") return b.ppg - a.ppg;
     if (key === "mpg") return b.mpg - a.mpg;
-    if (key === "verified") return Number(b.verifiedCurrentStats) - Number(a.verifiedCurrentStats);
     return currentProjection(b).bpr - currentProjection(a).bpr;
   });
   return copy;
@@ -235,12 +527,6 @@ function sortPlayers(players, key = "bpr") {
 
 function topPlayers(limit = 6) {
   return sortPlayers(filteredPlayers(), "bpr").slice(0, limit);
-}
-
-function qualityBadge(player) {
-  if (player.verifiedCurrentStats) return `<span class="badge green">Verified</span>`;
-  if (player.eventStatsFlagged) return `<span class="badge gold">Flagged</span>`;
-  return `<span class="badge neutral">Unverified</span>`;
 }
 
 function positionBadge(player) {
@@ -279,7 +565,7 @@ function renderDestinationContextControls({
         <label>
           <span class="mini-label">Target metric</span>
           <select id="targetPicker" class="select-input">
-            ${targetOptions().map(([key, meta]) => `<option value="${escapeHtml(key)}" ${key === target ? "selected" : ""}>${escapeHtml(meta.label)}</option>`).join("")}
+            ${targetOptions().map(([key, meta]) => `<option value="${escapeHtml(key)}" ${key === target ? "selected" : ""}>${escapeHtml(targetOptionLabel(key, meta))}</option>`).join("")}
           </select>
         </label>
         ${showConference ? `
@@ -376,7 +662,6 @@ function renderPlayerCard(player) {
         </div>
         <div class="player-status">
           <p><span class="mini-label">Going to</span> ${escapeHtml(projection.schoolName ?? school?.name ?? "-")}</p>
-          ${qualityBadge(player)}
           <p>${escapeHtml(player.bestByTarget?.[state.target]?.conference ?? "-")} best default fit</p>
         </div>
       </div>
@@ -391,18 +676,28 @@ function projectionFilterOptions() {
   return [-2, -1, 0, 1, 2, 3];
 }
 
-function searchToolbar() {
-  const classYears = ["All", ...uniqueSorted(state.players.map((player) => player.classYear))];
+function searchToolbar({ addTargetFilter = true, sortButtons = [], sticky = false } = {}) {
+  const classYears = ["All", ...uniqueSorted(state.players.map((player) => normalizeClassFilterValue(player.classYear)))];
   const conferences = ["All", ...uniqueSorted(state.players.map((player) => player.conference))];
   const positions = ["All", ...uniqueSorted(state.players.map((player) => player.position))];
 
   return `
-    <section class="content-card">
+    <section class="content-card ${sticky ? "sticky-filters" : ""}">
       <div class="toolbar">
         <div class="toolbar-left">
           <input id="searchQuery" class="search-input" type="search" placeholder="Search player, team, conference, or position" value="${escapeHtml(state.search.query)}" />
         </div>
         <div class="toolbar-right">
+          ${sortButtons.length ? `
+            <div class="sort-chip-group">
+              <span class="mini-label">Sort by</span>
+              <div class="chip-filter-list">
+                ${sortButtons.map((button) => `
+                  <button class="filter-chip ${button.active ? "active" : ""}" type="button" ${button.attr}="${escapeHtml(button.value)}">${escapeHtml(button.label)}</button>
+                `).join("")}
+              </div>
+            </div>
+          ` : ""}
           <button id="resetSearch" class="pill-button" type="button">Reset filters</button>
         </div>
       </div>
@@ -410,12 +705,14 @@ function searchToolbar() {
         ${renderSelect("searchClass", classYears, state.search.classYear)}
         ${renderSelect("searchConference", conferences, state.search.conference)}
         ${renderSelect("searchPosition", positions, state.search.position)}
-        <label>
-          <span class="mini-label">Min ${escapeHtml(targetMeta().shortLabel)}</span>
-          <select id="searchMinBpr" class="select-input">
-            ${projectionFilterOptions().map((value) => `<option value="${value}" ${Number(value) === Number(state.search.minBpr) ? "selected" : ""}>${value}</option>`).join("")}
-          </select>
-        </label>
+        ${addTargetFilter ? `
+          <label>
+            <span class="mini-label">Min ${escapeHtml(targetMeta().shortLabel)}</span>
+            <select id="searchMinBpr" class="select-input">
+              ${projectionFilterOptions().map((value) => `<option value="${value}" ${Number(value) === Number(state.search.minBpr) ? "selected" : ""}>${value}</option>`).join("")}
+            </select>
+          </label>
+        ` : ""}
       </div>
     </section>
   `;
@@ -460,31 +757,71 @@ function renderLoadingState(title = "Loading projections...", copy = "Reading th
   `;
 }
 
+function renderLeaderboardControls(players, selected) {
+  return `
+    <section class="content-card compact-controls">
+      <div class="compact-control-grid">
+        <label>
+          <span class="mini-label">Metric</span>
+          <select id="targetPicker" class="select-input compact-select">
+            ${targetOptions().map(([key, meta]) => `<option value="${escapeHtml(key)}" ${key === state.target ? "selected" : ""}>${escapeHtml(targetOptionLabel(key, meta))}</option>`).join("")}
+          </select>
+        </label>
+        <label>
+          <span class="mini-label">Player</span>
+          <select id="leaderboardPlayerPicker" class="select-input compact-select">
+            ${players.slice(0, 200).map((player) => `<option value="${escapeHtml(player.id)}" ${player.id === selected?.id ? "selected" : ""}>${escapeHtml(player.name)} · ${escapeHtml(player.team)}</option>`).join("")}
+          </select>
+        </label>
+      </div>
+    </section>
+  `;
+}
+
+function renderPathwayControls(former) {
+  const formerOptions = sortedFormerPlayers();
+  return `
+    <section class="content-card compact-controls">
+      <div class="compact-control-grid">
+        <label>
+          <span class="mini-label">Metric</span>
+          <select id="targetPicker" class="select-input compact-select">
+            ${targetOptions().map(([key, meta]) => `<option value="${escapeHtml(key)}" ${key === state.target ? "selected" : ""}>${escapeHtml(targetOptionLabel(key, meta))}</option>`).join("")}
+          </select>
+        </label>
+        <label>
+          <span class="mini-label">Player</span>
+          <select id="pathwayFormerPlayer" class="select-input compact-select">
+            <option value="">Select a historical comp</option>
+            ${formerOptions.map((player) => `<option value="${escapeHtml(player.id)}" ${player.id === former?.id ? "selected" : ""}>${escapeHtml(player.name)} · ${escapeHtml(player.sourceSchool)} to ${escapeHtml(player.destinationSchool)}</option>`).join("")}
+          </select>
+        </label>
+      </div>
+    </section>
+  `;
+}
+
 function renderLeaderboard() {
   const players = sortPlayers(filteredPlayers(), state.leaderboard.sort);
   const selected = players.find((player) => player.id === state.leaderboard.selectedId) ?? players[0] ?? null;
   if (selected && !state.leaderboard.selectedId) state.leaderboard.selectedId = selected.id;
 
   return `
-    <section class="view">
-      <div>
-        <h1 class="page-title">Leaderboard</h1>
-        <p class="page-subtitle">Ranked ${escapeHtml(targetMeta().shortLabel)} projections in the current destination-team context, with player detail and fit breakdown.</p>
-      </div>
-      ${summaryStats()}
-      <section class="content-card">
-        <div class="toolbar">
-          <div class="toolbar-left">
-            <button class="tab-button ${state.leaderboard.sort === "bpr" ? "active" : ""}" type="button" data-sort="bpr">Proj. ${escapeHtml(targetMeta().shortLabel)}</button>
-            <button class="tab-button ${state.leaderboard.sort === "ppg" ? "active" : ""}" type="button" data-sort="ppg">PPG</button>
-            <button class="tab-button ${state.leaderboard.sort === "mpg" ? "active" : ""}" type="button" data-sort="mpg">MPG</button>
-            <button class="tab-button ${state.leaderboard.sort === "name" ? "active" : ""}" type="button" data-sort="name">Name</button>
-            <button class="tab-button ${state.leaderboard.sort === "verified" ? "active" : ""}" type="button" data-sort="verified">Verified</button>
-          </div>
-        </div>
-      </section>
-      ${renderDestinationContextControls({ title: "Leaderboard scenario" })}
-      ${searchToolbar()}
+    <section class="view view-leaderboard">
+      ${renderPageHeader({
+        title: "Projections",
+        subtitle: `Ranked ${targetMeta().shortLabel} projections in the current destination-team context, with player detail and fit breakdown.`,
+        stats: summaryStats(),
+      })}
+      ${renderDestinationContextControls({ title: "Projection scenario", compact: true })}
+      ${searchToolbar({
+        sortButtons: [
+          { attr: "data-sort", value: "bpr", label: `Proj. ${targetMeta().shortLabel}`, active: state.leaderboard.sort === "bpr" },
+          { attr: "data-sort", value: "ppg", label: "PPG", active: state.leaderboard.sort === "ppg" },
+          { attr: "data-sort", value: "mpg", label: "MPG", active: state.leaderboard.sort === "mpg" },
+          { attr: "data-sort", value: "name", label: "Name", active: state.leaderboard.sort === "name" },
+        ],
+      })}
       <section class="split-layout">
         <div class="table-wrap">
           <table class="data-table">
@@ -497,7 +834,6 @@ function renderLeaderboard() {
                 <th>PPG</th>
                 <th>MPG</th>
                 <th>Proj. ${escapeHtml(targetMeta().shortLabel)}</th>
-                <th>Status</th>
               </tr>
             </thead>
             <tbody>
@@ -505,9 +841,18 @@ function renderLeaderboard() {
             </tbody>
           </table>
         </div>
-        ${selected ? renderLeaderDetail(selected) : renderEmptyState("No player selected.", "Choose a player from the leaderboard to inspect their profile.")}
+        ${selected ? renderLeaderRail(selected) : renderEmptyState("No player selected.", "Choose a player from the leaderboard to inspect their profile.")}
       </section>
     </section>
+  `;
+}
+
+function renderLeaderRail(player) {
+  return `
+    <div class="detail-rail">
+      ${renderLeaderDetail(player)}
+      ${renderSimilarPlayersPanel(player)}
+    </div>
   `;
 }
 
@@ -525,7 +870,6 @@ function renderLeaderboardRow(player, index, selectedId) {
       <td>${formatNumber(player.ppg, 1)}</td>
       <td>${formatNumber(player.mpg, 1)}</td>
       <td><strong>${formatSigned(projection.bpr)}</strong><br /><span class="muted">${escapeHtml(projection.schoolName ?? "-")}</span></td>
-      <td>${qualityBadge(player)}</td>
     </tr>
   `;
 }
@@ -555,99 +899,410 @@ function renderLeaderDetail(player) {
       </div>
       <div class="detail-stat-grid">
         ${[
-          ["Going to", escapeHtml(projection.schoolName ?? "-")],
-          ["GP", formatNumber(player.games, 0)],
-          ["PPG", formatNumber(player.ppg, 1)],
-          ["RPG", formatNumber(player.rpg, 1)],
-          ["APG", formatNumber(player.apg, 1)],
-          ["PTS/40", formatNumber(player.ptsPer40, 1)],
-          ["REB/40", formatNumber(player.rebPer40, 1)],
-          ["AST/40", formatNumber(player.astPer40, 1)],
-          ["3P%", formatPct(player.threePct)],
-          ["eFG%", formatPct(player.efgPct)],
-          ["D2 Pwr", formatNumber(player.sourceConfPower, 2)],
-          ["Dest Team Pwr", formatNumber(projection.destinationTeamPower, 2)],
-          [targetMeta().shortLabel, formatSigned(projection.bpr)],
-        ].map(([label, value]) => `<div><span class="mini-label">${label}</span><strong>${value}</strong></div>`).join("")}
-      </div>
-      <div class="content-card">
-        <span class="mini-label">Data quality</span>
-        ${qualityBadge(player)}
-        <p class="quality-note">${player.verifiedSourceUrl ? `<a href="${escapeHtml(player.verifiedSourceUrl)}" target="_blank" rel="noreferrer">Open verified source</a>` : "No verified source URL attached yet."}</p>
+          { label: "Going to", value: escapeHtml(projection.schoolName ?? "-") },
+          { label: "GP", value: formatNumber(player.games, 0), insight: statInsight(player, "games", 0) },
+          { label: "PPG", value: formatNumber(player.ppg, 1), insight: statInsight(player, "ppg", 1) },
+          { label: "RPG", value: formatNumber(player.rpg, 1), insight: statInsight(player, "rpg", 1) },
+          { label: "APG", value: formatNumber(player.apg, 1), insight: statInsight(player, "apg", 1) },
+          { label: "TS%", value: formatPct(player.tsPct), insight: statInsight(player, "tsPct", 1, true) },
+          { label: "3P Rate", value: formatPct(player.threeRate), insight: statInsight(player, "threeRate", 1, true) },
+          { label: "FT Rate", value: formatPct(player.ftRate), insight: statInsight(player, "ftRate", 1, true) },
+          { label: "PTS/40", value: formatNumber(player.ptsPer40, 1), insight: statInsight(player, "ptsPer40", 1) },
+          { label: "REB/40", value: formatNumber(player.rebPer40, 1), insight: statInsight(player, "rebPer40", 1) },
+          { label: "AST/40", value: formatNumber(player.astPer40, 1), insight: statInsight(player, "astPer40", 1) },
+          { label: "3P%", value: formatPct(player.threePct), insight: statInsight(player, "threePct", 1, true) },
+          { label: "eFG%", value: formatPct(player.efgPct), insight: statInsight(player, "efgPct", 1, true) },
+          { label: "D2 Pwr", value: formatNumber(player.sourceConfPower, 2), insight: statInsight(player, "sourceConfPower", 2) },
+          { label: "Dest Team Pwr", value: formatNumber(projection.destinationTeamPower, 2) },
+          { label: targetMeta().shortLabel, value: formatSigned(projection.bpr) },
+        ].map(renderStatCell).join("")}
       </div>
     </aside>
   `;
 }
 
-function renderCompare() {
-  const options = state.players
-    .slice(0, 500)
-    .map((player) => `<option value="${escapeHtml(player.id)}">${escapeHtml(player.name)} · ${escapeHtml(player.team)}</option>`)
-    .join("");
-  const left = findPlayer(state.compareIds[0]) ?? sortPlayers(state.players, "bpr")[0] ?? null;
-  const right = findPlayer(state.compareIds[1]) ?? sortPlayers(state.players, "bpr")[1] ?? null;
-
+function renderSimilarPlayersPanel(player) {
+  const peers = similarPeerPlayers(player).slice(0, 8);
   return `
-    <section class="view">
-      <div>
-        <h1 class="page-title">Compare</h1>
-        <p class="page-subtitle">Select two prospects and compare their D2 production, projected ${escapeHtml(targetMeta().shortLabel)}, and destination-team fit side by side.</p>
+    <aside class="content-card similar-panel">
+      <div class="section-block">
+        <span class="section-label">Most Similar Players</span>
+        <h3>Current D2 peers</h3>
+        <p class="quality-note">Rate-aware z-score similarity using workload, production, shooting efficiency, shot mix, and conference/team context.</p>
       </div>
-      ${renderDestinationContextControls({ title: "Compare context" })}
-      <section class="content-card">
-        <div class="compare-selects">
-          <select id="compareLeft" class="select-input">
-            <option value="">Select first player</option>
-            ${options}
-          </select>
-          <select id="compareRight" class="select-input">
-            <option value="">Select second player</option>
-            ${options}
-          </select>
+      <div class="similar-player-list">
+        ${peers.map((peer) => {
+          const projection = currentProjection(peer);
+          return `
+            <button class="similar-player-button" type="button" data-open-player-modal="${escapeHtml(peer.id)}">
+              <span>
+                <strong>${escapeHtml(peer.name)}</strong>
+                <span class="muted">${escapeHtml(peer.team)} · ${formatNumber(peer.ppg, 1)} PPG · ${formatPct(peer.tsPct)} TS</span>
+              </span>
+              <span class="similar-player-meta">
+                <strong>${formatNumber(peer.similarity, 0)}</strong>
+                <span class="muted">${projection ? formatSigned(projection.bpr) : "-"}</span>
+              </span>
+            </button>
+          `;
+        }).join("") || `<div class="empty-state"><strong>No similar players</strong><p>There were not enough comparable profiles in the current pool.</p></div>`}
+      </div>
+    </aside>
+  `;
+}
+
+function renderRawStats() {
+  const players = sortRawPlayers(filteredPlayers({ applyProjectionMin: false }), state.rawStats.sort);
+  const selected = players.find((player) => player.id === state.rawStats.selectedId) ?? players[0] ?? null;
+  if (selected && !state.rawStats.selectedId) state.rawStats.selectedId = selected.id;
+  return `
+    <section class="view view-raw">
+      ${renderPageHeader({
+        title: "Raw Stats",
+        subtitle: "Browse the current D2 player pool without the projection layer. Click a card to open the full stat profile.",
+      })}
+      ${searchToolbar({
+        addTargetFilter: false,
+        sticky: true,
+        sortButtons: [
+          { attr: "data-raw-sort", value: "ppg", label: "PPG", active: state.rawStats.sort === "ppg" },
+          { attr: "data-raw-sort", value: "mpg", label: "MPG", active: state.rawStats.sort === "mpg" },
+          { attr: "data-raw-sort", value: "rpg", label: "RPG", active: state.rawStats.sort === "rpg" },
+          { attr: "data-raw-sort", value: "apg", label: "APG", active: state.rawStats.sort === "apg" },
+          { attr: "data-raw-sort", value: "ptsPer40", label: "PTS/40", active: state.rawStats.sort === "ptsPer40" },
+          { attr: "data-raw-sort", value: "name", label: "Name", active: state.rawStats.sort === "name" },
+        ],
+      })}
+      <section class="split-layout">
+        <div class="raw-card-grid">
+          ${players.slice(0, 150).map((player) => `
+            <button class="raw-player-card ${player.id === selected?.id ? "selected" : ""}" type="button" data-raw-player-row="${escapeHtml(player.id)}">
+              <div class="raw-player-card-head">
+                <div>
+                  <strong>${escapeHtml(player.name)}</strong>
+                  <p class="muted">${escapeHtml(player.team)}</p>
+                  <p class="muted">${escapeHtml(player.conference)} · ${escapeHtml(player.position)} · ${escapeHtml(player.classYear)}</p>
+                </div>
+              </div>
+              <div class="raw-player-primary-stats">
+                <div><span class="mini-label">PPG</span><strong>${formatNumber(player.ppg, 1)}</strong></div>
+                <div><span class="mini-label">3P%</span><strong>${formatPct(player.threePct)}</strong></div>
+                <div><span class="mini-label">A/TO</span><strong>${formatRatio(player.apg, player.topg)}</strong></div>
+              </div>
+            </button>
+          `).join("")}
         </div>
-      </section>
-      <section class="compare-grid">
-        ${left ? renderCompareCard(left, "Left") : renderEmptyState("Pick a player", "Use the selector above to start a comparison.")}
-        ${right ? renderCompareCard(right, "Right") : renderEmptyState("Pick a player", "Use the selector above to start a comparison.")}
+        ${selected ? renderRawStatsDetail(selected) : renderEmptyState("No player selected.", "Choose a player card to inspect the full profile.")} 
       </section>
     </section>
   `;
 }
 
-function renderCompareCard(player, label) {
-  const projection = currentProjection(player);
-  const bestFit = projectionEntries(player)[0];
-  const school = schoolContext(state.destination, selectedDestinationSchool(state.destination));
+function renderRawStatsDetail(player) {
+  return `
+    <aside class="leader-detail">
+      <div>
+        <span class="section-label">${escapeHtml(player.team)} · ${escapeHtml(player.conference)}</span>
+        <h3>${escapeHtml(player.name)}</h3>
+        <p class="compare-subtitle">${escapeHtml(player.position)} · ${escapeHtml(player.heightLabel)} · ${escapeHtml(player.classYear)}</p>
+      </div>
+      <div class="detail-stat-grid">
+        ${[
+          { label: "GP", value: formatNumber(player.games, 0), insight: statInsight(player, "games", 0) },
+          { label: "PPG", value: formatNumber(player.ppg, 1), insight: statInsight(player, "ppg", 1) },
+          { label: "MPG", value: formatNumber(player.mpg, 1), insight: statInsight(player, "mpg", 1) },
+          { label: "RPG", value: formatNumber(player.rpg, 1), insight: statInsight(player, "rpg", 1) },
+          { label: "APG", value: formatNumber(player.apg, 1), insight: statInsight(player, "apg", 1) },
+          { label: "SPG", value: formatNumber(player.spg, 1), insight: statInsight(player, "spg", 1) },
+          { label: "BPG", value: formatNumber(player.bpg, 1), insight: statInsight(player, "bpg", 1) },
+          { label: "TOPG", value: formatNumber(player.topg, 1), insight: statInsight(player, "topg", 1) },
+          { label: "3P%", value: formatPct(player.threePct), insight: statInsight(player, "threePct", 1, true) },
+          { label: "FG%", value: formatPct(player.fgPct), insight: statInsight(player, "fgPct", 1, true) },
+          { label: "FT%", value: formatPct(player.ftPct), insight: statInsight(player, "ftPct", 1, true) },
+          { label: "TS%", value: formatPct(player.tsPct), insight: statInsight(player, "tsPct", 1, true) },
+          { label: "3P Rate", value: formatPct(player.threeRate), insight: statInsight(player, "threeRate", 1, true) },
+          { label: "FT Rate", value: formatPct(player.ftRate), insight: statInsight(player, "ftRate", 1, true) },
+          { label: "PTS/40", value: formatNumber(player.ptsPer40, 1), insight: statInsight(player, "ptsPer40", 1) },
+          { label: "REB/40", value: formatNumber(player.rebPer40, 1), insight: statInsight(player, "rebPer40", 1) },
+          { label: "AST/40", value: formatNumber(player.astPer40, 1), insight: statInsight(player, "astPer40", 1) },
+          { label: "D2 Pwr", value: formatNumber(player.sourceConfPower, 2), insight: statInsight(player, "sourceConfPower", 2) },
+          { label: "A/TO", value: formatRatio(player.apg, player.topg) },
+          { label: "Team Pwr", value: formatNumber(player.sourceTeamPower, 2), insight: statInsight(player, "sourceTeamPower", 2) },
+        ].map(renderStatCell).join("")}
+      </div>
+    </aside>
+  `;
+}
+
+function renderPathways() {
+  const former = selectedFormerPathwayPlayer();
+  const similar = former ? similarCurrentPlayers(former) : [];
+  const selectedCurrent =
+    similar.find((player) => player.id === state.pathways.selectedCurrentId) ??
+    null;
+
+  return `
+    <section class="view view-pathways">
+      ${renderPageHeader({
+        title: "Historical Comps",
+        subtitle: "Pick a former D2 to D1 pathway, then inspect the closest current D2 players from the live pool.",
+      })}
+      ${renderPathwayControls(former)}
+      <section class="projection-main-layout pathways-top-layout">
+        ${former ? renderFormerDetail(former) : renderEmptyState("Pick a pathway", "Choose a former D2 to D1 player to load the former-player profile.")}
+        <section class="content-card leaderboard-panel">
+          <div class="section-block">
+            <span class="section-label">Current D2 Matches</span>
+            <h3>Closest present-day comps</h3>
+            <p class="quality-note">Similarity uses workload, production, per-40 rates, TS%, 3P rate, FT rate, and conference/team context. Click a player to open the side-by-side comparison.</p>
+          </div>
+          <div class="table-wrap">
+            <table class="data-table">
+              <thead>
+                <tr>
+                  <th>Similarity</th>
+                  <th>Current player</th>
+                  <th>Team</th>
+                  <th>Current D2 line</th>
+                </tr>
+              </thead>
+              <tbody>
+                ${similar.slice(0, 20).map((player) => {
+                  return `
+                  <tr class="${player.id === selectedCurrent?.id ? "selected" : ""}" data-current-comp-row="${escapeHtml(player.id)}">
+                    <td><strong>${formatNumber(player.similarity, 0)}</strong></td>
+                    <td><strong>${escapeHtml(player.name)}</strong><br /><span class="muted">${escapeHtml(player.position)} · ${escapeHtml(player.classYear)}</span></td>
+                    <td>${escapeHtml(player.team)}<br /><span class="muted">${escapeHtml(player.conference)}</span></td>
+                    <td>${formatNumber(player.ppg, 1)} PPG · ${formatNumber(player.rpg, 1)} RPG · ${formatNumber(player.apg, 1)} APG · ${formatNumber(player.games, 0)} GP</td>
+                  </tr>
+                `;}).join("")}
+              </tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </section>
+  `;
+}
+
+function renderPathwaysCurrentCard(player) {
   return `
     <article class="compare-card">
       <div class="compare-card-head">
-        <span class="section-label">${escapeHtml(label)} player</span>
+        <span class="section-label">Current D2 player</span>
         <h3>${escapeHtml(player.name)}</h3>
-        <p class="compare-subtitle">${escapeHtml(player.team)} · ${escapeHtml(player.position)} · ${escapeHtml(player.classYear)}</p>
+        <p class="compare-subtitle">${escapeHtml(player.team)} · ${escapeHtml(player.conference)} · ${escapeHtml(player.position)} · ${escapeHtml(player.classYear)}</p>
       </div>
       <div class="compare-header">
         <div>
-          <span class="mini-label">Projected ${escapeHtml(targetMeta().shortLabel)}</span>
-          <div class="compare-value">${formatSigned(projection.bpr)}</div>
-          <p class="quality-note">${escapeHtml(school?.name ?? state.destination)} · ${formatNumber(projection.projectedMpg, 0)} MPG</p>
+          <span class="mini-label">Current D2 profile</span>
+          <div class="compare-value">${formatNumber(player.similarity, 0)}</div>
+          <p class="quality-note">Similarity score against the selected historical comp</p>
         </div>
-        ${qualityBadge(player)}
       </div>
       <div class="compare-stat-list">
         ${[
-          ["Going to", escapeHtml(projection.schoolName ?? "-")],
           ["GP", formatNumber(player.games, 0)],
-          ["PPG", formatNumber(player.ppg, 1)],
           ["MPG", formatNumber(player.mpg, 1)],
+          ["PPG", formatNumber(player.ppg, 1)],
           ["RPG", formatNumber(player.rpg, 1)],
           ["APG", formatNumber(player.apg, 1)],
-          ["3P%", formatPct(player.threePct)],
+          ["TS%", formatPct(player.tsPct)],
+          ["3P Rate", formatPct(player.threeRate)],
+          ["FT Rate", formatPct(player.ftRate)],
           ["PTS/40", formatNumber(player.ptsPer40, 1)],
-          ["Best fit", escapeHtml(bestFit?.[0] ?? "-")],
-          [`Best ${targetMeta().shortLabel}`, formatSigned(bestFit?.[1]?.bpr)],
+          ["REB/40", formatNumber(player.rebPer40, 1)],
+          ["AST/40", formatNumber(player.astPer40, 1)],
+          ["3P%", formatPct(player.threePct)],
+          ["D2 Pwr", formatNumber(player.sourceConfPower, 2)],
         ].map(([labelText, value]) => `<div class="compare-stat-item"><span>${labelText}</span><strong>${value}</strong></div>`).join("")}
       </div>
     </article>
+  `;
+}
+
+function renderFormerDetail(player) {
+  return `
+    <article class="compare-card">
+      <div class="compare-card-head">
+        <span class="section-label">Historical comp</span>
+        <h3>${escapeHtml(player.name)}</h3>
+        <p class="compare-subtitle">${escapeHtml(player.sourceSchool)} to ${escapeHtml(player.destinationSchool)} · ${escapeHtml(player.firstD1Season)}</p>
+      </div>
+      <div class="compare-header">
+        <div>
+          <span class="mini-label">Actual ${escapeHtml(targetMeta().shortLabel)}</span>
+          <div class="compare-value">${formatSigned(player.actualByTarget?.[state.target])}</div>
+          <p class="quality-note">${escapeHtml(player.targetConference)} · ${escapeHtml(player.outcomeTier || "historical outcome")}</p>
+        </div>
+      </div>
+      <div class="historical-compact-grid">
+        <section class="historical-stat-panel">
+          <span class="mini-label">Source D2 season</span>
+          <div class="compare-stat-list">
+            ${[
+              ["GP", formatNumber(player.games, 0)],
+              ["MPG", formatNumber(player.mpg, 1)],
+              ["PPG", formatNumber(player.ppg, 1)],
+              ["RPG", formatNumber(player.rpg, 1)],
+              ["APG", formatNumber(player.apg, 1)],
+              ["SPG", formatNumber(player.spg, 1)],
+              ["BPG", formatNumber(player.bpg, 1)],
+              ["TOPG", formatNumber(player.topg, 1)],
+              ["FG%", formatPct(player.fgPct)],
+              ["3P%", formatPct(player.threePct)],
+              ["FT%", formatPct(player.ftPct)],
+              ["TS%", formatPct(player.tsPct)],
+              ["3P Rate", formatPct(player.threeRate)],
+              ["FT Rate", formatPct(player.ftRate)],
+              ["PTS/40", formatNumber(player.ptsPer40, 1)],
+              ["REB/40", formatNumber(player.rebPer40, 1)],
+              ["AST/40", formatNumber(player.astPer40, 1)],
+              ["D2 Conf Pwr", formatNumber(player.sourceConfPower, 2)],
+            ].map(([labelText, value]) => `<div class="compare-stat-item"><span>${labelText}</span><strong>${value}</strong></div>`).join("")}
+          </div>
+        </section>
+        <section class="historical-stat-panel">
+          <span class="mini-label">Eventual D1 outcome</span>
+          <div class="compare-stat-list">
+            ${[
+              ["D1 GP", formatNumber(player.actualGames, 0)],
+              ["D1 MPG", formatNumber(player.actualMpg, 1)],
+              ["D1 PPG", formatNumber(player.actualPpg, 1)],
+              ["D1 RPG", formatNumber(player.actualRpg, 1)],
+              ["D1 APG", formatNumber(player.actualApg, 1)],
+              ["Actual BPR", formatSigned(player.actualBpr)],
+              ["Actual BPM", formatSigned(player.actualBpm)],
+              ["Actual PORPAG", formatSigned(player.actualPorpag)],
+              ["Actual Bart BPM", formatSigned(player.actualBarttorvikBpm)],
+            ].map(([labelText, value]) => `<div class="compare-stat-item"><span>${labelText}</span><strong>${value}</strong></div>`).join("")}
+          </div>
+        </section>
+      </div>
+      <p class="quality-note">${player.sourceUrl ? `<a href="${escapeHtml(player.sourceUrl)}" target="_blank" rel="noreferrer">Source season</a>` : "No source season link"}${player.outcomeUrl ? ` · <a href="${escapeHtml(player.outcomeUrl)}" target="_blank" rel="noreferrer">First D1 season</a>` : ""}</p>
+    </article>
+  `;
+}
+
+function renderComparisonStatGrid(items) {
+  return `
+    <div class="comparison-stat-grid">
+      ${items.map(([label, value]) => `
+        <div class="comparison-stat-item">
+          <span class="mini-label">${label}</span>
+          <strong>${value}</strong>
+        </div>
+      `).join("")}
+    </div>
+  `;
+}
+
+function renderPathwayCompareOverlay() {
+  if (state.route !== "pathways") return "";
+  const former = selectedFormerPathwayPlayer();
+  if (!former || !state.pathways.selectedCurrentId) return "";
+  const similar = similarCurrentPlayers(former);
+  const current = similar.find((player) => player.id === state.pathways.selectedCurrentId) ?? null;
+  if (!current) return "";
+
+  const formerStats = [
+    ["D2 GP", formatNumber(former.games, 0)],
+    ["D2 MPG", formatNumber(former.mpg, 1)],
+    ["D2 PPG", formatNumber(former.ppg, 1)],
+    ["D2 RPG", formatNumber(former.rpg, 1)],
+    ["D2 APG", formatNumber(former.apg, 1)],
+    ["D2 SPG", formatNumber(former.spg, 1)],
+    ["D2 BPG", formatNumber(former.bpg, 1)],
+    ["D2 TOPG", formatNumber(former.topg, 1)],
+    ["D2 FG%", formatPct(former.fgPct)],
+    ["D2 3P%", formatPct(former.threePct)],
+    ["D2 FT%", formatPct(former.ftPct)],
+    ["D2 eFG%", formatPct(former.efgPct)],
+    ["D2 TS%", formatPct(former.tsPct)],
+    ["D2 3P Rate", formatPct(former.threeRate)],
+    ["D2 FT Rate", formatPct(former.ftRate)],
+    ["D2 PTS/40", formatNumber(former.ptsPer40, 1)],
+    ["D2 REB/40", formatNumber(former.rebPer40, 1)],
+    ["D2 AST/40", formatNumber(former.astPer40, 1)],
+    ["D2 STL/40", formatNumber(former.stlPer40, 1)],
+    ["D2 BLK/40", formatNumber(former.blkPer40, 1)],
+    ["D2 TOV/40", formatNumber(former.tovPer40, 1)],
+    ["Actual D1 GP", formatNumber(former.actualGames, 0)],
+    ["Actual D1 MPG", formatNumber(former.actualMpg, 1)],
+    ["Actual D1 PPG", formatNumber(former.actualPpg, 1)],
+  ];
+
+  const currentStats = [
+    ["GP", formatNumber(current.games, 0)],
+    ["MPG", formatNumber(current.mpg, 1)],
+    ["PPG", formatNumber(current.ppg, 1)],
+    ["RPG", formatNumber(current.rpg, 1)],
+    ["APG", formatNumber(current.apg, 1)],
+    ["SPG", formatNumber(current.spg, 1)],
+    ["BPG", formatNumber(current.bpg, 1)],
+    ["TOPG", formatNumber(current.topg, 1)],
+    ["FG%", formatPct(current.fgPct)],
+    ["3P%", formatPct(current.threePct)],
+    ["FT%", formatPct(current.ftPct)],
+    ["eFG%", formatPct(current.efgPct)],
+    ["TS%", formatPct(current.tsPct)],
+    ["3P Rate", formatPct(current.threeRate)],
+    ["FT Rate", formatPct(current.ftRate)],
+    ["PTS/40", formatNumber(current.ptsPer40, 1)],
+    ["REB/40", formatNumber(current.rebPer40, 1)],
+    ["AST/40", formatNumber(current.astPer40, 1)],
+    ["STL/40", formatNumber(current.stlPer40, 1)],
+    ["BLK/40", formatNumber(current.blkPer40, 1)],
+    ["TOV/40", formatNumber(current.tovPer40, 1)],
+    ["Similarity", formatNumber(current.similarity, 0)],
+    ["A/TO", formatRatio(current.apg, current.topg)],
+  ];
+
+  return `
+    <div class="modal-shell compare-focus-shell" data-close-pathway-compare="true">
+      <div class="compare-focus-modal" role="dialog" aria-modal="true" aria-label="Former and current player comparison">
+        <div class="modal-head">
+          <div>
+            <span class="section-label">Side-by-side comparison</span>
+            <h3>${escapeHtml(former.name)} vs ${escapeHtml(current.name)}</h3>
+            <p class="compare-subtitle">Historical comp on the left, selected current D2 profile on the right.</p>
+          </div>
+          <button class="close-button" type="button" aria-label="Close comparison" data-close-pathway-compare="true">×</button>
+        </div>
+        <div class="compare-focus-grid">
+          <article class="compare-focus-card">
+            <div class="compare-card-head">
+              <span class="section-label">Historical comp</span>
+              <h3>${escapeHtml(former.name)}</h3>
+              <p class="compare-subtitle">${escapeHtml(former.sourceSchool)} to ${escapeHtml(former.destinationSchool)} · ${escapeHtml(former.firstD1Season)}</p>
+            </div>
+            <div class="compare-header">
+              <div>
+                <span class="mini-label">Actual ${escapeHtml(targetMeta().shortLabel)}</span>
+                <div class="compare-value">${formatSigned(former.actualByTarget?.[state.target])}</div>
+                <p class="quality-note">${escapeHtml(former.targetConference)} · ${escapeHtml(former.outcomeTier || "historical outcome")}</p>
+              </div>
+            </div>
+            ${renderComparisonStatGrid(formerStats)}
+          </article>
+          <article class="compare-focus-card">
+            <div class="compare-card-head">
+              <span class="section-label">Current D2 player</span>
+              <h3>${escapeHtml(current.name)}</h3>
+              <p class="compare-subtitle">${escapeHtml(current.team)} · ${escapeHtml(current.conference)} · ${escapeHtml(current.position)} · ${escapeHtml(current.classYear)}</p>
+            </div>
+            <div class="compare-header">
+              <div>
+                <span class="mini-label">Similarity score</span>
+                <div class="compare-value">${formatNumber(current.similarity, 0)}</div>
+                <p class="quality-note">Current D2 profile against the selected historical comp</p>
+              </div>
+            </div>
+            ${renderComparisonStatGrid(currentStats)}
+          </article>
+        </div>
+      </div>
+    </div>
   `;
 }
 
@@ -674,7 +1329,7 @@ function renderRecruitingBoard() {
   ];
 
   return `
-    <section class="view">
+    <section class="view view-recruiting">
       <div>
         <h1 class="page-title">Recruiting Board</h1>
         <p class="page-subtitle">Organize the player pool into simple roster-building tiers based on the selected projection target in the current destination context.</p>
@@ -688,7 +1343,7 @@ function renderRecruitingBoard() {
               <span class="badge ${tier.tone}">${escapeHtml(tier.title)}</span>
               <p>${escapeHtml(tier.copy)}</p>
               <div class="board-player-list">
-                ${players.map((player) => `<div><span>${escapeHtml(player.name)}</span><strong>${formatSigned(currentProjection(player).bpr)}</strong></div>`).join("") || `<div><span>No players</span><strong>-</strong></div>`}
+                ${players.map((player) => `<div><span>${escapeHtml(player.name)}<br /><span class="muted">${formatPct(player.tsPct)} TS · ${formatPct(player.threeRate)} 3P rate · ${formatNumber(player.games, 0)} GP</span></span><strong>${formatSigned(currentProjection(player).bpr)}</strong></div>`).join("") || `<div><span>No players</span><strong>-</strong></div>`}
               </div>
             </article>
           `;
@@ -698,16 +1353,115 @@ function renderRecruitingBoard() {
   `;
 }
 
+function renderMethodology() {
+  const targets = targetOptions();
+  return `
+    <section class="view view-methodology">
+      ${renderPageHeader({
+        title: "Methodology",
+        subtitle: "How the D2 Player Dashboard builds projections, raw-stat context, and historical similarity matches.",
+      })}
+      <section class="methodology-grid">
+        <article class="content-card">
+          <span class="section-label">Projection model</span>
+          <h3>Current approach</h3>
+          <p class="quality-note">${escapeHtml(state.data?.meta?.note ?? "")}</p>
+          <div class="methodology-target-list">
+            ${targets.map(([key, meta]) => `
+              <div class="methodology-target-item">
+                <div>
+                  <strong>${escapeHtml(targetOptionLabel(key, meta))}</strong>
+                  <p class="quality-note">${escapeHtml(meta.model)} · ${escapeHtml(meta.family)}</p>
+                </div>
+                <div class="methodology-metrics">
+                  <span>Rows ${formatInteger(meta.rowsUsed)}</span>
+                  <span>R² ${formatNumber(meta.cvR2, 3)}</span>
+                  <span>Corr ${formatNumber(meta.cvCorr, 3)}</span>
+                </div>
+              </div>
+            `).join("")}
+          </div>
+        </article>
+        <article class="content-card">
+          <span class="section-label">Similarity</span>
+          <h3>Historical comps</h3>
+          <p class="quality-note">Similarity is a weighted z-score comparison across workload, per-game production, per-40 rates, shooting efficiency, 3P rate, FT rate, and conference/team context. It does not use PCA right now.</p>
+          <p class="quality-note">Historical comps let you start from a former D2-to-D1 pathway and then inspect the closest current D2 profiles.</p>
+        </article>
+        <article class="content-card">
+          <span class="section-label">Raw stats context</span>
+          <h3>Percentiles and above average</h3>
+          <p class="quality-note">For current D2 players, the detail views now show percentile rank and above/below-average context versus the full current tracked D2 pool for each displayed stat.</p>
+        </article>
+        <article class="content-card">
+          <span class="section-label">To Do</span>
+          <h3>Known next steps</h3>
+          <ul class="methodology-list">
+            <li>Rework RAPM targets if the range remains too compressed relative to basketball intuition.</li>
+            <li>Bring back the verification/data-quality layer after the UI is stabilized, with clearer sourcing and missing-stat explanations.</li>
+            <li>Keep expanding historical transfer coverage beyond the current target-conference focus.</li>
+          </ul>
+        </article>
+      </section>
+    </section>
+  `;
+}
+
 function findPlayer(id) {
   return state.players.find((player) => player.id === id) ?? null;
+}
+
+function renderPlayerModal() {
+  const player = findPlayer(state.modal.playerId);
+  if (!player) return "";
+  const projection = currentProjection(player);
+  return `
+    <div class="modal-shell" data-close-player-modal="true">
+      <div class="modal-card" role="dialog" aria-modal="true" aria-label="Player similarity card">
+        <div class="modal-head">
+          <div>
+            <span class="section-label">${escapeHtml(player.team)} · ${escapeHtml(player.conference)}</span>
+            <h3>${escapeHtml(player.name)}</h3>
+            <p class="compare-subtitle">${escapeHtml(player.position)} · ${escapeHtml(player.heightLabel)} · ${escapeHtml(player.classYear)}</p>
+          </div>
+          <button class="close-button" type="button" aria-label="Close" data-close-player-modal="true">×</button>
+        </div>
+        <div class="score-card">
+          <span class="section-label">Current scenario</span>
+          <strong>${projection ? formatSigned(projection.bpr) : "-"}</strong>
+          <p>${projection ? `${escapeHtml(projection.schoolName ?? "-")} · ${formatNumber(projection.projectedMpg, 0)} MPG` : "Projection unavailable"}</p>
+        </div>
+        <div class="detail-stat-grid">
+          ${[
+            ["GP", formatNumber(player.games, 0)],
+            ["MPG", formatNumber(player.mpg, 1)],
+            ["PPG", formatNumber(player.ppg, 1)],
+            ["RPG", formatNumber(player.rpg, 1)],
+            ["APG", formatNumber(player.apg, 1)],
+            ["TS%", formatPct(player.tsPct)],
+            ["3P Rate", formatPct(player.threeRate)],
+            ["FT Rate", formatPct(player.ftRate)],
+            ["3P%", formatPct(player.threePct)],
+            ["PTS/40", formatNumber(player.ptsPer40, 1)],
+            ["AST/40", formatNumber(player.astPer40, 1)],
+            [targetMeta().shortLabel, projection ? formatSigned(projection.bpr) : "-"],
+          ].map(([label, value]) => `<div><span class="mini-label">${label}</span><strong>${value}</strong></div>`).join("")}
+        </div>
+      </div>
+    </div>
+  `;
 }
 
 function renderView() {
   switch (state.route) {
     case "leaderboard":
       return renderLeaderboard();
-    case "compare":
-      return renderCompare();
+    case "raw-stats":
+      return renderRawStats();
+    case "pathways":
+      return renderPathways();
+    case "methodology":
+      return renderMethodology();
     case "recruiting-board":
       return renderRecruitingBoard();
     default:
@@ -729,7 +1483,7 @@ function setNavOpen(open) {
 }
 
 function render() {
-  els.viewRoot.innerHTML = renderView();
+  els.viewRoot.innerHTML = `${renderView()}${renderPathwayCompareOverlay()}${renderPlayerModal()}`;
   syncNav();
   hydrateViewControls();
 }
@@ -783,6 +1537,20 @@ function hydrateViewControls() {
     });
   });
 
+  document.querySelectorAll("[data-raw-player-row]").forEach((row) => {
+    row.addEventListener("click", () => {
+      state.rawStats.selectedId = row.dataset.rawPlayerRow;
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-current-comp-row]").forEach((row) => {
+    row.addEventListener("click", () => {
+      state.pathways.selectedCurrentId = row.dataset.currentCompRow;
+      render();
+    });
+  });
+
   document.querySelectorAll("[data-destination]").forEach((button) => {
     button.addEventListener("click", () => {
       state.destination = button.dataset.destination;
@@ -793,6 +1561,13 @@ function hydrateViewControls() {
   document.querySelectorAll("[data-sort]").forEach((button) => {
     button.addEventListener("click", () => {
       state.leaderboard.sort = button.dataset.sort;
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-raw-sort]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.rawStats.sort = button.dataset.rawSort;
       render();
     });
   });
@@ -833,23 +1608,46 @@ function hydrateViewControls() {
     });
   }
 
-  const compareLeft = document.querySelector("#compareLeft");
-  const compareRight = document.querySelector("#compareRight");
-  if (compareLeft) {
-    compareLeft.value = state.compareIds[0] ?? "";
-    compareLeft.addEventListener("change", (event) => {
-      state.compareIds[0] = event.target.value || null;
-      render();
-    });
-  }
-  if (compareRight) {
-    compareRight.value = state.compareIds[1] ?? "";
-    compareRight.addEventListener("change", (event) => {
-      state.compareIds[1] = event.target.value || null;
+  const pathwayFormerPlayer = document.querySelector("#pathwayFormerPlayer");
+  if (pathwayFormerPlayer) {
+    pathwayFormerPlayer.value = state.pathways.formerId ?? "";
+    pathwayFormerPlayer.addEventListener("change", (event) => {
+      state.pathways.formerId = event.target.value || null;
+      state.pathways.selectedCurrentId = null;
       render();
     });
   }
 
+  const leaderboardPlayerPicker = document.querySelector("#leaderboardPlayerPicker");
+  if (leaderboardPlayerPicker) {
+    leaderboardPlayerPicker.addEventListener("change", (event) => {
+      state.leaderboard.selectedId = event.target.value || null;
+      render();
+    });
+  }
+
+  document.querySelectorAll("[data-open-player-modal]").forEach((button) => {
+    button.addEventListener("click", () => {
+      state.modal.playerId = button.dataset.openPlayerModal;
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-close-player-modal]").forEach((element) => {
+    element.addEventListener("click", (event) => {
+      if (element.classList.contains("modal-shell") && event.target !== element) return;
+      state.modal.playerId = null;
+      render();
+    });
+  });
+
+  document.querySelectorAll("[data-close-pathway-compare]").forEach((element) => {
+    element.addEventListener("click", (event) => {
+      if (element.classList.contains("modal-shell") && event.target !== element) return;
+      state.pathways.selectedCurrentId = null;
+      render();
+    });
+  });
 }
 
 function bindChromeEvents() {
@@ -857,7 +1655,7 @@ function bindChromeEvents() {
   els.menuClose.addEventListener("click", () => setNavOpen(false));
   els.navOverlay.addEventListener("click", () => setNavOpen(false));
   els.quickCompare.addEventListener("click", () => {
-    location.hash = "#compare";
+    location.hash = "#pathways";
   });
   window.addEventListener("hashchange", () => {
     state.route = normalizeRoute(location.hash);
@@ -872,6 +1670,8 @@ async function initialize() {
   if (!response.ok) throw new Error(`Could not load projection data: ${response.status}`);
   state.data = await response.json();
   state.players = state.data.players;
+  state.formerPlayers = state.data.formerD2Players ?? [];
+  state.benchmarks = buildBenchmarks(state.players);
   state.target = state.data.meta.defaultTarget ?? "bpr";
   state.data.meta.conferences.forEach((conference) => {
     const school = defaultDestinationSchool(conference);
@@ -879,11 +1679,10 @@ async function initialize() {
     state.projectedMpgByConference[conference] = schoolContext(conference, school)?.defaultProjectedMpg ?? minuteScenarioOptions()[0];
   });
   state.route = normalizeRoute(location.hash);
-  state.compareIds = [
-    sortPlayers(state.players, "bpr")[0]?.id ?? null,
-    sortPlayers(state.players, "bpr")[1]?.id ?? null,
-  ];
   state.leaderboard.selectedId = sortPlayers(state.players, "bpr")[0]?.id ?? null;
+  state.rawStats.selectedId = sortRawPlayers(state.players, "ppg")[0]?.id ?? null;
+  state.pathways.formerId = sortedFormerPlayers()[0]?.id ?? null;
+  state.pathways.selectedCurrentId = null;
   bindChromeEvents();
   render();
 }

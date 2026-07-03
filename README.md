@@ -4,6 +4,12 @@ A browser app for screening current NCAA Division II men's basketball players as
 
 The current website is driven by `data/projection_dashboard_data.json` and focuses on projected post-transfer EvanMiya BPR using only D2-available features.
 
+## Current Product Notes
+
+- `BPR` is the recommended projection target in the current website.
+- The public UI currently hides the data-verification / missing-stat status layer while the layout is being simplified.
+- Bringing verification back with clearer sourcing and missing-stat explanations is a tracked follow-up item.
+
 The current frontend direction is:
 
 - lighter landing page instead of a dense all-in-one dashboard

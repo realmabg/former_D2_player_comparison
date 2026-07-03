@@ -29,11 +29,13 @@
 }
 
 html {
+  height: 100%;
   scroll-behavior: smooth;
 }
 
 body {
   margin: 0;
+  height: 100%;
   min-width: 320px;
   font-family: Inter, "Segoe UI", sans-serif;
   color: var(--text);
@@ -41,6 +43,7 @@ body {
     linear-gradient(180deg, rgba(198, 146, 20, 0.05), transparent 18%),
     radial-gradient(circle at top center, rgba(138, 184, 255, 0.08), transparent 26%),
     var(--bg);
+  overflow: hidden;
 }
 
 a {
@@ -70,7 +73,8 @@ strong {
 }
 
 .app-shell {
-  min-height: 100vh;
+  height: 100vh;
+  overflow: hidden;
 }
 
 .topbar {
@@ -303,6 +307,7 @@ strong {
 
 .layout {
   position: relative;
+  height: calc(100vh - 76px);
 }
 
 .sidebar.open {
@@ -312,19 +317,57 @@ strong {
 .page {
   width: min(1520px, calc(100% - 48px));
   margin: 0 auto;
-  padding: 4px 0 44px;
+  height: 100%;
+  padding: 8px 0 20px;
   min-width: 0;
+  overflow: auto;
+}
+
+#viewRoot {
+  min-height: 100%;
 }
 
 .view {
   display: grid;
   gap: 14px;
+  min-height: 100%;
+}
+
+.view-leaderboard {
+  height: 100%;
+  grid-template-rows: auto auto auto auto auto minmax(0, 1fr);
+}
+
+.view-raw {
+  height: 100%;
+  grid-template-rows: auto auto auto minmax(0, 1fr);
+}
+
+.view-pathways {
+  height: 100%;
+  grid-template-rows: auto auto minmax(320px, 1fr) auto;
+}
+
+.view-recruiting {
+  height: 100%;
+  grid-template-rows: auto auto minmax(0, 1fr);
 }
 
 .page-title {
   font-size: clamp(2rem, 4.2vw, 3.4rem);
   line-height: 0.96;
   letter-spacing: -0.06em;
+}
+
+.page-header-card {
+  display: grid;
+  gap: 14px;
+  grid-template-columns: minmax(280px, 1.05fr) minmax(0, 1.95fr);
+  align-items: start;
+}
+
+.page-header-card.single {
+  grid-template-columns: 1fr;
 }
 
 .page-subtitle,
@@ -398,6 +441,10 @@ strong {
   gap: 18px;
 }
 
+.page-header-card .stat-grid {
+  margin-top: 2px;
+}
+
 .stat-card {
   display: grid;
   gap: 12px;
@@ -451,6 +498,7 @@ strong {
 .quick-grid {
   display: grid;
   gap: 18px;
+  min-height: 0;
 }
 
 .player-grid {
@@ -465,6 +513,10 @@ strong {
 
 .compare-grid {
   grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.compare-grid > * {
+  min-height: 0;
 }
 
 .player-card {
@@ -625,7 +677,41 @@ strong {
 .content-card {
   display: grid;
   gap: 18px;
+  min-height: 0;
   padding: 16px;
+}
+
+.compact-controls {
+  padding: 12px 14px;
+}
+
+.context-card.compact {
+  gap: 14px;
+  padding: 12px 14px;
+}
+
+.context-card.compact .support-copy {
+  font-size: 0.92rem;
+}
+
+.context-card.compact .context-controls {
+  gap: 12px;
+}
+
+.context-card.compact .range-control {
+  padding: 10px 12px;
+}
+
+.compact-control-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 260px) minmax(280px, 520px);
+  gap: 12px;
+  align-items: end;
+}
+
+.compact-select {
+  min-height: 40px;
+  padding: 0 12px;
 }
 
 .loading-card,
@@ -735,8 +821,45 @@ strong {
   grid-template-columns: repeat(4, minmax(0, 1fr));
 }
 
+.sticky-filters {
+  position: sticky;
+  top: 10px;
+  z-index: 8;
+}
+
+.sort-chip-group {
+  display: grid;
+  gap: 8px;
+}
+
+.chip-filter-list {
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+}
+
+.filter-chip {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 38px;
+  padding: 0 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  background: var(--card-muted);
+  color: var(--muted);
+  font-weight: 600;
+}
+
+.filter-chip.active {
+  border-color: rgba(198, 146, 20, 0.28);
+  background: var(--primary-soft);
+  color: var(--primary);
+}
+
 .table-wrap {
   overflow: auto;
+  min-height: 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
 }
@@ -778,9 +901,45 @@ strong {
 
 .split-layout {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) 360px;
+  grid-template-columns: minmax(0, 1fr) 440px;
   gap: 20px;
   align-items: start;
+  min-height: 0;
+}
+
+.view-raw .split-layout {
+  grid-template-columns: minmax(0, 1fr) 420px;
+}
+
+.projection-main-layout {
+  display: grid;
+  grid-template-columns: minmax(340px, 420px) minmax(0, 1fr);
+  gap: 20px;
+  min-height: 0;
+}
+
+.pathways-top-layout {
+  align-items: start;
+}
+
+.leaderboard-panel {
+  overflow: hidden;
+}
+
+.compare-card {
+  overflow: visible;
+}
+
+.split-layout > * {
+  min-height: 0;
+}
+
+.detail-rail {
+  display: grid;
+  gap: 16px;
+  min-height: 0;
+  overflow: visible;
+  padding-right: 4px;
 }
 
 .leader-detail,
@@ -790,8 +949,7 @@ strong {
 }
 
 .leader-detail {
-  position: sticky;
-  top: 100px;
+  overflow: visible;
   border: 1px solid var(--border);
   border-radius: var(--radius-xl);
   background: var(--card);
@@ -837,6 +995,14 @@ strong {
 .detail-stat-grid div,
 .upload-results-grid div {
   padding: 12px;
+}
+
+.stat-context {
+  display: block;
+  margin-top: 6px;
+  color: var(--muted);
+  font-size: 0.72rem;
+  line-height: 1.35;
 }
 
 .compare-selects {
@@ -890,6 +1056,11 @@ strong {
   gap: 8px;
 }
 
+.board-grid {
+  overflow: auto;
+  padding-right: 4px;
+}
+
 .team-player-list div,
 .board-player-list div {
   display: flex;
@@ -900,6 +1071,147 @@ strong {
   border: 1px solid var(--border);
   border-radius: var(--radius-sm);
   background: var(--card-muted);
+}
+
+.similar-panel,
+.section-block,
+.similar-player-list,
+.modal-head,
+.similar-player-meta {
+  display: grid;
+}
+
+.similar-panel {
+  align-content: start;
+}
+
+.section-block {
+  gap: 6px;
+}
+
+.similar-player-list {
+  gap: 10px;
+}
+
+.similar-player-button {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  width: 100%;
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card-soft);
+  text-align: left;
+  transition: border-color 140ms ease, transform 140ms ease, background 140ms ease;
+}
+
+.similar-player-button:hover {
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.05);
+  transform: translateY(-1px);
+}
+
+.similar-player-button span {
+  display: grid;
+  gap: 4px;
+}
+
+.similar-player-meta {
+  justify-items: end;
+  min-width: 58px;
+}
+
+.similar-player-meta strong {
+  font-size: 1.05rem;
+}
+
+.modal-shell {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  place-items: center;
+  padding: 24px;
+  background: rgba(5, 13, 23, 0.68);
+  backdrop-filter: blur(10px);
+}
+
+.modal-card {
+  display: grid;
+  gap: 16px;
+  width: min(760px, 100%);
+  max-height: min(86vh, 820px);
+  overflow: auto;
+  padding: 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(198, 146, 20, 0.08), transparent 22%), var(--card);
+  box-shadow: var(--shadow);
+}
+
+.modal-head {
+  grid-template-columns: minmax(0, 1fr) auto;
+  gap: 14px;
+  align-items: start;
+}
+
+.compare-focus-shell {
+  background: rgba(5, 13, 23, 0.54);
+  backdrop-filter: blur(18px);
+}
+
+.compare-focus-modal {
+  display: grid;
+  gap: 18px;
+  width: min(1520px, calc(100vw - 56px));
+  max-height: min(90vh, 980px);
+  padding: 20px;
+  border: 1px solid var(--border-strong);
+  border-radius: var(--radius-xl);
+  background: linear-gradient(180deg, rgba(198, 146, 20, 0.06), transparent 20%), rgba(13, 27, 42, 0.96);
+  box-shadow: var(--shadow);
+}
+
+.compare-focus-grid,
+.comparison-stat-grid {
+  display: grid;
+  gap: 16px;
+}
+
+.compare-focus-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-items: start;
+}
+
+.compare-focus-card {
+  display: grid;
+  gap: 14px;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-xl);
+  background: rgba(17, 38, 61, 0.96);
+}
+
+.comparison-stat-grid {
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 10px;
+}
+
+.comparison-stat-item {
+  display: grid;
+  gap: 4px;
+  min-height: 62px;
+  padding: 10px 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card-soft);
+}
+
+.comparison-stat-item strong {
+  font-size: 1.05rem;
+  line-height: 1.1;
 }
 
 .upload-card {
@@ -920,9 +1232,121 @@ strong {
   text-align: center;
 }
 
+.raw-card-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 16px;
+  align-content: start;
+}
+
+.raw-player-card {
+  display: grid;
+  gap: 14px;
+  width: 100%;
+  padding: 16px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card);
+  box-shadow: var(--shadow);
+  text-align: left;
+  transition: border-color 140ms ease, transform 140ms ease, background 140ms ease;
+}
+
+.raw-player-card:hover,
+.raw-player-card.selected {
+  border-color: var(--border-strong);
+  background: rgba(255, 255, 255, 0.04);
+  transform: translateY(-1px);
+}
+
+.raw-player-card-head,
+.raw-player-primary-stats {
+  display: grid;
+  gap: 10px;
+}
+
+.raw-player-primary-stats {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.raw-player-primary-stats div {
+  display: grid;
+  gap: 4px;
+  padding: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card-soft);
+}
+
+.raw-player-primary-stats strong {
+  font-size: 1.2rem;
+}
+
+.historical-compact-grid,
+.methodology-grid,
+.methodology-target-list,
+.methodology-target-item,
+.methodology-metrics {
+  display: grid;
+}
+
+.historical-compact-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  align-items: start;
+}
+
+.historical-stat-panel {
+  display: grid;
+  gap: 10px;
+  align-content: start;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  background: var(--card-soft);
+}
+
+.historical-stat-panel .compare-stat-list {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  align-content: start;
+}
+
+.methodology-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.methodology-target-list {
+  gap: 12px;
+}
+
+.methodology-target-item {
+  gap: 10px;
+  padding: 14px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  background: var(--card-soft);
+}
+
+.methodology-metrics {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px;
+  color: var(--muted);
+  font-size: 0.84rem;
+}
+
+.methodology-list {
+  margin: 0;
+  padding-left: 18px;
+  color: var(--muted);
+  display: grid;
+  gap: 8px;
+}
+
 @media (max-width: 1180px) {
   .layout,
   .split-layout,
+  .projection-main-layout,
   .player-grid,
   .quick-grid,
   .team-grid,
@@ -935,21 +1359,65 @@ strong {
     position: static;
   }
 
+  .page,
+  #viewRoot,
+  .view,
+  .view-leaderboard,
+  .view-raw,
+  .view-pathways,
+  .view-recruiting {
+    height: auto;
+  }
+
   .stat-grid,
   .loading-grid,
+  .compact-control-grid,
+  .comparison-stat-grid,
   .context-controls,
   .filter-grid,
   .detail-stat-grid,
-  .upload-results-grid {
+  .upload-results-grid,
+  .raw-card-grid,
+  .historical-compact-grid,
+  .methodology-grid,
+  .methodology-metrics {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .page-header-card {
+    grid-template-columns: 1fr;
   }
 }
 
 @media (max-width: 900px) {
+  body,
+  .app-shell,
+  .page {
+    overflow: auto;
+  }
+
+  .layout {
+    height: auto;
+  }
+
   .layout {
     width: min(100% - 24px, 1600px);
     grid-template-columns: 1fr;
     padding-top: 16px;
+  }
+
+  .compact-control-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .compare-focus-modal {
+    width: min(100vw - 24px, 980px);
+    max-height: calc(100vh - 24px);
+    overflow: auto;
+  }
+
+  .compare-focus-grid {
+    grid-template-columns: 1fr;
   }
 
   .sidebar {
@@ -978,7 +1446,12 @@ strong {
 
   .context-card-head,
   .context-controls,
-  .filter-grid {
+  .filter-grid,
+  .raw-player-primary-stats {
+    grid-template-columns: 1fr;
+  }
+
+  .historical-stat-panel .compare-stat-list {
     grid-template-columns: 1fr;
   }
 
@@ -990,7 +1463,9 @@ strong {
 
 @media (max-width: 720px) {
   .topbar-actions .ghost-button {
-    display: none;
+    min-height: 40px;
+    padding: 0 12px;
+    font-size: 0.88rem;
   }
 
   .hero-card,
@@ -1014,7 +1489,12 @@ strong {
   .filter-grid,
   .detail-stat-grid,
   .upload-results-grid,
-  .player-stat-row {
+  .player-stat-row,
+  .raw-card-grid,
+  .comparison-stat-grid,
+  .historical-compact-grid,
+  .methodology-grid,
+  .methodology-metrics {
     grid-template-columns: 1fr;
   }
 
