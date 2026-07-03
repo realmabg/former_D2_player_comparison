@@ -1,4 +1,5 @@
 const DATA_URL = "./data/projection_dashboard_data.json";
+const FORMER_PLAYERS_URL = "./data/former_d2_players.json";
 const DEFAULT_DESTINATION = "Big West";
 const DEFAULT_ROUTE = "leaderboard";
 
@@ -718,6 +719,13 @@ function searchToolbar({ addTargetFilter = true, sortButtons = [], sticky = fals
   `;
 }
 
+async function loadFormerPlayersFallback() {
+  const response = await fetch(FORMER_PLAYERS_URL);
+  if (!response.ok) return [];
+  const payload = await response.json();
+  return Array.isArray(payload) ? payload : [];
+}
+
 function renderSelect(id, values, selected) {
   return `
     <label>
@@ -1358,7 +1366,7 @@ function renderMethodology() {
   return `
     <section class="view view-methodology">
       ${renderPageHeader({
-        title: "Methodology",
+        title: "Methodology (in progress)",
         subtitle: "How the D2 Player Dashboard builds projections, raw-stat context, and historical similarity matches.",
       })}
       <section class="methodology-grid">
@@ -1671,6 +1679,9 @@ async function initialize() {
   state.data = await response.json();
   state.players = state.data.players;
   state.formerPlayers = state.data.formerD2Players ?? [];
+  if (!state.formerPlayers.length) {
+    state.formerPlayers = await loadFormerPlayersFallback();
+  }
   state.benchmarks = buildBenchmarks(state.players);
   state.target = state.data.meta.defaultTarget ?? "bpr";
   state.data.meta.conferences.forEach((conference) => {

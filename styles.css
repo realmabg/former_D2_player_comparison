@@ -827,6 +827,26 @@ strong {
   z-index: 8;
 }
 
+.sticky-filters .toolbar {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr);
+  align-items: end;
+}
+
+.sticky-filters .toolbar-left,
+.sticky-filters .toolbar-right {
+  width: 100%;
+}
+
+.sticky-filters .toolbar-right {
+  justify-content: flex-end;
+}
+
+.sticky-filters .search-input {
+  width: 100%;
+  max-width: none;
+}
+
 .sort-chip-group {
   display: grid;
   gap: 8px;
