@@ -1,5 +1,6 @@
 const DATA_URL = "./data/projection_dashboard_data.json";
-const FORMER_PLAYERS_URL = "./data/former_d2_players.json";
+const FORMER_PLAYERS_URL = "./data/projection_dashboard_former_d2_players.json";
+const LEGACY_FORMER_PLAYERS_URL = "./data/former_d2_players.json";
 const DEFAULT_DESTINATION = "Big West";
 const DEFAULT_ROUTE = "leaderboard";
 
@@ -702,7 +703,7 @@ function searchToolbar({ addTargetFilter = true, sortButtons = [], sticky = fals
           <button id="resetSearch" class="pill-button" type="button">Reset filters</button>
         </div>
       </div>
-      <div class="filter-grid">
+      <div class="filter-grid ${addTargetFilter ? "filters-4" : "filters-3"}">
         ${renderSelect("searchClass", classYears, state.search.classYear)}
         ${renderSelect("searchConference", conferences, state.search.conference)}
         ${renderSelect("searchPosition", positions, state.search.position)}
@@ -720,10 +721,40 @@ function searchToolbar({ addTargetFilter = true, sortButtons = [], sticky = fals
 }
 
 async function loadFormerPlayersFallback() {
-  const response = await fetch(FORMER_PLAYERS_URL);
-  if (!response.ok) return [];
-  const payload = await response.json();
-  return Array.isArray(payload) ? payload : [];
+  for (const url of [FORMER_PLAYERS_URL, LEGACY_FORMER_PLAYERS_URL]) {
+    const response = await fetch(url);
+    if (!response.ok) continue;
+    const payload = await response.json();
+    if (Array.isArray(payload)) return payload;
+  }
+  return [];
+}
+
+async function loadJson(url) {
+  const response = await fetch(url);
+  if (!response.ok) throw new Error(`Could not load ${url}: ${response.status}`);
+  return response.json();
+}
+
+async function loadDashboardPayload() {
+  const payload = await loadJson(DATA_URL);
+  const playerChunks = Array.isArray(payload.playerFiles) ? await Promise.all(payload.playerFiles.map((url) => loadJson(url))) : [];
+  const players = Array.isArray(payload.players) ? payload.players : playerChunks.flatMap((chunk) => (Array.isArray(chunk) ? chunk : []));
+
+  let formerPlayers = Array.isArray(payload.formerD2Players) ? payload.formerD2Players : [];
+  if (!formerPlayers.length && payload.formerD2PlayersFile) {
+    const formerPayload = await loadJson(payload.formerD2PlayersFile);
+    formerPlayers = Array.isArray(formerPayload) ? formerPayload : [];
+  }
+  if (!formerPlayers.length) {
+    formerPlayers = await loadFormerPlayersFallback();
+  }
+
+  return {
+    ...payload,
+    players,
+    formerD2Players: formerPlayers,
+  };
 }
 
 function renderSelect(id, values, selected) {
@@ -1147,7 +1178,7 @@ function renderFormerDetail(player) {
       <div class="historical-compact-grid">
         <section class="historical-stat-panel">
           <span class="mini-label">Source D2 season</span>
-          <div class="compare-stat-list">
+          <div class="compare-stat-list historical-stat-list">
             ${[
               ["GP", formatNumber(player.games, 0)],
               ["MPG", formatNumber(player.mpg, 1)],
@@ -1167,12 +1198,12 @@ function renderFormerDetail(player) {
               ["REB/40", formatNumber(player.rebPer40, 1)],
               ["AST/40", formatNumber(player.astPer40, 1)],
               ["D2 Conf Pwr", formatNumber(player.sourceConfPower, 2)],
-            ].map(([labelText, value]) => `<div class="compare-stat-item"><span>${labelText}</span><strong>${value}</strong></div>`).join("")}
+            ].map(([labelText, value]) => `<div class="compare-stat-item historical-stat-item"><span>${labelText}</span><strong>${value}</strong></div>`).join("")}
           </div>
         </section>
         <section class="historical-stat-panel">
           <span class="mini-label">Eventual D1 outcome</span>
-          <div class="compare-stat-list">
+          <div class="compare-stat-list historical-stat-list">
             ${[
               ["D1 GP", formatNumber(player.actualGames, 0)],
               ["D1 MPG", formatNumber(player.actualMpg, 1)],
@@ -1183,7 +1214,7 @@ function renderFormerDetail(player) {
               ["Actual BPM", formatSigned(player.actualBpm)],
               ["Actual PORPAG", formatSigned(player.actualPorpag)],
               ["Actual Bart BPM", formatSigned(player.actualBarttorvikBpm)],
-            ].map(([labelText, value]) => `<div class="compare-stat-item"><span>${labelText}</span><strong>${value}</strong></div>`).join("")}
+            ].map(([labelText, value]) => `<div class="compare-stat-item historical-stat-item"><span>${labelText}</span><strong>${value}</strong></div>`).join("")}
           </div>
         </section>
       </div>
@@ -1674,14 +1705,9 @@ function bindChromeEvents() {
 
 async function initialize() {
   els.viewRoot.innerHTML = renderLoadingState();
-  const response = await fetch(DATA_URL);
-  if (!response.ok) throw new Error(`Could not load projection data: ${response.status}`);
-  state.data = await response.json();
+  state.data = await loadDashboardPayload();
   state.players = state.data.players;
   state.formerPlayers = state.data.formerD2Players ?? [];
-  if (!state.formerPlayers.length) {
-    state.formerPlayers = await loadFormerPlayersFallback();
-  }
   state.benchmarks = buildBenchmarks(state.players);
   state.target = state.data.meta.defaultTarget ?? "bpr";
   state.data.meta.conferences.forEach((conference) => {

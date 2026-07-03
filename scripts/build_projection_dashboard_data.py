@@ -28,6 +28,9 @@ MODEL_SUMMARY_PATH = Path("reports/d2_available_model_comparison_dual_rapm/combi
 FEATURE_MANIFEST_PATH = Path("data/modeling/training/d2_available_feature_manifest.json")
 FEATURE_MANIFEST_RAPM_ALL_PATH = Path("data/modeling/training/d2_available_feature_manifest_rapm_all.json")
 OUTPUT_PATH = Path("data/projection_dashboard_data.json")
+PLAYER_CHUNK_PREFIX = "projection_dashboard_players"
+FORMER_PLAYERS_OUTPUT_PATH = Path("data/projection_dashboard_former_d2_players.json")
+PLAYER_CHUNK_SIZE = 350
 SUSPICIOUS_CURRENT_STATS_PATH = Path("data/current_d2_suspicious_event_stats.csv")
 VERIFIED_CURRENT_STATS_PATH = Path("data/current_d2_verified_stats.csv")
 SCHOOL_VERIFIED_CURRENT_STATS_PATH = Path("data/current_d2_school_verified_stats.csv")
@@ -142,6 +145,19 @@ def json_safe(value: object) -> object:
     if isinstance(value, float):
         return value if math.isfinite(value) else None
     return value
+
+
+def write_json(path: Path, payload: object) -> None:
+    path.write_text(
+        json.dumps(json_safe(payload), separators=(",", ":"), allow_nan=False),
+        encoding="utf-8",
+    )
+
+
+def chunk_records(records: list[dict[str, object]], chunk_size: int) -> list[list[dict[str, object]]]:
+    if chunk_size <= 0:
+        raise ValueError("chunk_size must be positive")
+    return [records[index : index + chunk_size] for index in range(0, len(records), chunk_size)]
 
 
 def display_name(value: object) -> str:
@@ -967,6 +983,15 @@ def main() -> int:
     former_d2_records = build_former_d2_comparison_records(training, rapm_all_training)
     pd.DataFrame(suspicious_rows).to_csv(SUSPICIOUS_CURRENT_STATS_PATH, index=False)
 
+    player_chunks = chunk_records(player_records, PLAYER_CHUNK_SIZE)
+    player_chunk_files: list[str] = []
+    for index, chunk in enumerate(player_chunks, start=1):
+        chunk_path = OUTPUT_PATH.parent / f"{PLAYER_CHUNK_PREFIX}_{index:03d}.json"
+        write_json(chunk_path, chunk)
+        player_chunk_files.append(chunk_path.as_posix())
+
+    write_json(FORMER_PLAYERS_OUTPUT_PATH, former_d2_records)
+
     payload = {
         "meta": {
             "defaultTarget": DEFAULT_TARGET,
@@ -993,18 +1018,17 @@ def main() -> int:
             "conferencePower": {key: round(value, 2) for key, value in conference_power.items()},
             "destinationSchoolsByConference": destination_school_contexts,
             "defaultDestinationSchoolByConference": default_destination_school,
+            "playerCount": len(player_records),
             "formerD2Count": len(former_d2_records),
             "note": f"Current D2 players are scored only with D2-available source features, plus destination-school context and an assumed destination MPG that the UI can adjust. The app can switch among BPR, BPM, BPM percentile, PORPAG, RAPM (adequate volume, beta), and RAPM (low volume included, beta). Website candidates are limited to current players at or above {MIN_CURRENT_MPG:g} MPG.",
         },
-        "players": player_records,
-        "formerD2Players": former_d2_records,
+        "playerFiles": player_chunk_files,
+        "formerD2PlayersFile": FORMER_PLAYERS_OUTPUT_PATH.as_posix(),
     }
-    OUTPUT_PATH.write_text(
-        json.dumps(json_safe(payload), separators=(",", ":"), allow_nan=False),
-        encoding="utf-8",
-    )
-    print(f"Wrote {len(player_records)} players to {OUTPUT_PATH}")
-    print(f"Wrote {len(former_d2_records)} former D2 -> D1 comparison rows into {OUTPUT_PATH}")
+    write_json(OUTPUT_PATH, payload)
+    print(f"Wrote dashboard manifest: {OUTPUT_PATH}")
+    print(f"Wrote {len(player_records)} players across {len(player_chunk_files)} chunk files")
+    print(f"Wrote {len(former_d2_records)} former D2 -> D1 comparison rows to {FORMER_PLAYERS_OUTPUT_PATH}")
     print(f"Wrote {len(suspicious_rows)} suspicious current D2 stat rows to {SUSPICIOUS_CURRENT_STATS_PATH}")
     print(f"Target conferences: {', '.join(TARGET_CONFERENCES)}")
     return 0
